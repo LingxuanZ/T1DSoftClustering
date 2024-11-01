@@ -37,7 +37,8 @@ trait <- lapply(trait, function(x) paste(x, collapse = "; "))
 gwas_data <- cbind(
   Type = types,
   Accession = accession_numbers,
-  Trait = as.vector(trait)
+  Trait = as.vector(trait),
+  full_path = files
 )
 
 # Print or save the results

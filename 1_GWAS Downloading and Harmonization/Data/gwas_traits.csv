@@ -1,0 +1,738 @@
+"Type","Accession","Trait","root_path","full_path"
+Autoimmune_Rheumatoid_Arthritis,GCST90132222,rheumatoid arthritis,../Data/GWAS summary stats/Original Data,Autoimmune_Rheumatoid_Arthritis_1_GCST90132222.h.tsv.gz
+Autoimmune_Rheumatoid_Arthritis,GCST90132223,rheumatoid arthritis,../Data/GWAS summary stats/Original Data,Autoimmune_Rheumatoid_Arthritis_2_GCST90132223.h.tsv.gz
+Autoimmune_Rheumatoid_Arthritis,GCST90132224,rheumatoid arthritis,../Data/GWAS summary stats/Original Data,Autoimmune_Rheumatoid_Arthritis_3_GCST90132224.h.tsv.gz
+Autoimmune_Rheumatoid_Arthritis,GCST90132225,rheumatoid arthritis; anti-citrullinated protein antibody seropositivity; rheumatoid factor seropositivity measurement,../Data/GWAS summary stats/Original Data,Autoimmune_Rheumatoid_Arthritis_4_GCST90132225.h.tsv.gz
+Autoimmune_Rheumatoid_Arthritis,GCST90132226,rheumatoid arthritis; anti-citrullinated protein antibody seropositivity; rheumatoid factor seropositivity measurement,../Data/GWAS summary stats/Original Data,Autoimmune_Rheumatoid_Arthritis_5_GCST90132226.h.tsv.gz
+Autoimmune_Rheumatoid_Arthritis,GCST90132227,rheumatoid arthritis; anti-citrullinated protein antibody seropositivity; rheumatoid factor seropositivity measurement,../Data/GWAS summary stats/Original Data,Autoimmune_Rheumatoid_Arthritis_6_GCST90132227.h.tsv.gz
+Immune_Cell,GCST90001391,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_1_32929287-GCST90001391-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001400,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_10_32929287-GCST90001400-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001490,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_100_32929287-GCST90001490-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001491,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_101_32929287-GCST90001491-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001492,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_102_32929287-GCST90001492-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001493,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_103_32929287-GCST90001493-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001494,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_104_32929287-GCST90001494-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001495,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_105_32929287-GCST90001495-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001496,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_106_32929287-GCST90001496-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001497,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_107_32929287-GCST90001497-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001498,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_108_32929287-GCST90001498-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001499,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_109_32929287-GCST90001499-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001401,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_11_32929287-GCST90001401-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001500,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_110_32929287-GCST90001500-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001501,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_111_32929287-GCST90001501-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001502,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_112_32929287-GCST90001502-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001503,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_113_32929287-GCST90001503-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001504,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_114_32929287-GCST90001504-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001505,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_115_32929287-GCST90001505-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001506,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_116_32929287-GCST90001506-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001507,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_117_32929287-GCST90001507-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001508,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_118_32929287-GCST90001508-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001509,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_119_32929287-GCST90001509-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001402,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_12_32929287-GCST90001402-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001510,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_120_32929287-GCST90001510-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001511,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_121_32929287-GCST90001511-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001512,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_122_32929287-GCST90001512-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001513,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_123_32929287-GCST90001513-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001514,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_124_32929287-GCST90001514-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001515,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_125_32929287-GCST90001515-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001516,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_126_32929287-GCST90001516-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001517,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_127_32929287-GCST90001517-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001518,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_128_32929287-GCST90001518-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001519,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_129_32929287-GCST90001519-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001403,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_13_32929287-GCST90001403-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001520,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_130_32929287-GCST90001520-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001521,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_131_32929287-GCST90001521-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001522,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_132_32929287-GCST90001522-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001523,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_133_32929287-GCST90001523-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001524,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_134_32929287-GCST90001524-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001525,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_135_32929287-GCST90001525-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001526,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_136_32929287-GCST90001526-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001527,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_137_32929287-GCST90001527-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001528,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_138_32929287-GCST90001528-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001529,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_139_32929287-GCST90001529-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001404,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_14_32929287-GCST90001404-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001530,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_140_32929287-GCST90001530-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001531,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_141_32929287-GCST90001531-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001532,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_142_32929287-GCST90001532-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001533,myeloid white cell count,../Data/GWAS summary stats/Original Data,Immune_Cell_143_32929287-GCST90001533-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001534,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_144_32929287-GCST90001534-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001535,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_145_32929287-GCST90001535-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001536,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_146_32929287-GCST90001536-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001537,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_147_32929287-GCST90001537-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001538,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_148_32929287-GCST90001538-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001539,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_149_32929287-GCST90001539-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001405,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_15_32929287-GCST90001405-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001540,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_150_32929287-GCST90001540-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001541,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_151_32929287-GCST90001541-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001542,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_152_32929287-GCST90001542-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001543,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_153_32929287-GCST90001543-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001544,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_154_32929287-GCST90001544-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001545,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_155_32929287-GCST90001545-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001546,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_156_32929287-GCST90001546-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001547,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_157_32929287-GCST90001547-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001548,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_158_32929287-GCST90001548-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001549,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_159_32929287-GCST90001549-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001406,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_16_32929287-GCST90001406-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001550,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_160_32929287-GCST90001550-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001551,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_161_32929287-GCST90001551-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001552,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_162_32929287-GCST90001552-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001553,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_163_32929287-GCST90001553-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001554,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_164_32929287-GCST90001554-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001555,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_165_32929287-GCST90001555-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001556,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_166_32929287-GCST90001556-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001557,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_167_32929287-GCST90001557-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001558,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_168_32929287-GCST90001558-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001559,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_169_32929287-GCST90001559-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001407,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_17_32929287-GCST90001407-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001560,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_170_32929287-GCST90001560-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001561,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_171_32929287-GCST90001561-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001562,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_172_32929287-GCST90001562-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001563,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_173_32929287-GCST90001563-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001564,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_174_32929287-GCST90001564-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001565,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_175_32929287-GCST90001565-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001566,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_176_32929287-GCST90001566-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001567,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_177_32929287-GCST90001567-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001568,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_178_32929287-GCST90001568-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001569,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_179_32929287-GCST90001569-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001408,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_18_32929287-GCST90001408-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001570,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_180_32929287-GCST90001570-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001571,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_181_32929287-GCST90001571-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001572,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_182_32929287-GCST90001572-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001573,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_183_32929287-GCST90001573-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001574,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_184_32929287-GCST90001574-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001575,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_185_32929287-GCST90001575-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001576,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_186_32929287-GCST90001576-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001577,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_187_32929287-GCST90001577-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001578,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_188_32929287-GCST90001578-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001579,monocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_189_32929287-GCST90001579-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001409,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_19_32929287-GCST90001409-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001580,monocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_190_32929287-GCST90001580-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001581,monocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_191_32929287-GCST90001581-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001582,monocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_192_32929287-GCST90001582-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001583,monocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_193_32929287-GCST90001583-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001584,monocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_194_32929287-GCST90001584-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001585,monocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_195_32929287-GCST90001585-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001586,monocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_196_32929287-GCST90001586-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001587,monocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_197_32929287-GCST90001587-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001588,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_198_32929287-GCST90001588-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001589,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_199_32929287-GCST90001589-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001392,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_2_32929287-GCST90001392-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001410,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_20_32929287-GCST90001410-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001590,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_200_32929287-GCST90001590-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001591,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_201_32929287-GCST90001591-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001592,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_202_32929287-GCST90001592-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001593,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_203_32929287-GCST90001593-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001594,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_204_32929287-GCST90001594-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001595,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_205_32929287-GCST90001595-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001596,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_206_32929287-GCST90001596-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001597,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_207_32929287-GCST90001597-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001598,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_208_32929287-GCST90001598-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001599,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_209_32929287-GCST90001599-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001411,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_21_32929287-GCST90001411-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001600,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_210_32929287-GCST90001600-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001601,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_211_32929287-GCST90001601-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001602,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_212_32929287-GCST90001602-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001603,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_213_32929287-GCST90001603-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001604,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_214_32929287-GCST90001604-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001605,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_215_32929287-GCST90001605-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001606,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_216_32929287-GCST90001606-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001607,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_217_32929287-GCST90001607-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001608,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_218_32929287-GCST90001608-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001609,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_219_32929287-GCST90001609-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001412,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_22_32929287-GCST90001412-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001610,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_220_32929287-GCST90001610-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001611,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_221_32929287-GCST90001611-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001612,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_222_32929287-GCST90001612-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001613,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_223_32929287-GCST90001613-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001614,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_224_32929287-GCST90001614-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001615,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_225_32929287-GCST90001615-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001616,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_226_32929287-GCST90001616-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001617,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_227_32929287-GCST90001617-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001618,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_228_32929287-GCST90001618-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001619,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_229_32929287-GCST90001619-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001413,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_23_32929287-GCST90001413-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001620,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_230_32929287-GCST90001620-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001621,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_231_32929287-GCST90001621-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001622,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_232_32929287-GCST90001622-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001623,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_233_32929287-GCST90001623-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001624,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_234_32929287-GCST90001624-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001625,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_235_32929287-GCST90001625-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001626,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_236_32929287-GCST90001626-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001627,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_237_32929287-GCST90001627-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001628,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_238_32929287-GCST90001628-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001629,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_239_32929287-GCST90001629-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001414,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_24_32929287-GCST90001414-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001630,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_240_32929287-GCST90001630-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001631,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_241_32929287-GCST90001631-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001632,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_242_32929287-GCST90001632-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001633,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_243_32929287-GCST90001633-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001634,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_244_32929287-GCST90001634-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001635,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_245_32929287-GCST90001635-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001636,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_246_32929287-GCST90001636-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001637,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_247_32929287-GCST90001637-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001638,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_248_32929287-GCST90001638-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001639,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_249_32929287-GCST90001639-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001415,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_25_32929287-GCST90001415-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001640,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_250_32929287-GCST90001640-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001641,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_251_32929287-GCST90001641-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001642,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_252_32929287-GCST90001642-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001643,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_253_32929287-GCST90001643-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001644,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_254_32929287-GCST90001644-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001645,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_255_32929287-GCST90001645-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001646,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_256_32929287-GCST90001646-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001647,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_257_32929287-GCST90001647-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001648,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_258_32929287-GCST90001648-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001649,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_259_32929287-GCST90001649-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001416,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_26_32929287-GCST90001416-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001650,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_260_32929287-GCST90001650-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001651,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_261_32929287-GCST90001651-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001652,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_262_32929287-GCST90001652-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001653,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_263_32929287-GCST90001653-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001654,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_264_32929287-GCST90001654-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001655,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_265_32929287-GCST90001655-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001656,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_266_32929287-GCST90001656-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001657,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_267_32929287-GCST90001657-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001658,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_268_32929287-GCST90001658-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001659,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_269_32929287-GCST90001659-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001417,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_27_32929287-GCST90001417-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001660,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_270_32929287-GCST90001660-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001661,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_271_32929287-GCST90001661-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001662,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_272_32929287-GCST90001662-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001663,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_273_32929287-GCST90001663-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001664,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_274_32929287-GCST90001664-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001665,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_275_32929287-GCST90001665-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001666,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_276_32929287-GCST90001666-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001667,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_277_32929287-GCST90001667-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001668,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_278_32929287-GCST90001668-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001669,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_279_32929287-GCST90001669-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001418,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_28_32929287-GCST90001418-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001670,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_280_32929287-GCST90001670-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001671,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_281_32929287-GCST90001671-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001672,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_282_32929287-GCST90001672-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001673,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_283_32929287-GCST90001673-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001674,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_284_32929287-GCST90001674-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001675,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_285_32929287-GCST90001675-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001676,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_286_32929287-GCST90001676-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001677,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_287_32929287-GCST90001677-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001678,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_288_32929287-GCST90001678-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001679,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_289_32929287-GCST90001679-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001419,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_29_32929287-GCST90001419-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001680,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_290_32929287-GCST90001680-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001681,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_291_32929287-GCST90001681-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001682,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_292_32929287-GCST90001682-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001683,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_293_32929287-GCST90001683-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001684,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_294_32929287-GCST90001684-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001685,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_295_32929287-GCST90001685-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001686,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_296_32929287-GCST90001686-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001687,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_297_32929287-GCST90001687-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001688,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_298_32929287-GCST90001688-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001689,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_299_32929287-GCST90001689-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001393,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_3_32929287-GCST90001393-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001420,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_30_32929287-GCST90001420-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001690,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_300_32929287-GCST90001690-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001691,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_301_32929287-GCST90001691-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001692,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_302_32929287-GCST90001692-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001693,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_303_32929287-GCST90001693-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001694,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_304_32929287-GCST90001694-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001695,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_305_32929287-GCST90001695-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001696,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_306_32929287-GCST90001696-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001697,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_307_32929287-GCST90001697-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001698,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_308_32929287-GCST90001698-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001699,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_309_32929287-GCST90001699-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001421,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_31_32929287-GCST90001421-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001700,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_310_32929287-GCST90001700-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001701,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_311_32929287-GCST90001701-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001702,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_312_32929287-GCST90001702-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001703,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_313_32929287-GCST90001703-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001704,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_314_32929287-GCST90001704-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001705,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_315_32929287-GCST90001705-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001706,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_316_32929287-GCST90001706-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001707,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_317_32929287-GCST90001707-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001708,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_318_32929287-GCST90001708-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001709,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_319_32929287-GCST90001709-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001422,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_32_32929287-GCST90001422-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001710,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_320_32929287-GCST90001710-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001711,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_321_32929287-GCST90001711-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001712,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_322_32929287-GCST90001712-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001713,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_323_32929287-GCST90001713-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001714,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_324_32929287-GCST90001714-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001715,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_325_32929287-GCST90001715-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001716,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_326_32929287-GCST90001716-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001717,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_327_32929287-GCST90001717-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001718,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_328_32929287-GCST90001718-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001719,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_329_32929287-GCST90001719-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001423,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_33_32929287-GCST90001423-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001720,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_330_32929287-GCST90001720-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001721,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_331_32929287-GCST90001721-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001722,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_332_32929287-GCST90001722-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001723,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_333_32929287-GCST90001723-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001724,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_334_32929287-GCST90001724-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001725,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_335_32929287-GCST90001725-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001726,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_336_32929287-GCST90001726-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001727,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_337_32929287-GCST90001727-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001728,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_338_32929287-GCST90001728-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001729,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_339_32929287-GCST90001729-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001424,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_34_32929287-GCST90001424-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001730,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_340_32929287-GCST90001730-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001731,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_341_32929287-GCST90001731-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001732,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_342_32929287-GCST90001732-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001733,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_343_32929287-GCST90001733-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001734,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_344_32929287-GCST90001734-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001735,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_345_32929287-GCST90001735-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001736,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_346_32929287-GCST90001736-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001737,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_347_32929287-GCST90001737-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001738,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_348_32929287-GCST90001738-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001739,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_349_32929287-GCST90001739-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001425,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_35_32929287-GCST90001425-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001740,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_350_32929287-GCST90001740-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001741,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_351_32929287-GCST90001741-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001742,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_352_32929287-GCST90001742-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001743,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_353_32929287-GCST90001743-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001744,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_354_32929287-GCST90001744-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001745,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_355_32929287-GCST90001745-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001746,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_356_32929287-GCST90001746-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001747,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_357_32929287-GCST90001747-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001748,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_358_32929287-GCST90001748-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001749,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_359_32929287-GCST90001749-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001426,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_36_32929287-GCST90001426-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001750,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_360_32929287-GCST90001750-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001751,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_361_32929287-GCST90001751-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001752,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_362_32929287-GCST90001752-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001753,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_363_32929287-GCST90001753-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001754,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_364_32929287-GCST90001754-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001755,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_365_32929287-GCST90001755-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001756,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_366_32929287-GCST90001756-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001757,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_367_32929287-GCST90001757-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001758,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_368_32929287-GCST90001758-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001759,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_369_32929287-GCST90001759-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001427,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_37_32929287-GCST90001427-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001760,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_370_32929287-GCST90001760-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001761,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_371_32929287-GCST90001761-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001762,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_372_32929287-GCST90001762-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001763,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_373_32929287-GCST90001763-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001764,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_374_32929287-GCST90001764-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001765,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_375_32929287-GCST90001765-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001766,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_376_32929287-GCST90001766-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001767,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_377_32929287-GCST90001767-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001768,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_378_32929287-GCST90001768-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001769,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_379_32929287-GCST90001769-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001428,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_38_32929287-GCST90001428-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001770,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_380_32929287-GCST90001770-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001771,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_381_32929287-GCST90001771-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001772,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_382_32929287-GCST90001772-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001773,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_383_32929287-GCST90001773-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001774,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_384_32929287-GCST90001774-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001775,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_385_32929287-GCST90001775-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001776,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_386_32929287-GCST90001776-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001777,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_387_32929287-GCST90001777-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001778,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_388_32929287-GCST90001778-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001779,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_389_32929287-GCST90001779-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001429,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_39_32929287-GCST90001429-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001780,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_390_32929287-GCST90001780-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001781,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_391_32929287-GCST90001781-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001782,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_392_32929287-GCST90001782-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001783,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_393_32929287-GCST90001783-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001784,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_394_32929287-GCST90001784-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001785,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_395_32929287-GCST90001785-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001786,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_396_32929287-GCST90001786-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001787,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_397_32929287-GCST90001787-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001788,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_398_32929287-GCST90001788-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001789,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_399_32929287-GCST90001789-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001394,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_4_32929287-GCST90001394-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001430,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_40_32929287-GCST90001430-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001790,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_400_32929287-GCST90001790-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001791,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_401_32929287-GCST90001791-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001792,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_402_32929287-GCST90001792-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001793,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_403_32929287-GCST90001793-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001794,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_404_32929287-GCST90001794-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001795,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_405_32929287-GCST90001795-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001796,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_406_32929287-GCST90001796-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001797,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_407_32929287-GCST90001797-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001798,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_408_32929287-GCST90001798-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001799,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_409_32929287-GCST90001799-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001431,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_41_32929287-GCST90001431-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001800,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_410_32929287-GCST90001800-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001801,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_411_32929287-GCST90001801-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001802,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_412_32929287-GCST90001802-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001803,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_413_32929287-GCST90001803-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001804,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_414_32929287-GCST90001804-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001805,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_415_32929287-GCST90001805-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001806,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_416_32929287-GCST90001806-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001807,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_417_32929287-GCST90001807-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001808,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_418_32929287-GCST90001808-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001809,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_419_32929287-GCST90001809-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001432,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_42_32929287-GCST90001432-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001810,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_420_32929287-GCST90001810-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001811,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_421_32929287-GCST90001811-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001812,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_422_32929287-GCST90001812-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001813,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_423_32929287-GCST90001813-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001814,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_424_32929287-GCST90001814-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001815,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_425_32929287-GCST90001815-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001816,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_426_32929287-GCST90001816-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001817,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_427_32929287-GCST90001817-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001818,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_428_32929287-GCST90001818-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001819,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_429_32929287-GCST90001819-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001433,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_43_32929287-GCST90001433-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001820,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_430_32929287-GCST90001820-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001821,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_431_32929287-GCST90001821-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001822,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_432_32929287-GCST90001822-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001823,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_433_32929287-GCST90001823-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001824,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_434_32929287-GCST90001824-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001825,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_435_32929287-GCST90001825-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001826,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_436_32929287-GCST90001826-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001827,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_437_32929287-GCST90001827-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001828,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_438_32929287-GCST90001828-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001829,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_439_32929287-GCST90001829-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001434,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_44_32929287-GCST90001434-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001830,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_440_32929287-GCST90001830-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001831,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_441_32929287-GCST90001831-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001832,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_442_32929287-GCST90001832-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001833,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_443_32929287-GCST90001833-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001834,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_444_32929287-GCST90001834-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001835,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_445_32929287-GCST90001835-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001836,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_446_32929287-GCST90001836-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001837,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_447_32929287-GCST90001837-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001838,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_448_32929287-GCST90001838-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001839,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_449_32929287-GCST90001839-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001435,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_45_32929287-GCST90001435-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001840,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_450_32929287-GCST90001840-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001841,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_451_32929287-GCST90001841-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001842,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_452_32929287-GCST90001842-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001843,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_453_32929287-GCST90001843-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001844,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_454_32929287-GCST90001844-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001845,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_455_32929287-GCST90001845-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001846,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_456_32929287-GCST90001846-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001847,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_457_32929287-GCST90001847-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001848,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_458_32929287-GCST90001848-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001849,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_459_32929287-GCST90001849-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001436,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_46_32929287-GCST90001436-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001850,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_460_32929287-GCST90001850-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001851,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_461_32929287-GCST90001851-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001852,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_462_32929287-GCST90001852-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001853,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_463_32929287-GCST90001853-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001854,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_464_32929287-GCST90001854-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001855,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_465_32929287-GCST90001855-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001856,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_466_32929287-GCST90001856-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001857,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_467_32929287-GCST90001857-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001858,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_468_32929287-GCST90001858-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001859,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_469_32929287-GCST90001859-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001437,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_47_32929287-GCST90001437-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001860,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_470_32929287-GCST90001860-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001861,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_471_32929287-GCST90001861-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001862,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_472_32929287-GCST90001862-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001863,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_473_32929287-GCST90001863-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001864,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_474_32929287-GCST90001864-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001865,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_475_32929287-GCST90001865-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001866,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_476_32929287-GCST90001866-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001867,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_477_32929287-GCST90001867-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001868,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_478_32929287-GCST90001868-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001869,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_479_32929287-GCST90001869-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001438,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_48_32929287-GCST90001438-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001870,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_480_32929287-GCST90001870-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001871,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_481_32929287-GCST90001871-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001872,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_482_32929287-GCST90001872-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001873,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_483_32929287-GCST90001873-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001874,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_484_32929287-GCST90001874-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001875,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_485_32929287-GCST90001875-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001876,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_486_32929287-GCST90001876-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001877,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_487_32929287-GCST90001877-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001878,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_488_32929287-GCST90001878-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001879,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_489_32929287-GCST90001879-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001439,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_49_32929287-GCST90001439-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001880,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_490_32929287-GCST90001880-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001881,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_491_32929287-GCST90001881-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001882,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_492_32929287-GCST90001882-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001883,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_493_32929287-GCST90001883-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001884,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_494_32929287-GCST90001884-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001885,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_495_32929287-GCST90001885-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001886,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_496_32929287-GCST90001886-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001887,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_497_32929287-GCST90001887-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001888,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_498_32929287-GCST90001888-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001889,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_499_32929287-GCST90001889-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001395,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_5_32929287-GCST90001395-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001440,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_50_32929287-GCST90001440-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001890,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_500_32929287-GCST90001890-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001891,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_501_32929287-GCST90001891-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001892,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_502_32929287-GCST90001892-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001893,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_503_32929287-GCST90001893-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001894,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_504_32929287-GCST90001894-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001895,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_505_32929287-GCST90001895-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001896,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_506_32929287-GCST90001896-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001897,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_507_32929287-GCST90001897-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001898,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_508_32929287-GCST90001898-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001899,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_509_32929287-GCST90001899-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001441,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_51_32929287-GCST90001441-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001900,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_510_32929287-GCST90001900-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001901,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_511_32929287-GCST90001901-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001902,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_512_32929287-GCST90001902-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001903,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_513_32929287-GCST90001903-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001904,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_514_32929287-GCST90001904-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001905,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_515_32929287-GCST90001905-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001906,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_516_32929287-GCST90001906-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001907,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_517_32929287-GCST90001907-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001908,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_518_32929287-GCST90001908-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001909,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_519_32929287-GCST90001909-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001442,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_52_32929287-GCST90001442-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001910,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_520_32929287-GCST90001910-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001911,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_521_32929287-GCST90001911-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001912,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_522_32929287-GCST90001912-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001913,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_523_32929287-GCST90001913-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001914,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_524_32929287-GCST90001914-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001915,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_525_32929287-GCST90001915-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001916,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_526_32929287-GCST90001916-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001917,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_527_32929287-GCST90001917-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001918,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_528_32929287-GCST90001918-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001919,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_529_32929287-GCST90001919-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001443,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_53_32929287-GCST90001443-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001920,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_530_32929287-GCST90001920-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001921,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_531_32929287-GCST90001921-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001922,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_532_32929287-GCST90001922-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001923,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_533_32929287-GCST90001923-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001924,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_534_32929287-GCST90001924-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001925,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_535_32929287-GCST90001925-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001926,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_536_32929287-GCST90001926-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001927,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_537_32929287-GCST90001927-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001928,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_538_32929287-GCST90001928-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001929,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_539_32929287-GCST90001929-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001444,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_54_32929287-GCST90001444-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001930,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_540_32929287-GCST90001930-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001931,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_541_32929287-GCST90001931-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001932,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_542_32929287-GCST90001932-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001933,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_543_32929287-GCST90001933-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001934,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_544_32929287-GCST90001934-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001935,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_545_32929287-GCST90001935-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001936,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_546_32929287-GCST90001936-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001937,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_547_32929287-GCST90001937-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001938,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_548_32929287-GCST90001938-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001939,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_549_32929287-GCST90001939-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001445,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_55_32929287-GCST90001445-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001940,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_550_32929287-GCST90001940-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001941,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_551_32929287-GCST90001941-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001942,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_552_32929287-GCST90001942-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001943,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_553_32929287-GCST90001943-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001944,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_554_32929287-GCST90001944-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001945,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_555_32929287-GCST90001945-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001946,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_556_32929287-GCST90001946-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001947,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_557_32929287-GCST90001947-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001948,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_558_32929287-GCST90001948-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001949,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_559_32929287-GCST90001949-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001446,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_56_32929287-GCST90001446-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001950,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_560_32929287-GCST90001950-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001951,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_561_32929287-GCST90001951-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001952,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_562_32929287-GCST90001952-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001953,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_563_32929287-GCST90001953-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001954,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_564_32929287-GCST90001954-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001955,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_565_32929287-GCST90001955-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001956,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_566_32929287-GCST90001956-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001957,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_567_32929287-GCST90001957-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001958,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_568_32929287-GCST90001958-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001959,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_569_32929287-GCST90001959-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001447,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_57_32929287-GCST90001447-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001960,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_570_32929287-GCST90001960-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001961,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_571_32929287-GCST90001961-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001962,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_572_32929287-GCST90001962-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001963,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_573_32929287-GCST90001963-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001964,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_574_32929287-GCST90001964-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001965,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_575_32929287-GCST90001965-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001966,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_576_32929287-GCST90001966-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001967,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_577_32929287-GCST90001967-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001968,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_578_32929287-GCST90001968-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001969,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_579_32929287-GCST90001969-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001448,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_58_32929287-GCST90001448-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001970,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_580_32929287-GCST90001970-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001971,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_581_32929287-GCST90001971-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001972,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_582_32929287-GCST90001972-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001973,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_583_32929287-GCST90001973-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001974,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_584_32929287-GCST90001974-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001975,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_585_32929287-GCST90001975-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001976,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_586_32929287-GCST90001976-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001977,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_587_32929287-GCST90001977-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001978,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_588_32929287-GCST90001978-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001979,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_589_32929287-GCST90001979-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001449,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_59_32929287-GCST90001449-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001980,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_590_32929287-GCST90001980-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001981,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_591_32929287-GCST90001981-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001982,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_592_32929287-GCST90001982-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001983,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_593_32929287-GCST90001983-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001984,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_594_32929287-GCST90001984-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001985,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_595_32929287-GCST90001985-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001986,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_596_32929287-GCST90001986-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001987,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_597_32929287-GCST90001987-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001988,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_598_32929287-GCST90001988-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001989,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_599_32929287-GCST90001989-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001396,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_6_32929287-GCST90001396-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001450,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_60_32929287-GCST90001450-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001990,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_600_32929287-GCST90001990-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001991,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_601_32929287-GCST90001991-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001992,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_602_32929287-GCST90001992-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001993,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_603_32929287-GCST90001993-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001994,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_604_32929287-GCST90001994-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001995,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_605_32929287-GCST90001995-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001996,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_606_32929287-GCST90001996-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001997,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_607_32929287-GCST90001997-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001998,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_608_32929287-GCST90001998-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001999,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_609_32929287-GCST90001999-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001451,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_61_32929287-GCST90001451-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002001,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_611_32929287-GCST90002001-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002002,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_612_32929287-GCST90002002-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002003,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_613_32929287-GCST90002003-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002004,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_614_32929287-GCST90002004-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002005,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_615_32929287-GCST90002005-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002006,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_616_32929287-GCST90002006-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002007,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_617_32929287-GCST90002007-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002008,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_618_32929287-GCST90002008-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002009,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_619_32929287-GCST90002009-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001452,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_62_32929287-GCST90001452-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002010,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_620_32929287-GCST90002010-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002011,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_621_32929287-GCST90002011-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002012,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_622_32929287-GCST90002012-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002013,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_623_32929287-GCST90002013-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002014,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_624_32929287-GCST90002014-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002015,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_625_32929287-GCST90002015-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002016,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_626_32929287-GCST90002016-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002017,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_627_32929287-GCST90002017-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002018,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_628_32929287-GCST90002018-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002019,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_629_32929287-GCST90002019-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001453,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_63_32929287-GCST90001453-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002020,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_630_32929287-GCST90002020-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002021,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_631_32929287-GCST90002021-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002022,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_632_32929287-GCST90002022-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002023,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_633_32929287-GCST90002023-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002024,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_634_32929287-GCST90002024-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002025,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_635_32929287-GCST90002025-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002026,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_636_32929287-GCST90002026-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002027,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_637_32929287-GCST90002027-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002028,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_638_32929287-GCST90002028-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002029,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_639_32929287-GCST90002029-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001454,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_64_32929287-GCST90001454-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002030,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_640_32929287-GCST90002030-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002031,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_641_32929287-GCST90002031-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002032,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_642_32929287-GCST90002032-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002033,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_643_32929287-GCST90002033-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002034,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_644_32929287-GCST90002034-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002035,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_645_32929287-GCST90002035-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002036,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_646_32929287-GCST90002036-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002037,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_647_32929287-GCST90002037-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002038,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_648_32929287-GCST90002038-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002039,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_649_32929287-GCST90002039-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001455,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_65_32929287-GCST90001455-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002040,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_650_32929287-GCST90002040-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002041,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_651_32929287-GCST90002041-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002042,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_652_32929287-GCST90002042-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002043,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_653_32929287-GCST90002043-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002044,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_654_32929287-GCST90002044-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002045,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_655_32929287-GCST90002045-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002046,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_656_32929287-GCST90002046-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002047,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_657_32929287-GCST90002047-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002048,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_658_32929287-GCST90002048-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002049,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_659_32929287-GCST90002049-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001456,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_66_32929287-GCST90001456-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002050,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_660_32929287-GCST90002050-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002051,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_661_32929287-GCST90002051-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002052,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_662_32929287-GCST90002052-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002053,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_663_32929287-GCST90002053-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002054,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_664_32929287-GCST90002054-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002055,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_665_32929287-GCST90002055-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002056,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_666_32929287-GCST90002056-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002057,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_667_32929287-GCST90002057-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002058,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_668_32929287-GCST90002058-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002059,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_669_32929287-GCST90002059-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001457,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_67_32929287-GCST90001457-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002060,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_670_32929287-GCST90002060-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002061,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_671_32929287-GCST90002061-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002062,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_672_32929287-GCST90002062-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002063,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_673_32929287-GCST90002063-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002064,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_674_32929287-GCST90002064-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002065,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_675_32929287-GCST90002065-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002066,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_676_32929287-GCST90002066-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002067,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_677_32929287-GCST90002067-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002068,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_678_32929287-GCST90002068-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002069,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_679_32929287-GCST90002069-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001458,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_68_32929287-GCST90001458-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002070,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_680_32929287-GCST90002070-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002071,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_681_32929287-GCST90002071-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002072,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_682_32929287-GCST90002072-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002073,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_683_32929287-GCST90002073-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002074,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_684_32929287-GCST90002074-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002075,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_685_32929287-GCST90002075-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002076,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_686_32929287-GCST90002076-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002077,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_687_32929287-GCST90002077-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002078,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_688_32929287-GCST90002078-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002079,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_689_32929287-GCST90002079-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001459,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_69_32929287-GCST90001459-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002080,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_690_32929287-GCST90002080-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002081,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_691_32929287-GCST90002081-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002082,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_692_32929287-GCST90002082-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002083,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_693_32929287-GCST90002083-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002084,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_694_32929287-GCST90002084-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002085,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_695_32929287-GCST90002085-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002086,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_696_32929287-GCST90002086-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002087,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_697_32929287-GCST90002087-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002088,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_698_32929287-GCST90002088-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002089,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_699_32929287-GCST90002089-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001397,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_7_32929287-GCST90001397-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001460,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_70_32929287-GCST90001460-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002090,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_700_32929287-GCST90002090-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002091,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_701_32929287-GCST90002091-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002092,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_702_32929287-GCST90002092-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002093,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_703_32929287-GCST90002093-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002094,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_704_32929287-GCST90002094-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002095,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_705_32929287-GCST90002095-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002096,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_706_32929287-GCST90002096-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002097,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_707_32929287-GCST90002097-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002098,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_708_32929287-GCST90002098-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002099,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_709_32929287-GCST90002099-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001461,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_71_32929287-GCST90001461-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002100,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_710_32929287-GCST90002100-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002101,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_711_32929287-GCST90002101-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002102,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_712_32929287-GCST90002102-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002103,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_713_32929287-GCST90002103-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002104,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_714_32929287-GCST90002104-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002105,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_715_32929287-GCST90002105-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002106,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_716_32929287-GCST90002106-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002107,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_717_32929287-GCST90002107-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002108,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_718_32929287-GCST90002108-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002109,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_719_32929287-GCST90002109-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001462,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_72_32929287-GCST90001462-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002110,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_720_32929287-GCST90002110-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002111,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_721_32929287-GCST90002111-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002112,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_722_32929287-GCST90002112-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002113,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_723_32929287-GCST90002113-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002114,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_724_32929287-GCST90002114-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002115,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_725_32929287-GCST90002115-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002116,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_726_32929287-GCST90002116-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002117,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_727_32929287-GCST90002117-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002118,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_728_32929287-GCST90002118-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002119,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_729_32929287-GCST90002119-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001463,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_73_32929287-GCST90001463-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002120,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_730_32929287-GCST90002120-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90002121,blood protein measurement,../Data/GWAS summary stats/Original Data,Immune_Cell_731_32929287-GCST90002121-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001464,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_74_32929287-GCST90001464-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001465,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_75_32929287-GCST90001465-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001466,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_76_32929287-GCST90001466-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001467,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_77_32929287-GCST90001467-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001468,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_78_32929287-GCST90001468-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001469,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_79_32929287-GCST90001469-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001398,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_8_32929287-GCST90001398-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001470,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_80_32929287-GCST90001470-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001471,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_81_32929287-GCST90001471-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001472,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_82_32929287-GCST90001472-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001473,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_83_32929287-GCST90001473-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001474,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_84_32929287-GCST90001474-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001475,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_85_32929287-GCST90001475-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001476,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_86_32929287-GCST90001476-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001477,leukocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_87_32929287-GCST90001477-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001478,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_88_32929287-GCST90001478-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001479,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_89_32929287-GCST90001479-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001399,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_9_32929287-GCST90001399-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001480,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_90_32929287-GCST90001480-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001481,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_91_32929287-GCST90001481-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001482,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_92_32929287-GCST90001482-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001483,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_93_32929287-GCST90001483-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001484,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_94_32929287-GCST90001484-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001485,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_95_32929287-GCST90001485-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001486,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_96_32929287-GCST90001486-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001487,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_97_32929287-GCST90001487-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001488,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_98_32929287-GCST90001488-EFO_0007937.h.tsv.gz
+Immune_Cell,GCST90001489,lymphocyte count,../Data/GWAS summary stats/Original Data,Immune_Cell_99_32929287-GCST90001489-EFO_0007937.h.tsv.gz
+T1D,GCST90014023,type 1 diabetes mellitus,../Data/GWAS summary stats/Original Data,T1D_34012112-GCST90014023-EFO_0001359.h.tsv.gz
