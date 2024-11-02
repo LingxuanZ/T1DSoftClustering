@@ -1,7 +1,14 @@
+# ---------------------Illustration---------------------
+# This .py file automatically retrieves harmonized GWAS data from the GWAS Catalog using the accession numbers provided in the papers.
+# The harmonized data is downloaded from the URL: f"https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST{accession_range_start}-GCST{accession_range_end}/{accession_number}/harmonised/"
+# This URL contains the folder for harmonized GWAS data using the genome assembly GRCh38.
+# ------------------------------------------------------
+
 import os
 import requests
 from bs4 import BeautifulSoup
 
+############### accession numbers input ############### 
 accession_numbers_dict = {
     "T1D": "GCST90014023",  # T1D
     "Autoimmune_Rheumatoid_Arthritis_1": "GCST90132222", 
@@ -19,7 +26,11 @@ for i in range(immune_cell_start, immune_cell_end + 1):
     accession_number = f"GCST{i:08d}"  # Ensure the accession number format with leading zeros
     key = f"Immune_Cell_{i - immune_cell_start + 1}"  # Sequential key for each immune cell
     accession_numbers_dict[key] = accession_number
+########################################################
 
+
+
+##### define the functions to automatically downloading GWAS data ##### 
 def file_exists(url):
     """
     Check if a file exists at the given URL by sending a HEAD request.
@@ -33,6 +44,7 @@ def file_exists(url):
 def find_matching_file(url, suffix=".h.tsv.gz"):
     """
     Find the first file in the directory at the given URL that ends with the specified suffix.
+    Note: .h denotes harmonized files.
 
     :param url: The URL of the directory to search
     :param suffix: The suffix that the file should end with (default is ".h.tsv.gz")
@@ -71,13 +83,20 @@ def download_file(url, local_filename):
             for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
     print(f"File downloaded: {local_filename}")
+################################################################### 
 
-# Path to save the downloaded files
+
+
+################## Path to save the downloaded files ################## 
 save_directory = '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data' # '/home/zhulx/Parker Lab/T1D Soft Clustering/Data/GWAS summary stats/Original Data'
 # Create the directory if it does not exist
 if not os.path.exists(save_directory):
     os.makedirs(save_directory)
+#######################################################################
 
+
+
+####################### Download the GWAS data #######################  
 # Iterate over the accession numbers and find the corresponding files
 for key, accession_number in accession_numbers_dict.items():
     # Define the directory URL based on the accession number range
@@ -103,3 +122,4 @@ for key, accession_number in accession_numbers_dict.items():
             print(f"No matching file found in: {directory_url}")
     else:
         print(f"The directort: {directory_url} doesn't exist")
+######################################################################

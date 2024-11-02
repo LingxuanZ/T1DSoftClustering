@@ -52,13 +52,13 @@ accession_numbers_dict = {
 
 ​    "Autoimmune_Rheumatoid_Arthritis_6": "GCST90132227",
 
-} and  Immune_Cell_1 to Immune_Cell_731: GCST0001391 to GCST0002121
+} and  Immune_Cell_1 to Immune_Cell_731: GCST90001391 to GCST90002121
 
-728 .h.tsv.gz files in total are saved in the directory: **'/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data'**
+738 .h.tsv.gz files in total are saved in the directory: **'/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data'**
 
 See see details in **download_GWAS.py file**
 
-# 2 Harmonize GWAS
+# 2 Harmonise GWAS ---- no need to harmonize, since the data from GWAS Catalog harmonised folder has already been hormonised.
 
 ## 2.1  Liftover
 
@@ -174,5 +174,7 @@ bcftools sort -o ALL.wgs.phase3_shapeit2_mvncall_integrated_v5c.20130502.sites.h
 
 
 
-## 2.2 Variant allele alighment (rel-alt and alt-ref)
+## 2.2 Variant allele alighment (rel-alt and alt-ref)----no need, been harmonised already
+
+
 
