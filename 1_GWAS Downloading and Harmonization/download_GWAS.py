@@ -101,6 +101,8 @@ if not os.path.exists(save_directory):
 for key, accession_number in accession_numbers_dict.items():
     # Define the directory URL based on the accession number range
     accession_range_start = int(accession_number[4:]) // 1000 * 1000 + 1
+    if accession_range_start > int(accession_number[4:]):
+        accession_range_start = accession_range_start-1000
     accession_range_end = accession_range_start + 999
     directory_url = f"https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST{accession_range_start}-GCST{accession_range_end}/{accession_number}/harmonised/"
     
