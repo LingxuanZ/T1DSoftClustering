@@ -1,14 +1,45 @@
 # ---------------------Illustration---------------------
 # This .R file generates trait information from the supplementary tables provided by papers and the corresponding GWAS paths.
+# This .R file also automatically download the sample size N from Catalog urls and save N in the trait information.
 # The trait information is saved as "gwas_traits.xlsx" under "/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats".
 
-# Autoimmune_Rheumatoid_Arthritis: The six traits for the six summary statistics are multi-ancestry, EUR-, and EAS-GWAS for all RA and seropositive RA. Here I simply saved the traits as 'rheumatoid arthritis' and 'rheumatoid arthritis; anti-citrullinated protein antibody seropositivity; rheumatoid factor seropositivity measurement'.
+# Autoimmune_Rheumatoid_Arthritis: The six traits for the six summary statistics are multi-ancestry, EUR-, and EAS-GWAS for all RA and seropositive RA. 
 # Immune_Cell: The traits are described in more detail in the supplementary table. Thus, I used the information provided in the table directly.
 # ------------------------------------------------------
 
 
 # Load the necessary library
 library(openxlsx) # install.packages('openxlsx')
+library(httr)
+library(jsonlite)
+library(dplyr)
+library(readxl)
+
+# Define the function to get the sample size N (number_of_individuals)
+get_number_of_individuals <- function(accession) {
+  # Construct the URL
+  url <- paste0("https://www.ebi.ac.uk/gwas/rest/api/studies/", accession)
+  
+  # Make a GET request to the API
+  response <- GET(url)
+  
+  # Check if the request was successful
+  if (status_code(response) != 200) {
+    stop("Failed to retrieve data. Check the accession code or network connection.")
+  }
+  
+  # Parse the JSON content
+  content <- content(response, as = "text", encoding = "UTF-8")
+  data <- fromJSON(content)
+  
+  # Extract the sum of numberOfIndividuals value: "Using sum helps to avoid issues with GWAS studies on populations with different ancestries, as data$ancestries$numberOfIndividuals is a vector."
+  if (!is.null(data$ancestries$numberOfIndividuals)) {
+    return(sum(data$ancestries$numberOfIndividuals))
+  } else {
+    stop("numberOfIndividuals not found in the response.")
+  }
+}
+
 
 ## Construct two sheets of paths for both main GWAS and other trait GWAS
 # Main GWAS
@@ -24,26 +55,50 @@ types <- c('Autoimmune_Rheumatoid_Arthritis','Immune_Cell') # Define the trait t
 files <- c()
 n_types <- c()
 traits <- c()
+size_N <- c()
 for(type in types){
   a <- list.files(directory_path,pattern=type, full.names = FALSE)
+  accession_numbers <- gsub(".*(GCST[0-9]+).*", "\\1", a)
   n_a <- length(a)
   files <- c(files,a) 
   n_types <- c(n_types,n_a)
+  size_N <- c(size_N,as.vector(sapply(accession_numbers, get_number_of_individuals)))
   trait_dir <- '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/traits_information'
   if(type=='Immune_Cell'){
     data_trait <- read_excel(file.path(trait_dir,"Immune cell phenotypes Orru et al. Supplementary Table 1B.xlsx"), sheet = "Supplementary Table 1B",skip = 2)
-    traits <- c(traits,data_trait$Trait)
+    data_trait <- data_trait %>%
+      filter(`GWAS Catalog Accession Number` %in% accession_numbers) %>%
+      arrange(match(`GWAS Catalog Accession Number`, accession_numbers))
+    ordered_traits <- data_trait$Trait
+    ordered_traits <- paste0(ordered_traits, "_panel_", data_trait$Panel) # Add panel info to all traits
+    
+    # # only for duplicated ordered_traits: Modify ordered_traits by appending _panel_{Panel} to duplicated elements
+    # duplicated_elements <- ordered_traits[duplicated(ordered_traits)] # Identify duplicated elements
+    # ordered_traits <- ifelse( # Modify ordered_traits by appending _panel_{Panel} to duplicated elements
+    #   ordered_traits %in% duplicated_elements, 
+    #   paste0(ordered_traits, "_panel_", data_trait$Panel),
+    #   ordered_traits
+    # )
+    
+    traits <- c(traits,ordered_traits)
   }else if(type=='Autoimmune_Rheumatoid_Arthritis'){
-    traits <- c(traits,rep(c('all rheumatoid arthritis', 'rheumatoid arthritis; anti-citrullinated protein antibody seropositivity; rheumatoid factor seropositivity measurement'), each = 3))
+    traits <- c(traits,'all rheumatoid arthritis multi-ancestry','all rheumatoid arthritis EUR','all rheumatoid arthritis EAS',
+                'rheumatoid arthritis; anti-citrullinated protein antibody seropositivity; rheumatoid factor seropositivity measurement multi-ancestry',
+                'rheumatoid arthritis; anti-citrullinated protein antibody seropositivity; rheumatoid factor seropositivity measurement EUR',
+                'rheumatoid arthritis; anti-citrullinated protein antibody seropositivity; rheumatoid factor seropositivity measurement EAS')
+    # traits <- c(traits,rep(c('all rheumatoid arthritis', 'rheumatoid arthritis; anti-citrullinated protein antibody seropositivity; rheumatoid factor seropositivity measurement'), each = 3))
   } # according to the paper, the six traits for the six summary statistics are multi-ancestry, EUR-, and EAS-GWAS for all RA and seropositive RA.
 } # 731 files for Immune cell; 6 files for Autoimmune_Rheumatoid_Arthritis;  
-trait_gwas <- cbind(
+trait_gwas <- data.frame(
   type = rep(types, times = n_types),
   trait = traits,
   root_path = directory_path,
   file = files,
-  full_path = file.path(directory_path,files)
-)
+  full_path = file.path(directory_path,files),
+  N = size_N
+) # dim = 737 * 6
+
+unique_traits <- unique(traits) # length(unique_traits)  is 735
 
 
 ## Save the generated excel book for the paths for all GWAS traits

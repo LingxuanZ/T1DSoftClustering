@@ -1,5 +1,6 @@
 library(parallel) # Load the parallel package
 library(dplyr)
+library(tidyr)
 
 # The following ld_prund function is a modified version of the ld_prune function from the package available at https://github.com/gwas-partitioning/bnmf-clustering.
 ld_prune <- function(df_snps,
@@ -104,47 +105,22 @@ ld_prune <- function(df_snps,
 }
 
 
-count_traits_per_variant <- function(gwas_variants, ss_files, savepath_varid) {
+count_traits_per_variant <- function(gwas_variants, ss_files,sample_size,savepath_varid) {
   
-  # Given a vector of variants and a named vector of summary statistics files
-  # for traits to be clustered, output a vector of non-missing trait fractions
-  # per variant
+  # Given a vector of variants, a vector of sample_size, the savepath of selected var_id_grch38 for main GWAS 
+  # and a named vector of summary statistics files for traits to be clustered, output a vector of non-missing 
+  # trait fractions per variant
   
   # Since the number of GWAS files is very large, we opted not to use the original 
   # sequential algorithm from https://github.com/gwas-partitioning/bnmf-clustering.
   # Instead, we implemented a parallel algorithm to accelerate the processing speed.
+  # Additionally, I optimized the code and data structure, reducing some redundant steps,
+  # which more than doubled the speed and reduced memory usage.
   
   
   print("Assessing variant missingness across traits...")
   write(gwas_variants, savepath_varid)
   
-  rename_cols <- c(N_PH="N")
-  
-  # variant_df_list <- lapply(1:length(ss_files), function(i) {
-  #   print(sprintf("...Reading %s...", names(ss_files)[i]))
-  #   
-  #   headers <- as.character(fread(ss_files[i], nrows=1,
-  #                                 data.table=F, stringsAsFactors=F, header=F))
-  #   
-  #   if (endsWith(ss_files[i],".gz")) {
-  #     df <- fread(cmd=sprintf("gzip -cd '%s' | fgrep -wf '%s'",ss_files[i],savepath_varid),
-  #                 header=F,
-  #                 col.names=headers,
-  #                 data.table=F,
-  #                 stringsAsFactors=F) %>%
-  #       rename(any_of(rename_cols))
-  #   } else {
-  #     df <- fread(cmd=sprintf("fgrep -wf %s %s", savepath_varid, ss_files[i]),
-  #                 header=F,
-  #                 col.names=headers,
-  #                 data.table=F,
-  #                 stringsAsFactors=F) %>%
-  #       rename(any_of(rename_cols)) 
-  #   }
-  #   print(nrow(df))
-  #   return(df)
-  # })
-
   numCores <- detectCores() - 1 # Define the number of cores to use, leaving one core for the system
   variant_df_list <- mclapply(1:length(ss_files), function(i) { # Use mclapply for parallel processing; mclapply is the parallel version of lapply.
     # print(sprintf("...Reading %s...", names(ss_files)[i])) 
@@ -153,37 +129,43 @@ count_traits_per_variant <- function(gwas_variants, ss_files, savepath_varid) {
     start_time_i <- Sys.time()  # Start time
     headers <- as.character(fread(ss_files[i], nrows=1,
                                   data.table=F, stringsAsFactors=F, header=F))
+    hm_variant_id_index <- which(headers == "hm_variant_id")
+    if (length(hm_variant_id_index) == 0) {
+      stop("Error: 'hm_variant_id' column not found in headers.")
+    }
     
     if (endsWith(ss_files[i],".gz")) {
-      df <- fread(cmd=sprintf("gzip -cd '%s' | fgrep -wf '%s'",ss_files[i],savepath_varid),
-                  header=F,
-                  col.names=headers,
-                  data.table=F,
-                  stringsAsFactors=F) %>%
-        rename(any_of(rename_cols))
+      df <- fread(
+        cmd = sprintf("gzip -cd '%s' | cut -f%d | fgrep -wf '%s'", ss_files[i], hm_variant_id_index, savepath_varid),
+        header = F,
+        col.names = "hm_variant_id",
+        data.table = F,
+        stringsAsFactors = F
+      )
     } else {
-      df <- fread(cmd=sprintf("fgrep -wf %s %s", savepath_varid, ss_files[i]),
+      df <- fread(cmd=sprintf("cut -f%d |fgrep -wf %s %s", hm_variant_id_index, savepath_varid, ss_files[i]),
                   header=F,
-                  col.names=headers,
+                  col.names="hm_variant_id",
                   data.table=F,
-                  stringsAsFactors=F) %>%
-        rename(any_of(rename_cols)) 
+                  stringsAsFactors=F)
     }
     end_time_i <- Sys.time()  # End time
     time_taken <- as.numeric(end_time_i - start_time_i, units = "mins")  # Calculate duration
     print(sprintf("...Reading %s...: %d rows, Time taken: %s min", names(ss_files)[i], nrow(df), time_taken))
     # print(nrow(df))
-    return(df)
+    return(df) # A df contains the hm_variant_id column only.
   }, mc.cores = numCores)  # mc.cores parameter specifies the number of parallel processes to run.
   
   # make dataframe of Ns
-  df_N <- variant_df_list %>%
+  df_N <- lapply(seq_along(variant_df_list), function(i) {
+    variant_df_list[[i]]$N <- sample_size[i]  # Add a new column 'N' with the value sample_size[i]
+    variant_df_list[[i]]  # Return the modified data frame
+  })
+  df_N <- df_N %>%
     setNames(names(ss_files)) %>%
-    bind_rows(.id="trait") %>%
-    select(trait, VAR_ID, N_PH) %>%
-    mutate(VAR_ID_all_GRCH38 = ifelse(!is.na(hm_variant_id), hm_variant_id, paste(chromosome, base_pair_location, other_allele, effect_allele, sep = "_"))) %>%
-    pivot_wider(names_from="trait", values_from="N_PH") %>%
-    data.frame()
+    bind_rows(.id="trait") # %>%
+    # pivot_wider(names_from="trait", values_from="N") %>%
+    # data.frame()
 }
 
 
@@ -203,40 +185,40 @@ find_variants_needing_proxies <- function(gwas_variant_df, var_nonmissingness,
   print("Choosing variants in need of proxies...")
   
   gwas_variant_df <- gwas_variant_df %>%
-    separate(VAR_ID, into=c("CHR", "POS", "REF", "ALT"),
+    rename(hm_variant_id = VAR_ID) %>%
+    separate(hm_variant_id, into=c("CHR", "POS", "REF", "ALT"),
              sep="_", remove=F)
   
   need_proxies_varid <- with(gwas_variant_df, {
-    strand_ambig <- VAR_ID[paste0(REF, ALT) %in% c("AT", "TA", "CG", "GC")]
+    strand_ambig <- hm_variant_id[paste0(REF, ALT) %in% c("AT", "TA", "CG", "GC")]
     print(paste0("...", length(strand_ambig), " strand-ambiguous variants"))
     
-    multi_allelic <- grep("^[0-9]+_[0-9]+_[ACGT]+_[ACGT]+,[ACGT]+$", VAR_ID, value=T)  # i.e. ALT allele has a comma
+    multi_allelic <- grep("^[0-9]+_[0-9]+_[ACGT]+_[ACGT]+,[ACGT]+$", hm_variant_id, value=T)  # i.e. ALT allele has a comma
     print(paste0("...", length(multi_allelic), " multi-allelic variants"))
     
-    low_cnt <- VAR_ID[!(VAR_ID %in% names(var_nonmissingness)) |
-                        var_nonmissingness[VAR_ID] < missing_cutoff]
+    low_cnt <- hm_variant_id[!(hm_variant_id %in% names(var_nonmissingness)) |
+                        var_nonmissingness[hm_variant_id] < missing_cutoff]
     print(paste0("...", length(low_cnt), " variants with excessive missingness"))
     
     unique(c(strand_ambig, multi_allelic, low_cnt)) 
   })
   print(paste0("...", length(need_proxies_varid), " unique variants in total"))
   
-  if (length(need_proxies_varid) == 0) return(tibble(VAR_ID=c(), rsID=c()))
+  if (length(need_proxies_varid) == 0) return(tibble(hm_variant_id=c(), hm_rsid=c()))
   
   write(need_proxies_varid, "need_proxies_varid.tmp")
-  varid_rsid_map <- fread(cmd=paste0("grep -wFf need_proxies_varid.tmp ",
-                                     rsID_map_file),
-                          header=F, col.names=c("VAR_ID", "rsID"),
+  varid_rsid_map <- fread(cmd= paste0("grep -wFf need_proxies_varid.tmp \"", rsID_map_file, "\""),#paste0("grep -wFf need_proxies_varid.tmp ",rsID_map_file),
+                          header=F, col.names=c("hm_variant_id", "hm_rsid"),
                           data.table=F, stringsAsFactors=F)
-  need_proxies_rsid <- varid_rsid_map$rsID[match(need_proxies_varid, 
-                                                 varid_rsid_map$VAR_ID)]
-  print(paste0("...", length(unique(varid_rsid_map$rsID)), 
+  need_proxies_rsid <- varid_rsid_map$hm_rsid[match(need_proxies_varid, 
+                                                 varid_rsid_map$hm_variant_id)]
+  print(paste0("...", length(unique(varid_rsid_map$hm_rsid)), 
                " of these are mapped to rsIDs"))
   system("rm need_proxies_varid.tmp")
   
-  tibble(VAR_ID=need_proxies_varid) %>%
-    left_join(varid_rsid_map, by="VAR_ID") %>%
-    left_join(gwas_variant_df[,c("VAR_ID","PVALUE")], by="VAR_ID")
+  tibble(hm_variant_id=need_proxies_varid) %>%
+    left_join(varid_rsid_map, by="hm_variant_id") %>%
+    left_join(gwas_variant_df[,c("hm_variant_id","PVALUE")], by="hm_variant_id")
 }
 
 
@@ -267,7 +249,7 @@ choose_proxies <- function(need_proxies,
     
     print("Using LDlinkR:LDproxy_batch to find proxies...")
     need_proxies <- need_proxies %>%
-      separate(VAR_ID, into=c("CHR","POS","REF","ALT"),sep = "_",remove = F) %>%
+      separate(hm_variant_id, into=c("CHR","POS","REF","ALT"),sep = "_",remove = F) %>%
       mutate(query_snp = paste0("chr", CHR, ":", POS)) %>%
       select(-c(CHR, POS, REF, ALT))
     need_proxies_snps <- need_proxies$query_snp
@@ -277,8 +259,8 @@ choose_proxies <- function(need_proxies,
                            r2d = "r2",
                            token = LDlink_token,
                            append = T,
-                           genome_build = "grch37")
-    proxy_df <- read.table("./combined_query_snp_list_grch37.txt",sep = "\t",row.names = NULL) %>%
+                           genome_build = "grch38")
+    proxy_df <- read.table("./combined_query_snp_list_grch38.txt",sep = "\t",row.names = NULL) %>%
       filter(R2>r2_num) %>%
       filter(!Coord %in% need_proxies_snps) %>%
       inner_join(need_proxies, by = "query_snp") %>%
@@ -289,27 +271,27 @@ choose_proxies <- function(need_proxies,
       select(-c(query_snp))
     
   } else if (method=="TopLD") { # use TopLD
-    print(sprintf("Using TopLD to find proxies for %s!", population))
-    if (nrow(need_proxies)<100) {
-      write(need_proxies$rsID, "need_proxies_rsIDs.tmp")
-      system(sprintf("%s -thres %.1f -pop %s -maf 0.01 -inFile need_proxies_rsIDs.tmp -outputLD outputLD.txt -outputInfo outputInfo.txt", topLD_path, r2_num, population))
-    } else { # need to split up
-      print("Splitting proxy df into subsets (more than 100 SNPs)...")
-      proxy_df_list <- split(need_proxies, (seq(nrow(need_proxies))-1) %/% 100)
-      
-      system("touch outputLD.txt")
-      print("Running TopLD for proxy df segments...")
-      for (j in 1:length(proxy_df_list)){
-        print(sprintf("Querying LD subset %i/%i",j, length(proxy_df_list)))
-        df <- proxy_df_list[[j]]
-        write(df$rsID, "need_proxies_rsIDs.tmp")
-        system(sprintf("%s -thres %.1f -pop %s -maf 0.01 -inFile need_proxies_rsIDs.tmp -outputLD outputLD_temp.txt -outputInfo outputInfo.txt", topLD_path, r2_num, population))
-        system("cat outputLD_temp.txt >> outputLD.txt")
-      }
-    }
-    proxy_df <- fread("outputLD.txt", stringsAsFactors = F, data.table = F) %>%
-      select(rsID=rsID1, proxy_rsID=rsID2, r2=R2) %>%
-      subset(proxy_rsID %like% "rs")
+    # print(sprintf("Using TopLD to find proxies for %s!", population))
+    # if (nrow(need_proxies)<100) {
+    #   write(need_proxies$rsID, "need_proxies_rsIDs.tmp")
+    #   system(sprintf("%s -thres %.1f -pop %s -maf 0.01 -inFile need_proxies_rsIDs.tmp -outputLD outputLD.txt -outputInfo outputInfo.txt", topLD_path, r2_num, population))
+    # } else { # need to split up
+    #   print("Splitting proxy df into subsets (more than 100 SNPs)...")
+    #   proxy_df_list <- split(need_proxies, (seq(nrow(need_proxies))-1) %/% 100)
+    #   
+    #   system("touch outputLD.txt")
+    #   print("Running TopLD for proxy df segments...")
+    #   for (j in 1:length(proxy_df_list)){
+    #     print(sprintf("Querying LD subset %i/%i",j, length(proxy_df_list)))
+    #     df <- proxy_df_list[[j]]
+    #     write(df$rsID, "need_proxies_rsIDs.tmp")
+    #     system(sprintf("%s -thres %.1f -pop %s -maf 0.01 -inFile need_proxies_rsIDs.tmp -outputLD outputLD_temp.txt -outputInfo outputInfo.txt", topLD_path, r2_num, population))
+    #     system("cat outputLD_temp.txt >> outputLD.txt")
+    #   }
+    # }
+    # proxy_df <- fread("outputLD.txt", stringsAsFactors = F, data.table = F) %>%
+    #   select(rsID=rsID1, proxy_rsID=rsID2, r2=R2) %>%
+    #   subset(proxy_rsID %like% "rs")
   } 
   else {
     stop("Enter appropriate proxy search method!") # Using stop function

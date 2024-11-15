@@ -18,16 +18,18 @@ library(devtools)
 devtools::install_github("CBIIT/LDlinkR")
 library(LDlinkR)
 library(readxl)
+library(magrittr)
 # load('/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/test_results/pipeline_data.RData') # to load the saved environment variables (for debugging)
 
 # load project scripts containing bNMF functions
-source('/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/choose_variants.R') # ld_pruning, count_traits_per_variant, fina_variants_needing_proxies, & choose_potential_proxies
 source("./bnmf-clustering/scripts/prep_bNMF.R")  # fetch_summary_stats & prep_z_matrix
 source("./bnmf-clustering/scripts/run_bNMF.R")  # run_bNMF & summarize_bNMF
+source('/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/choose_variants.R') # ld_pruning, count_traits_per_variant, fina_variants_needing_proxies, & choose_potential_proxies
 
 # USER INPUTS
 project_dir = '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/test_results' # path to where you want results saved
-user_token = 'cb5457b210a6' # 'ac846b46f561' # token for LDlinkR api
+user_token = 'ac846b46f561' # 'cb5457b210a6' # token for LDlinkR api
+rsID_map_file = '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/rsid_map_fromMainGWAS.txt'
 
 # create project folder 
 dir.create(project_dir)
@@ -156,15 +158,24 @@ save.image(file = file.path(project_dir, "pipeline_data.RData"))
 #------------------------------------------------
 
 # SECTION 4: VARIANT MISSINGNESS
+# The missing ratio represents the fraction of selected SNPs from the main GWAS that are present across all trait GWAS for each SNP.
+# Calculate the proportion of non-missing values in each row.
+
+sample_size_traitGWAS <- gwas_traits$N
 
 print("Searching for variants in trait GWAS...")
 gwas_variants <- pruned_vars$VAR_ID
 df_Ns <- count_traits_per_variant(gwas_variants,
                                   ss_files = trait_ss_files,
+                                  sample_size = sample_size_traitGWAS,
                                   savepath_varid="/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/test_results/all_snps_varids.tmp")
+save.image(file = file.path(project_dir, "pipeline_data.RData"))
+
 # fix column names
 df_Ns_rev <- df_Ns %>%
-  column_to_rownames("VAR_ID") %>%
+  pivot_wider(names_from="trait", values_from="N") %>%
+  data.frame() %>%
+  column_to_rownames("hm_variant_id") %>%
   set_colnames(names(trait_ss_files))
 
 print("Calculating variant missingess in traits...")
@@ -180,5 +191,43 @@ var_nonmissingness <- ifelse(
 var_nonmissingness <- setNames(var_nonmissingness, gwas_variants)
 
 save.image(file = file.path(project_dir, "pipeline_data.RData"))
+
+#----
+
+# SECTION 5: DETERMINE VARIANTS NEEDING PROXIES
+
+print("Identifying variants needing proxies...")
+proxies_needed_df <- find_variants_needing_proxies(gwas_variant_df=pruned_vars,
+                                                   var_nonmissingness=var_nonmissingness,
+                                                   rsID_map_file = rsID_map_file,
+                                                   missing_cutoff = 0.8)
+save.image(file = file.path(project_dir, "pipeline_data.RData"))
+
+
+#----
+# SECTION 6: PROXY SEARCH
+
+print("Searching for proxies with TopLD API...")
+proxy_search_results <- choose_proxies(need_proxies = proxies_needed_df,
+                                       method="LDlink",
+                                       LDlink_token = user_token,
+                                       topLD_path = api_path,
+                                       rsID_map_file = rsID_map_file,
+                                       trait_ss_files = trait_ss_files,
+                                       pruned_variants = pruned_vars,
+                                       population="EUR"
+)
+
+df_proxies <- proxy_search_results %>%
+  dplyr::select(VAR_ID, proxy_VAR_ID) %>%
+  dplyr::inner_join(pruned_vars[,c("VAR_ID","GWAS")], by="VAR_ID") %>%
+  mutate(Risk_Allele=NA, PVALUE=NA)
+
+save.image(file = file.path(project_dir, "pipeline_data.RData"))
+
+
+#----
+
+# SECTION 7: Fetch summary statistics for SNPs in trait GWAS
 
 

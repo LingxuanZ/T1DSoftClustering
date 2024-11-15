@@ -1,0 +1,17 @@
+RS_Number	Position	Alleles	Details
+rs9517712	chr13:99427579	T=0.249, C=0.751	Variant kept.
+rs372315	chr13:42359297	T=0.275, C=0.725	Variant kept.
+rs390457	chr13:42359298	G=0.275, A=0.725	Variant in LD with rs372315 (R2=1.0), variant removed.
+rs238265	chr13:42356523	T=0.276, G=0.724	Variant in LD with rs372315 (R2=0.995), variant removed.
+rs7319267	chr13:42357250	G=0.276, A=0.724	Variant in LD with rs372315 (R2=0.995), variant removed.
+rs2057456	chr13:99424191	C=0.636, T=0.364	Variant in LD with rs9517712 (R2=0.5638), variant removed.
+rs9557222	chr13:99426661	T=0.367, G=0.633	Variant in LD with rs9517712 (R2=0.5709), variant removed.
+rs77900571	chr13:42343724	T=0.88, -=0.12	Variant in LD with rs372315 (R2=0.3517), variant removed.
+rs2209241	chr13:42374524	C=0.834, T=0.166	Variant in LD with rs372315 (R2=0.365), variant removed.
+rs9585056	chr13:99429512	C=0.235, T=0.765	Variant in LD with rs9517712 (R2=0.9268), variant removed.
+rs238272	chr13:42359719	T=0.275, C=0.725	Variant in LD with rs372315 (R2=1.0), variant removed.
+rs238267	chr13:42357507	G=0.275, T=0.725	Variant in LD with rs372315 (R2=1.0), variant removed.
+rs238266	chr13:42357396	A=0.275, G=0.725	Variant in LD with rs372315 (R2=1.0), variant removed.
+rs238273	chr13:42359881	C=0.276, T=0.724	Variant in LD with rs372315 (R2=0.995), variant removed.
+rs238275	chr13:42360675	G=0.276, A=0.724	Variant in LD with rs372315 (R2=0.995), variant removed.
+rs238274	chr13:42360491	G=0.276, A=0.724	Variant in LD with rs372315 (R2=0.995), variant removed.

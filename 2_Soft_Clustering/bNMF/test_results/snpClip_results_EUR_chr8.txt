@@ -1,0 +1,63 @@
+RS_Number	Position	Alleles	Details
+rs2465397	chr8:119074613	A=0.323, G=0.677	Variant kept.
+rs11994775	chr8:119115347	T=0.378, C=0.622	Variant in LD with rs2465397 (R2=0.703), variant removed.
+rs1485299	chr8:119069865	T=0.306, C=0.694	Variant in LD with rs2465397 (R2=0.9158), variant removed.
+rs2450077	chr8:119077910	T=0.319, C=0.681	Variant in LD with rs2465397 (R2=0.9729), variant removed.
+rs1947178	chr8:58959618	A=0.22, G=0.78	Variant kept.
+rs1485300	chr8:119070014	G=0.306, C=0.694	Variant in LD with rs2465397 (R2=0.9158), variant removed.
+rs1385491	chr8:119082239	A=0.345, G=0.655	Variant in LD with rs2465397 (R2=0.8978), variant removed.
+rs2450063	chr8:119085337	G=0.318, A=0.682	Variant in LD with rs2465397 (R2=0.9774), variant removed.
+rs1905774	chr8:119076828	C=0.319, T=0.681	Variant in LD with rs2465397 (R2=0.9819), variant removed.
+rs2450071	chr8:119081838	A=0.345, T=0.655	Variant in LD with rs2465397 (R2=0.8978), variant removed.
+rs2450079	chr8:119075539	G=0.319, C=0.681	Variant in LD with rs2465397 (R2=0.9819), variant removed.
+rs2450073	chr8:119081723	A=0.344, G=0.656	Variant in LD with rs2465397 (R2=0.8933), variant removed.
+rs2450075	chr8:119081308	A=0.319, G=0.681	Variant in LD with rs2465397 (R2=0.9729), variant removed.
+rs7843734	chr8:119140849	C=0.318, T=0.682	Variant in LD with rs2465397 (R2=0.9066), variant removed.
+rs2450074	chr8:119081315	C=0.347, T=0.653	Variant in LD with rs2465397 (R2=0.89), variant removed.
+rs2450064	chr8:119084905	A=0.377, G=0.623	Variant in LD with rs2465397 (R2=0.774), variant removed.
+rs2450066	chr8:119084568	A=0.378, C=0.622	Variant in LD with rs2465397 (R2=0.7784), variant removed.
+rs2450065	chr8:119084575	T=0.378, C=0.622	Variant in LD with rs2465397 (R2=0.7784), variant removed.
+rs2450067	chr8:119084294	C=0.378, T=0.622	Variant in LD with rs2465397 (R2=0.7784), variant removed.
+rs2465404	chr8:119078620	G=0.378, T=0.622	Variant in LD with rs2465397 (R2=0.7784), variant removed.
+rs2450069	chr8:119083589	A=0.378, G=0.622	Variant in LD with rs2465397 (R2=0.7784), variant removed.
+rs2465403	chr8:119078588	G=0.379, A=0.621	Variant in LD with rs2465397 (R2=0.7829), variant removed.
+rs2450068	chr8:119083620	C=0.379, G=0.621	Variant in LD with rs2465397 (R2=0.7829), variant removed.
+rs1905775	chr8:119076596	A=0.379, G=0.621	Variant in LD with rs2465397 (R2=0.7829), variant removed.
+rs3802214	chr8:140606084	T=0.18, C=0.82	Variant kept.
+rs4961224	chr8:140607105	T=0.181, C=0.819	Variant in LD with rs3802214 (R2=0.9933), variant removed.
+rs13259300	chr8:119070702	A=0.366, C=0.634	Variant in LD with rs2465397 (R2=0.6892), variant removed.
+rs11777125	chr8:119141886	C=0.318, T=0.682	Variant in LD with rs2465397 (R2=0.9153), variant removed.
+rs1485292	chr8:119080735	C=0.348, T=0.652	Variant in LD with rs2465397 (R2=0.8861), variant removed.
+rs1485293	chr8:119079760	C=0.378, T=0.622	Variant in LD with rs2465397 (R2=0.7784), variant removed.
+rs7386676	chr8:119138319	A=0.316, G=0.684	Variant in LD with rs2465397 (R2=0.9065), variant removed.
+rs2468171	chr8:119170253	G=0.317, A=0.683	Variant in LD with rs2465397 (R2=0.9022), variant removed.
+rs4237029	chr8:58967569	T=0.193, G=0.807	Variant in LD with rs1947178 (R2=0.3658), variant removed.
+rs2432964	chr8:119157658-119157658		Variant not in 1000G data, variant removed.
+rs10283344	chr8:58970768	A=0.194, T=0.806	Variant in LD with rs1947178 (R2=0.3627), variant removed.
+rs6471762	chr8:58957417	C=0.277, T=0.723	Variant in LD with rs1947178 (R2=0.7336), variant removed.
+rs2468172	chr8:119170262	G=0.316, A=0.684	Variant in LD with rs2465397 (R2=0.9065), variant removed.
+rs2450060	chr8:119086833	T=0.318, C=0.682	Variant in LD with rs2465397 (R2=0.9153), variant removed.
+rs2468168	chr8:119157399	T=0.316, C=0.684	Variant in LD with rs2465397 (R2=0.9065), variant removed.
+rs1485294	chr8:119071462	G=0.366, C=0.634	Variant in LD with rs2465397 (R2=0.6892), variant removed.
+rs938725	chr8:140608155	C=0.18, G=0.82	Variant in LD with rs3802214 (R2=1.0), variant removed.
+rs1485290	chr8:119108036	G=0.316, C=0.684	Variant in LD with rs2465397 (R2=0.9153), variant removed.
+rs11777927	chr8:58968480	A=0.194, T=0.806	Variant in LD with rs1947178 (R2=0.3627), variant removed.
+rs1549415	chr8:119170870	T=0.316, C=0.684	Variant in LD with rs2465397 (R2=0.9065), variant removed.
+rs2468169	chr8:119165524	T=0.316, C=0.684	Variant in LD with rs2465397 (R2=0.9065), variant removed.
+rs6469816	chr8:119130766	C=0.317, T=0.683	Variant in LD with rs2465397 (R2=0.9109), variant removed.
+rs2465372	chr8:119173826	C=0.316, T=0.684	Variant in LD with rs2465397 (R2=0.9065), variant removed.
+rs1364708	chr8:119183124	G=0.316, A=0.684	Variant in LD with rs2465397 (R2=0.8979), variant removed.
+rs2468173	chr8:119175115	A=0.315, G=0.685	Variant in LD with rs2465397 (R2=0.9022), variant removed.
+rs28417457	chr8:58955893	C=0.277, A=0.723	Variant in LD with rs1947178 (R2=0.7336), variant removed.
+rs62508379	chr8:58955977	C=0.278, T=0.722	Variant in LD with rs1947178 (R2=0.73), variant removed.
+rs2465370	chr8:119171154	C=0.316, G=0.684	Variant in LD with rs2465397 (R2=0.9065), variant removed.
+rs12545204	chr8:58973753	T=0.192, A=0.808	Variant in LD with rs1947178 (R2=0.3615), variant removed.
+rs2468167	chr8:119152522	G=0.318, T=0.682	Variant in LD with rs2465397 (R2=0.9066), variant removed.
+rs884934	chr8:140608623	A=0.177, G=0.823	Variant in LD with rs3802214 (R2=0.9799), variant removed.
+rs2465379	chr8:119181869	T=0.316, A=0.684	Variant in LD with rs2465397 (R2=0.8979), variant removed.
+rs2450081	chr8:119072169	T=0.321, C=0.679	Variant in LD with rs2465397 (R2=0.9909), variant removed.
+rs2465392	chr8:119093208	C=0.378, T=0.622	Variant in LD with rs2465397 (R2=0.7104), variant removed.
+rs367116	chr8:59017003	C=0.17, T=0.83	Variant in LD with rs1947178 (R2=0.5444), variant removed.
+rs1158945	chr8:119104429	T=0.378, C=0.622	Variant in LD with rs2465397 (R2=0.703), variant removed.
+rs1351952	chr8:119104929	G=0.378, A=0.622	Variant in LD with rs2465397 (R2=0.703), variant removed.
+rs13261635	chr8:119070732	T=0.305, C=0.695	Variant in LD with rs2465397 (R2=0.9203), variant removed.

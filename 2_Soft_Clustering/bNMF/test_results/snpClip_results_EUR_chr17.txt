@@ -1,0 +1,279 @@
+RS_Number	Position	Alleles	Details
+rs79172804	chr17:45751398-45751398		Variant not in 1000G data, variant removed.
+rs17631676	chr17:45472160	A=0.804, G=0.196	Variant kept.
+rs12950965	chr17:45473785	C=0.804, G=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs62064637	chr17:45408185	T=0.806, G=0.194	Variant in LD with rs17631676 (R2=0.9254), variant removed.
+rs34915103	chr17:45416194	C=0.803, G=0.197	Variant in LD with rs17631676 (R2=0.9441), variant removed.
+rs55703888	chr17:45459042	C=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs36114997	chr17:45438519	A=0.808, G=0.192	Variant in LD with rs17631676 (R2=0.9499), variant removed.
+rs71373560	chr17:45416138	C=0.803, T=0.197	Variant in LD with rs17631676 (R2=0.9441), variant removed.
+rs62064641	chr17:45411426	T=0.803, C=0.197	Variant in LD with rs17631676 (R2=0.9441), variant removed.
+rs9891059	chr17:4397411	T=0.837, G=0.163	Variant kept.
+rs56340658	chr17:45611724-45611724		Variant not in 1000G data, variant removed.
+rs1971631	chr17:45462071	C=0.825, G=0.175	Variant in LD with rs17631676 (R2=0.8464), variant removed.
+rs9903584	chr17:4395645	T=0.837, C=0.163	Variant in LD with rs9891059 (R2=1.0), variant removed.
+rs1879582	chr17:45493314	C=0.801, T=0.199	Variant in LD with rs17631676 (R2=0.9813), variant removed.
+rs55826010	chr17:45601827-45601827		Variant not in 1000G data, variant removed.
+rs12945901	chr17:4397703	T=0.837, C=0.163	Variant in LD with rs9891059 (R2=1.0), variant removed.
+rs1879583	chr17:45493527-45493527		Variant not in 1000G data, variant removed.
+rs9909816	chr17:4397202	G=0.837, A=0.163	Variant in LD with rs9891059 (R2=1.0), variant removed.
+rs10445366	chr17:45855431	G=1.0, C=0.0	Variant MAF is 0.0, variant removed.
+rs9889686	chr17:4396865	T=0.836, C=0.164	Variant in LD with rs9891059 (R2=0.9928), variant removed.
+rs2458198	chr17:45588102-45588102		Variant not in 1000G data, variant removed.
+rs2684641	chr17:45442752-45442752		Variant not in 1000G data, variant removed.
+rs112995489	chr17:45485939	T=0.818, G=0.182	Variant in LD with rs17631676 (R2=0.9131), variant removed.
+rs10445365	chr17:45855423-45855423		Variant not in 1000G data, variant removed.
+rs62065448	chr17:45492404-45492404		Variant not in 1000G data, variant removed.
+rs9894290	chr17:4395258	G=0.837, A=0.163	Variant in LD with rs9891059 (R2=1.0), variant removed.
+rs61759532	chr17:7337072	C=0.794, T=0.206	Variant kept.
+rs112275793	chr17:45485938	A=0.818, C=0.182	Variant in LD with rs17631676 (R2=0.9131), variant removed.
+rs62061733	chr17:45941033-45941033		Variant not in 1000G data, variant removed.
+rs2950012	chr17:45589999-45589999		Variant not in 1000G data, variant removed.
+rs148269941	chr17:45463106	A=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs9915721	chr17:45914187	A=0.848, G=0.152	Variant kept.
+rs56072903	chr17:45936600-45936600		Variant not in 1000G data, variant removed.
+rs4485406	chr17:45606261	C=1.0, G=0.0	Variant MAF is 0.0, variant removed.
+rs674692	chr17:45618601-45618601		Variant not in 1000G data, variant removed.
+rs2732626	chr17:45592434-45592434		Variant not in 1000G data, variant removed.
+rs111392251	chr17:45491562-45491562		Variant not in 1000G data, variant removed.
+rs2960000	chr17:45456987	T=0.803, C=0.197	Variant in LD with rs17631676 (R2=0.9319), variant removed.
+rs2950013	chr17:45591089-45591089		Variant not in 1000G data, variant removed.
+rs576687444	chr17:45490914-45490914		Variant not in 1000G data, variant removed.
+rs2906007	chr17:45607554-45607554		Variant not in 1000G data, variant removed.
+rs1724398	chr17:45588472-45588472		Variant not in 1000G data, variant removed.
+rs385199	chr17:45609053-45609053		Variant not in 1000G data, variant removed.
+rs12941687	chr17:4395092	G=0.837, C=0.163	Variant in LD with rs9891059 (R2=1.0), variant removed.
+rs4471725	chr17:45606245-45606245		Variant not in 1000G data, variant removed.
+rs2668643	chr17:45593733-45593733		Variant not in 1000G data, variant removed.
+rs62064431	chr17:45592338-45592338		Variant not in 1000G data, variant removed.
+rs1808189	chr17:45407537	T=0.818, C=0.182	Variant in LD with rs17631676 (R2=0.8521), variant removed.
+rs62065380	chr17:45449659-45449659		Variant not in 1000G data, variant removed.
+rs4471723	chr17:46128324-46128324		Variant not in 1000G data, variant removed.
+rs2696421	chr17:45590269-45590269		Variant not in 1000G data, variant removed.
+rs62066073	chr17:45603950-45603950		Variant not in 1000G data, variant removed.
+rs62064418	chr17:45590470-45590470		Variant not in 1000G data, variant removed.
+rs56168933	chr17:45434952	G=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs2525110	chr17:47964999	A=0.454, T=0.546	Variant kept.
+rs12949256	chr17:45429931	C=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs56159231	chr17:45479496	C=0.804, T=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs2696673	chr17:46238437-46238437		Variant not in 1000G data, variant removed.
+rs1724397	chr17:45588443-45588443		Variant not in 1000G data, variant removed.
+rs7220206	chr17:45430037	G=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs2906009	chr17:45607197-45607197		Variant not in 1000G data, variant removed.
+rs62066087	chr17:45611213-45611213		Variant not in 1000G data, variant removed.
+rs2428608	chr17:47963429	C=0.454, T=0.546	Variant in LD with rs2525110 (R2=1.0), variant removed.
+rs62065376	chr17:45443795	C=0.806, G=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs77524574	chr17:45464935	C=0.838, T=0.162	Variant in LD with rs17631676 (R2=0.782), variant removed.
+rs375647	chr17:45615975-45615975		Variant not in 1000G data, variant removed.
+rs4528616	chr17:45606231-45606231		Variant not in 1000G data, variant removed.
+rs2525109	chr17:47964961	C=0.454, T=0.546	Variant in LD with rs2525110 (R2=1.0), variant removed.
+rs2696423	chr17:46256524-46256524		Variant not in 1000G data, variant removed.
+rs440778	chr17:45609054-45609054		Variant not in 1000G data, variant removed.
+rs9906064	chr17:4405352	A=0.844, C=0.156	Variant in LD with rs9891059 (R2=0.9066), variant removed.
+rs111960572	chr17:45485983-45485983		Variant not in 1000G data, variant removed.
+rs418891	chr17:45616172-45616172		Variant not in 1000G data, variant removed.
+rs62066086	chr17:45611021-45611021		Variant not in 1000G data, variant removed.
+rs35327136	chr17:45410208	C=0.807, A=0.193	Variant in LD with rs17631676 (R2=0.9438), variant removed.
+rs2532416	chr17:46211925-46211925		Variant not in 1000G data, variant removed.
+rs62065441	chr17:45485727	A=0.804, G=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs62056877	chr17:45701462-45701462		Variant not in 1000G data, variant removed.
+rs2696594	chr17:46143424-46143424		Variant not in 1000G data, variant removed.
+rs62064422	chr17:45590651-45590651		Variant not in 1000G data, variant removed.
+rs2684504	chr17:45454560	C=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs62064421	chr17:45590568-45590568		Variant not in 1000G data, variant removed.
+rs62073105	chr17:46245556-46245556		Variant not in 1000G data, variant removed.
+rs55711776	chr17:45591884-45591884		Variant not in 1000G data, variant removed.
+rs9899833	chr17:45915577-45915577		Variant not in 1000G data, variant removed.
+rs79928920	chr17:46261601-46261601		Variant not in 1000G data, variant removed.
+rs12937366	chr17:4397731	C=0.837, G=0.163	Variant in LD with rs9891059 (R2=1.0), variant removed.
+rs2732594	chr17:46189804-46189804		Variant not in 1000G data, variant removed.
+rs2905465	chr17:45463366	T=0.825, C=0.175	Variant in LD with rs17631676 (R2=0.8585), variant removed.
+rs57209021	chr17:68168777	C=0.751, T=0.249	Variant kept.
+rs1724399	chr17:45588540-45588540		Variant not in 1000G data, variant removed.
+rs2950010	chr17:45588885	C=1.0, T=0.0	Variant MAF is 0.0, variant removed.
+rs62074562	chr17:46257402-46257402		Variant not in 1000G data, variant removed.
+rs2696422	chr17:46256523-46256523		Variant not in 1000G data, variant removed.
+rs62064395	chr17:45588635-45588635		Variant not in 1000G data, variant removed.
+rs12946187	chr17:4397787	T=0.837, G=0.163	Variant in LD with rs9891059 (R2=1.0), variant removed.
+rs2532309	chr17:46143419-46143419		Variant not in 1000G data, variant removed.
+rs17649553	chr17:45917282-45917282		Variant not in 1000G data, variant removed.
+rs12946723	chr17:45419462	C=0.805, T=0.195	Variant in LD with rs17631676 (R2=0.9439), variant removed.
+rs9908855	chr17:4396779	G=0.837, T=0.163	Variant in LD with rs9891059 (R2=1.0), variant removed.
+rs2532261	chr17:46175837-46175837		Variant not in 1000G data, variant removed.
+rs593720	chr17:45630482-45630482		Variant not in 1000G data, variant removed.
+rs112992335	chr17:45590860-45590860		Variant not in 1000G data, variant removed.
+rs112010353	chr17:45589126-45589126		Variant not in 1000G data, variant removed.
+rs62074564	chr17:46258452-46258452		Variant not in 1000G data, variant removed.
+rs34286926	chr17:45418486	A=0.804, G=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs7219532	chr17:45465717	T=0.803, A=0.197	Variant in LD with rs17631676 (R2=0.9937), variant removed.
+rs378392	chr17:45610176-45610176		Variant not in 1000G data, variant removed.
+rs2950009	chr17:45588878-45588878		Variant not in 1000G data, variant removed.
+rs2463523	chr17:45594371-45594371		Variant not in 1000G data, variant removed.
+rs10445367	chr17:45855432-45855432		Variant not in 1000G data, variant removed.
+rs2732593	chr17:46189798-46189798		Variant not in 1000G data, variant removed.
+rs2949997	chr17:45609706-45609706		Variant not in 1000G data, variant removed.
+rs9912279	chr17:45603856-45603856		Variant not in 1000G data, variant removed.
+rs56220387	chr17:45399441	A=0.808, G=0.192	Variant in LD with rs17631676 (R2=0.9376), variant removed.
+rs9908863	chr17:4396787	G=0.837, C=0.163	Variant in LD with rs9891059 (R2=1.0), variant removed.
+rs2696437	chr17:46264961-46264961		Variant not in 1000G data, variant removed.
+rs111370985	chr17:45775376-45775376		Variant not in 1000G data, variant removed.
+rs62063212	chr17:46143676-46143676		Variant not in 1000G data, variant removed.
+rs62056809	chr17:45907303-45907303		Variant not in 1000G data, variant removed.
+rs2696458	chr17:46207054-46207054		Variant not in 1000G data, variant removed.
+rs55925547	chr17:45479441	T=0.802, C=0.198	Variant in LD with rs17631676 (R2=0.9875), variant removed.
+rs451737	chr17:45606026-45606026		Variant not in 1000G data, variant removed.
+rs35776863	chr17:7323638	G=0.81, A=0.19	Variant in LD with rs61759532 (R2=0.7562), variant removed.
+rs80028338	chr17:46084104-46084104		Variant not in 1000G data, variant removed.
+rs62056876	chr17:45701386-45701386		Variant not in 1000G data, variant removed.
+rs11656886	chr17:68168506	C=0.751, T=0.249	Variant in LD with rs57209021 (R2=1.0), variant removed.
+rs62064392	chr17:45587891-45587891		Variant not in 1000G data, variant removed.
+rs62061807	chr17:46099731-46099731		Variant not in 1000G data, variant removed.
+rs2696463	chr17:46208762-46208762		Variant not in 1000G data, variant removed.
+rs369209138	chr17:45603484-45603484		Variant not in 1000G data, variant removed.
+rs62064409	chr17:45589065-45589065		Variant not in 1000G data, variant removed.
+rs56306380	chr17:45900940-45900940		Variant not in 1000G data, variant removed.
+rs2942166	chr17:45638061-45638061		Variant not in 1000G data, variant removed.
+rs41490145	chr17:46256922-46256922		Variant not in 1000G data, variant removed.
+rs12942951	chr17:45416469	T=0.807, C=0.193	Variant in LD with rs17631676 (R2=0.9193), variant removed.
+rs1635285	chr17:45606843-45606843		Variant not in 1000G data, variant removed.
+rs62055956	chr17:45777083-45777083		Variant not in 1000G data, variant removed.
+rs439558	chr17:45640437-45640437		Variant not in 1000G data, variant removed.
+rs62061799	chr17:46096702-46096702		Variant not in 1000G data, variant removed.
+rs113871181	chr17:45775367-45775367		Variant not in 1000G data, variant removed.
+rs62055936	chr17:45771395-45771395		Variant not in 1000G data, variant removed.
+rs2732590	chr17:46189606-46189606		Variant not in 1000G data, variant removed.
+rs2462835	chr17:45594373-45594373		Variant not in 1000G data, variant removed.
+rs55841786	chr17:45900942-45900942		Variant not in 1000G data, variant removed.
+rs2732685	chr17:46262042-46262042		Variant not in 1000G data, variant removed.
+rs56400821	chr17:45682714-45682714		Variant not in 1000G data, variant removed.
+rs611351	chr17:45615569-45615569		Variant not in 1000G data, variant removed.
+rs9894769	chr17:4395412	G=0.839, A=0.161	Variant in LD with rs9891059 (R2=0.9855), variant removed.
+rs2732631	chr17:46211866-46211866		Variant not in 1000G data, variant removed.
+rs111314258	chr17:46219156-46219156		Variant not in 1000G data, variant removed.
+rs144416125	chr17:46219157-46219157		Variant not in 1000G data, variant removed.
+rs62055935	chr17:45771384-45771384		Variant not in 1000G data, variant removed.
+rs367842592	chr17:45623201-45623201		Variant not in 1000G data, variant removed.
+rs2950011	chr17:45589019-45589019		Variant not in 1000G data, variant removed.
+rs2532239	chr17:46188861-46188861		Variant not in 1000G data, variant removed.
+rs1526128	chr17:45702258-45702258		Variant not in 1000G data, variant removed.
+rs444967	chr17:45608332-45608332		Variant not in 1000G data, variant removed.
+rs62055545	chr17:45887195-45887195		Variant not in 1000G data, variant removed.
+rs2942170	chr17:45633946-45633946		Variant not in 1000G data, variant removed.
+rs2696580	chr17:46149830-46149830		Variant not in 1000G data, variant removed.
+rs2732630	chr17:46211784-46211784		Variant not in 1000G data, variant removed.
+rs17585012	chr17:46150144-46150144		Variant not in 1000G data, variant removed.
+rs62065447	chr17:45491717	C=0.801, T=0.199	Variant in LD with rs17631676 (R2=0.9813), variant removed.
+rs62065396	chr17:45465841-45465841		Variant not in 1000G data, variant removed.
+rs34792542	chr17:45420815	A=0.804, G=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs76344126	chr17:45425918	G=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs55746869	chr17:45473717	C=0.804, T=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs113575082	chr17:45447160	C=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs62065379	chr17:45447999-45447999		Variant not in 1000G data, variant removed.
+rs17631303	chr17:45439036	A=0.806, G=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs35591873	chr17:45439373	G=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs71373572	chr17:45447656	G=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs8081264	chr17:7331997	G=0.789, C=0.211	Variant in LD with rs61759532 (R2=0.8552), variant removed.
+rs35354512	chr17:45438561	C=0.805, T=0.195	Variant in LD with rs17631676 (R2=0.9562), variant removed.
+rs62064657	chr17:45439688	G=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs12936645	chr17:45418054	A=0.81, T=0.19	Variant in LD with rs17631676 (R2=0.9008), variant removed.
+rs62064655	chr17:45437588-45437588		Variant not in 1000G data, variant removed.
+rs62064597	chr17:45395941	C=0.809, G=0.191	Variant in LD with rs17631676 (R2=0.9069), variant removed.
+rs34465449	chr17:45434069	C=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs62064651	chr17:45425634-45425634		Variant not in 1000G data, variant removed.
+rs55642947	chr17:45432821	G=0.806, C=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs62065374	chr17:45442906-45442906		Variant not in 1000G data, variant removed.
+rs62064654	chr17:45436530	C=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs62064652	chr17:45431944	A=0.808, G=0.192	Variant in LD with rs17631676 (R2=0.9499), variant removed.
+rs55793500	chr17:45402382	T=0.806, C=0.194	Variant in LD with rs17631676 (R2=0.9254), variant removed.
+rs62065378	chr17:45444995	T=0.806, C=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs55790407	chr17:45435073	G=0.806, C=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs62064645	chr17:45423111	G=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs34018943	chr17:45430937	A=0.806, G=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs3809822	chr17:7330793	C=0.789, G=0.211	Variant in LD with rs61759532 (R2=0.8552), variant removed.
+rs34104358	chr17:45431250	G=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs34887474	chr17:45442198	C=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs12946900	chr17:45434840	A=0.806, G=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs7222444	chr17:45430283	A=0.806, G=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs62064653	chr17:45431950	C=0.808, T=0.192	Variant in LD with rs17631676 (R2=0.9499), variant removed.
+rs2077606	chr17:45451927	G=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs62065442	chr17:45486528	T=0.804, C=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs62065388	chr17:45460345-45460345		Variant not in 1000G data, variant removed.
+rs11012	chr17:45436075	C=0.805, T=0.195	Variant in LD with rs17631676 (R2=0.9562), variant removed.
+rs56020833	chr17:45432412	C=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs1879585	chr17:45489809	T=0.803, G=0.197	Variant in LD with rs17631676 (R2=0.9937), variant removed.
+rs1079434	chr17:45452321-45452321		Variant not in 1000G data, variant removed.
+rs62065443	chr17:45486991-45486991		Variant not in 1000G data, variant removed.
+rs62064643	chr17:45413487	G=0.805, A=0.195	Variant in LD with rs17631676 (R2=0.9562), variant removed.
+rs62065384	chr17:45455438-45455438		Variant not in 1000G data, variant removed.
+rs9730	chr17:45436185	C=0.806, G=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs62064646	chr17:45423221	G=0.804, A=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs1879586	chr17:45489971	C=0.821, G=0.179	Variant in LD with rs17631676 (R2=0.8826), variant removed.
+rs12940792	chr17:45414991	C=0.803, T=0.197	Variant in LD with rs17631676 (R2=0.9441), variant removed.
+rs8071011	chr17:45411016	C=0.803, T=0.197	Variant in LD with rs17631676 (R2=0.9441), variant removed.
+rs62064600	chr17:45403335	G=0.805, A=0.195	Variant in LD with rs17631676 (R2=0.9195), variant removed.
+rs2028078	chr17:45398563	G=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9254), variant removed.
+rs56236914	chr17:45406185	C=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9254), variant removed.
+rs12952764	chr17:45419844	G=0.804, A=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs3946526	chr17:45464290-45464290		Variant not in 1000G data, variant removed.
+rs35420583	chr17:45420814	C=0.804, T=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs3809823	chr17:7330980	C=0.789, G=0.211	Variant in LD with rs61759532 (R2=0.8552), variant removed.
+rs79724577	chr17:45386127	A=0.807, C=0.193	Variant in LD with rs17631676 (R2=0.9071), variant removed.
+rs55930887	chr17:45470955	T=0.804, C=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs55822955	chr17:47884447	A=0.574, G=0.426	Variant in LD with rs2525110 (R2=0.8112), variant removed.
+rs62065444	chr17:45488233-45488233		Variant not in 1000G data, variant removed.
+rs9899111	chr17:45486856	T=0.804, G=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs62065438	chr17:45480726	C=0.804, T=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs55663797	chr17:45467013	G=0.804, A=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs2959992	chr17:45466840-45466840		Variant not in 1000G data, variant removed.
+rs62065391	chr17:45461627-45461627		Variant not in 1000G data, variant removed.
+rs62065390	chr17:45461625-45461625		Variant not in 1000G data, variant removed.
+rs56192752	chr17:45477887	A=0.804, G=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs35389313	chr17:45410058	T=0.803, C=0.197	Variant in LD with rs17631676 (R2=0.9441), variant removed.
+rs34363898	chr17:45438480	C=0.808, T=0.192	Variant in LD with rs17631676 (R2=0.9499), variant removed.
+rs62065449	chr17:45492543-45492543		Variant not in 1000G data, variant removed.
+rs62065394	chr17:45462907-45462907		Variant not in 1000G data, variant removed.
+rs149366495	chr17:45472242	G=0.804, A=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs111423688	chr17:45461157	G=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs62065437	chr17:45480246	G=0.804, A=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs12452273	chr17:45475555-45475555		Variant not in 1000G data, variant removed.
+rs62065392	chr17:45461669-45461669		Variant not in 1000G data, variant removed.
+rs55652155	chr17:45471115	A=0.804, G=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs55643511	chr17:45479616	G=0.804, A=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs12947718	chr17:45415735	G=0.803, A=0.197	Variant in LD with rs17631676 (R2=0.9441), variant removed.
+rs77132763	chr17:45474180	C=0.804, T=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs62065436	chr17:45479286	G=0.804, A=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs62065445	chr17:45488474	G=0.804, A=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs56314414	chr17:45459604-45459604		Variant not in 1000G data, variant removed.
+rs56015792	chr17:45473955	G=0.804, C=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs2139890	chr17:45464261	C=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs36078910	chr17:45409851	G=0.804, A=0.196	Variant in LD with rs17631676 (R2=0.9379), variant removed.
+rs1079432	chr17:45452403-45452403		Variant not in 1000G data, variant removed.
+rs12942666	chr17:45422473	A=0.804, G=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs113322852	chr17:45491879	T=0.801, A=0.199	Variant in LD with rs17631676 (R2=0.9813), variant removed.
+rs73984391	chr17:45407232	G=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9254), variant removed.
+rs62065389	chr17:45461441	T=0.806, G=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs62064647	chr17:45423255	G=0.804, A=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs4325608	chr17:45462602	G=0.806, A=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs62065403	chr17:45474157	T=0.804, C=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs56005713	chr17:45459377	C=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs35519908	chr17:45421962	T=0.804, C=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs62064603	chr17:45407130	C=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9254), variant removed.
+rs9899849	chr17:7331664	G=0.789, A=0.211	Variant in LD with rs61759532 (R2=0.8552), variant removed.
+rs55648326	chr17:45424225	T=0.804, C=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs4763	chr17:45394123	G=0.809, A=0.191	Variant in LD with rs17631676 (R2=0.8948), variant removed.
+rs62065399	chr17:45468691-45468691		Variant not in 1000G data, variant removed.
+rs56212100	chr17:45424574	G=0.804, A=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs71238846	chr17:45475171-45475171		Variant not in 1000G data, variant removed.
+rs62064649	chr17:45424745	A=0.804, G=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs2090847	chr17:45472741	A=0.804, G=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs35884427	chr17:45417850	G=0.803, A=0.197	Variant in LD with rs17631676 (R2=0.9441), variant removed.
+rs35626715	chr17:45424875	T=0.804, C=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs62065450	chr17:45493041	C=0.801, T=0.199	Variant in LD with rs17631676 (R2=0.9813), variant removed.
+rs12952504	chr17:45417869-45417869		Variant not in 1000G data, variant removed.
+rs34063617	chr17:45413637	G=0.803, A=0.197	Variant in LD with rs17631676 (R2=0.9441), variant removed.
+rs55671319	chr17:45471058	A=0.804, G=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs62065404	chr17:45474247	C=0.804, T=0.196	Variant in LD with rs17631676 (R2=1.0), variant removed.
+rs7222389	chr17:45424076	T=0.804, C=0.196	Variant in LD with rs17631676 (R2=0.9501), variant removed.
+rs62064598	chr17:45397302	C=0.806, G=0.194	Variant in LD with rs17631676 (R2=0.9254), variant removed.
+rs62065385	chr17:45457328	C=0.806, T=0.194	Variant in LD with rs17631676 (R2=0.9624), variant removed.
+rs11651753	chr17:47951723	C=0.555, T=0.445	Variant in LD with rs2525110 (R2=0.9566), variant removed.

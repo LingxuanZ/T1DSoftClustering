@@ -1,0 +1,33 @@
+RS_Number	Position	Alleles	Details
+rs10814914	chr9:4289196	T=0.531, C=0.469	Variant kept.
+rs7024686	chr9:4287211	G=0.535, C=0.465	Variant in LD with rs10814914 (R2=0.9762), variant removed.
+rs10974434	chr9:4282782	T=0.793, C=0.207	Variant in LD with rs10814914 (R2=0.2949), variant removed.
+rs10814917	chr9:4296430	A=0.527, G=0.473	Variant in LD with rs10814914 (R2=0.9372), variant removed.
+rs10758593	chr9:4292083	G=0.558, A=0.442	Variant in LD with rs10814914 (R2=0.6878), variant removed.
+rs6476842	chr9:4291268	C=0.55, T=0.45	Variant in LD with rs10814914 (R2=0.9038), variant removed.
+rs7028616	chr9:4263055	C=0.413, T=0.587	Variant in LD with rs10814914 (R2=0.4334), variant removed.
+rs10814918	chr9:4297421	A=0.407, C=0.593	Variant in LD with rs10814914 (R2=0.2957), variant removed.
+rs10974435	chr9:4283682	T=0.532, C=0.468	Variant in LD with rs10814914 (R2=0.9566), variant removed.
+rs10116772	chr9:4290541	C=0.554, A=0.446	Variant in LD with rs10814914 (R2=0.6857), variant removed.
+rs7041847	chr9:4287466	A=0.533, G=0.467	Variant in LD with rs10814914 (R2=0.9683), variant removed.
+rs7020673	chr9:4291747	C=0.466, G=0.534	Variant in LD with rs10814914 (R2=0.9644), variant removed.
+rs4237150	chr9:4290085	G=0.553, C=0.447	Variant in LD with rs10814914 (R2=0.6952), variant removed.
+rs3934283	chr9:4285119	C=0.475, G=0.525	Variant in LD with rs10814914 (R2=0.9296), variant removed.
+rs10758594	chr9:4295583	A=0.453, G=0.547	Variant in LD with rs10814914 (R2=0.7057), variant removed.
+rs6476839	chr9:4290823	A=0.553, T=0.447	Variant in LD with rs10814914 (R2=0.6952), variant removed.
+rs10814915	chr9:4290544	T=0.455, C=0.545	Variant in LD with rs10814914 (R2=0.7115), variant removed.
+rs10758591	chr9:4285986	G=0.536, C=0.464	Variant in LD with rs10814914 (R2=0.9723), variant removed.
+rs4380994	chr9:4282536	A=0.532, G=0.468	Variant in LD with rs10814914 (R2=0.9566), variant removed.
+rs7037716	chr9:4265363	C=0.411, T=0.589	Variant in LD with rs10814914 (R2=0.4291), variant removed.
+rs574287260	chr9:133121793-133121793		Variant not in 1000G data, variant removed.
+rs3892354	chr9:4282942	T=0.454, G=0.546	Variant in LD with rs10814914 (R2=0.7153), variant removed.
+rs35338539	chr9:4298589	G=0.624, A=0.376	Variant in LD with rs10814914 (R2=0.245), variant removed.
+rs541856133	chr9:133060938-133060938		Variant not in 1000G data, variant removed.
+rs1574285	chr9:4283137	G=0.447, T=0.553	Variant in LD with rs10814914 (R2=0.6819), variant removed.
+rs557297569	chr9:133203650	C=0.999, T=0.001	Variant MAF is 0.001, variant removed.
+rs10974438	chr9:4291928	A=0.615, C=0.385	Variant in LD with rs10814914 (R2=0.443), variant removed.
+rs7034200	chr9:4289050	C=0.479, A=0.521	Variant in LD with rs10814914 (R2=0.9531), variant removed.
+rs7035948	chr9:4277839	G=0.573, C=0.427	Variant in LD with rs10814914 (R2=0.44), variant removed.
+rs7867224	chr9:4292152	A=0.527, G=0.473	Variant in LD with rs10814914 (R2=0.945), variant removed.
+rs10814916	chr9:4293150	A=0.462, C=0.538	Variant in LD with rs10814914 (R2=0.8431), variant removed.
+rs4339696	chr9:4295880	T=0.463, G=0.537	Variant in LD with rs10814914 (R2=0.9066), variant removed.
