@@ -38,9 +38,9 @@ The code is written to automatically download GWAS files (ending in .h.tsv.gz) f
 
 accession_numbers_dict = {
 
-​    "T1D": "GCST90014023",  # T1D
+​    "T1D": "GCST90014023",  # T1D: hm_variant_id and hm_rsid are harmonized columns
 
-​    "Autoimmune_Rheumatoid_Arthritis_1": "GCST90132222", 
+​    "Autoimmune_Rheumatoid_Arthritis_1": "GCST90132222",  # Autoimmune_Rheumatoid_Arthritis: rsid is the only one harmonized column; the first 4 columns  (chromosome,base_pair_location,effect_allele,other_allele) are in grch38: chr_loc_other_effect
 
 ​    "Autoimmune_Rheumatoid_Arthritis_2": "GCST90132223",
 
@@ -56,11 +56,51 @@ accession_numbers_dict = {
 
 738 .h.tsv.gz files in total are saved in the directory: **'/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data'**
 
-See see details in **download_GWAS.py file**
+See see details in **download_GWAS.py file** 
 
 # 2 Harmonise GWAS ---- no need to harmonize, since the data from GWAS Catalog harmonised folder has already been hormonised.
 
-## 2.1  Liftover
+## 2.0 Add a new column: hm_variant_id (required)
+
+The datasets of  Immune_Cell and T1D already contain the columns of hm_variant_id and hm_rsid
+
+We need to add a new column of hm_variant_id into Autoimmune_Rheumatoid_Arthritis data sets and rename rsid into hm_rsid.
+
+```sh
+# {sh}
+
+# Define file paths
+source_dir="/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data"
+old_dir="${source_dir}/old"
+
+# Create a directory to store old files
+mkdir -p "$old_dir"
+
+# Find all .tsv.gz files starting with "Autoimmune_Rheumatoid_Arthritis" and process them
+for file in "$source_dir"/Autoimmune_Rheumatoid_Arthritis*.tsv.gz; do
+    # Get the filename (without path)
+    filename=$(basename "$file")
+    # Move the file to the old directory
+    mv "$file" "$old_dir"
+done
+
+# Find all .tsv.gz files starting with "Autoimmune_Rheumatoid_Arthritis" and process them
+for file in "$old_dir"/Autoimmune_Rheumatoid_Arthritis*.tsv.gz; do
+    # Get the filename (without path)
+    filename=$(basename "$file")
+    # Unzip, add the new column, and save the file in the original directory with the same filename
+    zcat "$old_dir/$filename" | \
+    tr -d '\r' | \
+    awk 'BEGIN {OFS="\t"} 
+        NR==1 {gsub("rsid", "hm_rsid", $0); print $0, "hm_variant_id"} 
+        NR>1 {print $0, $1"_"$2"_"$4"_"$3}' \
+    | gzip > "$source_dir/$filename"
+done
+```
+
+
+
+## 2.1  Liftover (optional)
 
 Before merging, ensure that allele directions are consistent across all datasets.
 
@@ -174,7 +214,7 @@ bcftools sort -o ALL.wgs.phase3_shapeit2_mvncall_integrated_v5c.20130502.sites.h
 
 
 
-## 2.2 Variant allele alighment (rel-alt and alt-ref)----no need, been harmonised already
+## 2.2 Variant allele alighment (rel-alt and alt-ref)----no need, been harmonised already (optional)
 
 
 

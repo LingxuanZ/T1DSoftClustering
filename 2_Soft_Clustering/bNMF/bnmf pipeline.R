@@ -18,9 +18,10 @@ library(devtools)
 devtools::install_github("CBIIT/LDlinkR")
 library(LDlinkR)
 library(readxl)
+# load('/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/test_results/pipeline_data.RData') # to load the saved environment variables (for debugging)
 
 # load project scripts containing bNMF functions
-source("./bnmf-clustering/scripts/choose_variants.R")  # ld_pruning, count_traits_per_variant, fina_variants_needing_proxies, & choose_potential_proxies
+source('/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/choose_variants.R') # ld_pruning, count_traits_per_variant, fina_variants_needing_proxies, & choose_potential_proxies
 source("./bnmf-clustering/scripts/prep_bNMF.R")  # fetch_summary_stats & prep_z_matrix
 source("./bnmf-clustering/scripts/run_bNMF.R")  # run_bNMF & summarize_bNMF
 
@@ -159,9 +160,25 @@ save.image(file = file.path(project_dir, "pipeline_data.RData"))
 print("Searching for variants in trait GWAS...")
 gwas_variants <- pruned_vars$VAR_ID
 df_Ns <- count_traits_per_variant(gwas_variants,
-                                  trait_ss_files)
+                                  ss_files = trait_ss_files,
+                                  savepath_varid="/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/test_results/all_snps_varids.tmp")
+# fix column names
 df_Ns_rev <- df_Ns %>%
   column_to_rownames("VAR_ID") %>%
   set_colnames(names(trait_ss_files))
+
+print("Calculating variant missingess in traits...")
+variant_counts_df <- data.frame(VAR_ID=rownames(df_Ns_rev),
+                                frac=rowSums(!is.na(df_Ns_rev[,names(trait_ss_files)]))/length(trait_ss_files))
+var_nonmissingness <- ifelse(
+  gwas_variants %in% variant_counts_df$VAR_ID,
+  # if in counts data frame, take the non-missing fraction:
+  variant_counts_df$frac[match(gwas_variants, variant_counts_df$VAR_ID)],
+  # else not in data frame, so non-missing fraction is 0:
+  0
+)
+var_nonmissingness <- setNames(var_nonmissingness, gwas_variants)
+
+save.image(file = file.path(project_dir, "pipeline_data.RData"))
 
 

@@ -11,6 +11,7 @@ library(httr)
 library(jsonlite)
 # library(xlsx) # install.packages("xlsx")
 library(dplyr)
+library(openxlsx) 
 
 # Set the directory path
 directory_path <- "/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data"
@@ -52,4 +53,4 @@ gwas_data <- cbind(
 )
 
 # To save as a CSV file
-write.csv(gwas_data, "/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/gwas_traits_fromGWASCatalog.csv", row.names = FALSE)
+write.csv(gwas_data, "/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/gwas_traits_fromGWASCatalog.xlsx", row.names = FALSE)
