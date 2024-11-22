@@ -22,9 +22,9 @@ library(magrittr)
 # load('/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/test_results/pipeline_data.RData') # to load the saved environment variables (for debugging)
 
 # load project scripts containing bNMF functions
-source("./bnmf-clustering/scripts/prep_bNMF.R")  # fetch_summary_stats & prep_z_matrix
+source("./prep_bNMF.R")  # fetch_summary_stats & prep_z_matrix
 source("./bnmf-clustering/scripts/run_bNMF.R")  # run_bNMF & summarize_bNMF
-source('/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/choose_variants.R') # ld_pruning, count_traits_per_variant, fina_variants_needing_proxies, & choose_potential_proxies
+source('./choose_variants.R') # ld_pruning, count_traits_per_variant, fina_variants_needing_proxies, & choose_potential_proxies
 
 # USER INPUTS
 project_dir = '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/test_results' # path to where you want results saved
@@ -53,6 +53,7 @@ gwas_traits <- read_excel(file.path(data_dir, "gwas_traits.xlsx"),
 main_ss_filepath <- gwas %>% pull(full_path)
 gwas_ss_files <- setNames(gwas$full_path, gwas$study)
 trait_ss_files <- setNames(gwas_traits$full_path, gwas_traits$trait)
+trait_ss_size <- setNames(gwas_traits$N, gwas_traits$trait)
 
 #------------------------------------------------
 
@@ -211,17 +212,17 @@ print("Searching for proxies with TopLD API...")
 proxy_search_results <- choose_proxies(need_proxies = proxies_needed_df,
                                        method="LDlink",
                                        LDlink_token = user_token,
-                                       topLD_path = api_path,
                                        rsID_map_file = rsID_map_file,
                                        trait_ss_files = trait_ss_files,
                                        pruned_variants = pruned_vars,
                                        population="EUR"
 )
+write.csv(as.data.frame(proxy_search_results),  file.path(project_dir, "proxy_search_results.csv"), row.names = FALSE)
 
 df_proxies <- proxy_search_results %>%
-  dplyr::select(VAR_ID, proxy_VAR_ID) %>%
-  dplyr::inner_join(pruned_vars[,c("VAR_ID","GWAS")], by="VAR_ID") %>%
-  mutate(Risk_Allele=NA, PVALUE=NA)
+  dplyr::select(hm_variant_id, proxy_VAR_ID) %>%
+  dplyr::inner_join(pruned_vars[,c("VAR_ID","GWAS")], by=c("hm_variant_id"="VAR_ID")) %>%
+  mutate(Risk_Allele=NA, PVALUE=NA) # add two new NA columns: Risk_Allele and PVALUE
 
 save.image(file = file.path(project_dir, "pipeline_data.RData"))
 
@@ -229,5 +230,135 @@ save.image(file = file.path(project_dir, "pipeline_data.RData"))
 #----
 
 # SECTION 7: Fetch summary statistics for SNPs in trait GWAS
+
+# proxy_search_results <- read.csv(file.path(project_dir, "proxy_search_results.csv"), stringsAsFactors = FALSE)
+print("Prepping input for fetch_summary_stats...")
+df_orig_snps <- pruned_vars %>%
+  filter(!VAR_ID %in% proxies_needed_df$hm_variant_id) %>%
+  rename(hm_variant_id = VAR_ID)
+
+df_input_snps <- rbind(df_orig_snps[,c("hm_variant_id","PVALUE", "Risk_Allele", "GWAS")],
+                       df_proxies[,c("hm_variant_id","PVALUE", "Risk_Allele", "GWAS")]) %>%
+  arrange(PVALUE) %>%
+  filter(!duplicated(hm_variant_id))%>%
+  rename(VAR_ID = hm_variant_id)
+
+df_orig_snps <- df_orig_snps %>%
+  rename(VAR_ID = hm_variant_id)
+
+cat(sprintf("\n%i original SNPs...\n", nrow(df_orig_snps)))
+cat(sprintf("\n%i proxy SNPs...\n", nrow(df_proxies)))
+cat(sprintf("\n%i total unique SNPs!\n", nrow(df_input_snps)))
+
+initial_zscore_matrices <- fetch_summary_stats(
+  df_variants=df_input_snps,
+  gwas_ss_file=main_ss_filepath,
+  trait_ss_files=trait_ss_files,
+  trait_ss_size=trait_ss_size,
+  pval_cutoff=0.05
+)
+saveRDS(initial_zscore_matrices, file = file.path(project_dir,"initial_zscore_matrices.rds"))
+
+save.image(file = file.path(project_dir, "pipeline_data.RData"))
+# system(sprintf("mv alignment_GWAS_summStats.csv '%s'", project_dir))
+
+#----
+
+# Section 8: get rsIDs for final variant set
+
+print("Getting rsIDs for final snps and saving to results...")
+z_mat <- initial_zscore_matrices$z_mat
+N_mat <- initial_zscore_matrices$N_mat
+
+df_var_ids <- df_input_snps %>%
+  separate(VAR_ID, into=c("Chr","Pos","Ref","Alt"),sep="_",remove = F) %>%
+  mutate(ChrPos=paste(Chr,Pos,sep = ":")) %>%
+  subset(ChrPos %in% rownames(z_mat))
+write(df_var_ids$VAR_ID,file.path(project_dir, 'my_snps.tmp'))
+
+system(sprintf("grep -wFf '%s' '%s' > '%s'",file.path(project_dir, 'my_snps.tmp'),
+               rsID_map_file, file.path(project_dir, "rsID_map.txt")))
+
+df_rsIDs <- fread(cmd=sprintf("grep -wFf '%s' '%s'",file.path(project_dir, 'my_snps.tmp'),rsID_map_file),
+                  header = F,
+                  col.names = c("VAR_ID","rsID"))
+print(sprintf("rsIDs found for %i of %i SNPs...", nrow(df_rsIDs), nrow(df_var_ids)))
+
+df_rsIDs_final <- df_rsIDs %>%
+  filter(VAR_ID %in% df_var_ids$VAR_ID)
+write_delim(x=df_rsIDs_final,
+            file = file.path(project_dir, "rsID_map.txt"),
+            col_names = T)
+
+save.image(file = file.path(project_dir, "pipeline_data.RData"))
+
+
+#----
+
+# Section 9: Fill missing data in z-score and N matrices
+
+df_snps <- df_input_snps %>%
+  inner_join(df_rsIDs_final, by="VAR_ID") %>%
+  data.frame()
+
+print("Searching for cover proxies for missing z-scores...")
+initial_zscore_matrices_final <- fill_missing_zscores(initial_zscore_matrices,
+                                                      df_snps,
+                                                      trait_ss_files,
+                                                      trait_ss_size,
+                                                      main_ss_filepath,
+                                                      rsID_map_file,
+                                                      method_fill="median",
+                                                      population="EUR")
+save.image(file = file.path(project_dir, "pipeline_data.RData"))
+
+
+#----
+
+# Section 10.) Generate non-negative z-score matrix
+
+# This section is to filter traits w/ no pvalues below cutoff, prune traits by correlation (remove traits with Pearson |r| > 0.80), perform sample size adjustment
+
+section10_output_file_path <- file.path(project_dir, "section10_prep_z_printoutput.txt") # Set file path to save the output
+sink(section10_output_file_path) # Start redirecting console output to the file
+prep_z_output <- prep_z_matrix(z_mat = initial_zscore_matrices_final$z_mat,
+                               N_mat = initial_zscore_matrices_final$N_mat,
+                               corr_cutoff = 0.8)
+sink() # Stop redirecting output to the file and restore to the console
+cat("All output in section 10 has been saved to:", section10_output_file_path, "\n")
+
+# prep_z_output has two outputs:
+
+#   1.) The scaled, non-negative z-score matrix
+final_zscore_matrix <- prep_z_output$final_z_mat
+
+#   2.) Results from the trait filtering
+df_traits_filtered <- prep_z_output$df_traits
+write_csv(x = df_traits_filtered,
+          file = file.path(project_dir,"df_traits.csv"))
+
+# prep_z_matrix also save trait correlation matrix to working dir, so move to project dir
+system(sprintf("mv trait_cor_mat.txt '%s'", project_dir))
+
+print(sprintf("Final matrix: %i SNPs x %i traits",
+              nrow(final_zscore_matrix),
+              ncol(final_zscore_matrix)/2))
+
+save.image(file = file.path(project_dir, "pipeline_data.RData"))
+
+#----
+
+# Section 11.) Run bNMF 
+bnmf_reps <- run_bNMF(final_zscore_matrix,
+                      n_reps=25,
+                      tolerance = 1e-6)
+summarize_bNMF(bnmf_reps, dir_save=project_dir)
+
+save.image(file = file.path(project_dir, "pipeline_data.RData"))
+
+# end=Sys.time()
+# print("Total pipeline runtime:")
+# print(end-start)
+
 
 

@@ -226,12 +226,13 @@ choose_proxies <- function(need_proxies,
                            rsID_map_file,
                            trait_ss_files,
                            pruned_variants,
-                           method="TopLD",
+                           method="LDlink",
                            LDlink_token=NULL,
-                           topLD_path=NULL,
                            population="EUR",
                            frac_nonmissing_num=0.8,
+                           sample_size_traitGWAS = sample_size_traitGWAS,
                            r2_num=0.8) {
+  # Modification: I have abandoned the topLD method; here we choose to use only the LDlinkR method.
   
   # Given a vector of variants (rsIDs) needing proxies
   # (from find_variants_needing_proxies) and an LD reference file,
@@ -266,7 +267,7 @@ choose_proxies <- function(need_proxies,
       inner_join(need_proxies, by = "query_snp") %>%
       arrange(PVALUE) %>%
       filter(!duplicated(RS_Number)) %>%
-      dplyr::select(rsID, proxy_rsID=RS_Number, r2=R2) 
+      dplyr::select(hm_rsid, proxy_rsID=RS_Number, r2=R2) 
     need_proxies <- need_proxies %>%
       select(-c(query_snp))
     
@@ -294,46 +295,50 @@ choose_proxies <- function(need_proxies,
     #   subset(proxy_rsID %like% "rs")
   } 
   else {
-    stop("Enter appropriate proxy search method!") # Using stop function
+    stop("Enter appropriate proxy search method: LDlinkR !") # Using stop function
     
   }
   print(paste("No. possible proxies found:",nrow(proxy_df))) # proxy_df should have columns (rsID, proxy_rsID, r2)
-  write(proxy_df$proxy_rsID, "potential_proxies_rsid.tmp")
+  write(proxy_df$proxy_rsID, "./test_results/potential_proxies_rsid.tmp")
   
   if (nrow(proxy_df)>0) {
     print("Creating proxy rsID map...")
-    potential_proxies_map <- fread(cmd=paste0("grep -wFf potential_proxies_rsid.tmp ",
-                                              rsID_map_file),
+    potential_proxies_map <- fread(cmd=paste0("grep -wFf ./test_results/potential_proxies_rsid.tmp \"", rsID_map_file, "\""),
                                    header=F, col.names=c("proxy_VAR_ID", "proxy_rsID"),
-                                   data.table=F, stringsAsFactors=F)
+                                   data.table=F, stringsAsFactors=F) %>% distinct()
     print(head(potential_proxies_map))
     
     proxy_variants <- potential_proxies_map$proxy_VAR_ID
     
     proxy_missingness <- count_traits_per_variant(
       proxy_variants,
-      trait_ss_files
+      trait_ss_files,
+      sample_size = sample_size_traitGWAS,
+      savepath_varid="./test_results/all_snps_varids_proxies.tmp"
     )
-    
+
     # get proxy missingness
     df_Ns_rev <- proxy_missingness %>%
-      column_to_rownames("VAR_ID")
+      pivot_wider(names_from="trait", values_from="N") %>%
+      data.frame() %>%
+      column_to_rownames("hm_variant_id") %>%
+      set_colnames(names(trait_ss_files)) # proxy_missingness %>% column_to_rownames("hm_variant_id")
     df_Ns_rev[df_Ns_rev == 'NULL'] <- NA
     
     # get variant counts
     variant_counts_df <- data.frame(VAR_ID=rownames(df_Ns_rev),
-                                    frac=rowSums(!is.na(df_Ns_rev))/length(trait_ss_files))
+                                    frac=rowSums(!is.na(df_Ns_rev))/length(trait_ss_files)) # the matrix for missingness ratio
     
-    proxy_missingness <- ifelse(
+    proxy_missingness_new <- ifelse(
       proxy_variants %in% variant_counts_df$VAR_ID,
       variant_counts_df$frac[match(proxy_variants, variant_counts_df$VAR_ID)],  # If in counts data frame, take the non-missing fraction
       0  # If not in data frame, then the non-missing fraction is 0
     )
-    proxy_missingness <- setNames(proxy_missingness, proxy_variants)
+    proxy_missingness_new <- setNames(proxy_missingness_new, proxy_variants)
     
     proxy_missingness_df <- tibble(
-      proxy_VAR_ID=names(proxy_missingness),
-      frac_nonmissing=proxy_missingness
+      proxy_VAR_ID=names(proxy_missingness_new),
+      frac_nonmissing=proxy_missingness_new
     )
     
     final_proxy_df <- proxy_df %>%
@@ -347,22 +352,22 @@ choose_proxies <- function(need_proxies,
         frac_nonmissing >= frac_nonmissing_num,  # Sufficient fraction of traits non-missing
         r2 >= r2_num  # Sufficient LD with the proxied variant
       ) %>%
-      group_by(rsID) %>%
+      group_by(hm_rsid) %>%
       arrange(desc(frac_nonmissing),
               desc(r2),
               CHR) %>%  # Arbitrary sort for reproducibility in case of missingness + r2 ties
       dplyr::slice(1) %>%
       ungroup() %>%
-      inner_join(need_proxies, by="rsID") %>%  # added to include orig VAR_ID in output 
+      inner_join(need_proxies, by="hm_rsid") %>%  # added to include orig VAR_ID in output 
       data.frame()
   } else {
     final_proxy_df <- NULL
   }
-  proxies_found <- final_proxy_df$rsID
+  proxies_found <- final_proxy_df$hm_rsid
   
-  no_proxies_found <- setdiff(need_proxies$rsID, proxies_found)
+  no_proxies_found <- setdiff(need_proxies$hm_rsid, proxies_found)
   print(paste0("No proxies needed for ", 
-               length(setdiff(pruned_variants$VAR_ID, need_proxies$VAR_ID)), 
+               length(setdiff(pruned_variants$VAR_ID, need_proxies$hm_variant_id)), 
                " variants."))
   print(paste0("Proxies found for ", length(proxies_found), " variants."))
   print(paste0("No adequate proxies found for ", length(no_proxies_found), 
