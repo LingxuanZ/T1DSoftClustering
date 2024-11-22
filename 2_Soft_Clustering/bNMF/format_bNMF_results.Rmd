@@ -1,5 +1,5 @@
 ---
-author: "Kirk Smith"
+author: "Lingxuan Zhu"
 date: "`r format(Sys.time(), '%A %B %d, %Y at %I:%M %p %Z',tz='US/Eastern')`"
 output: html_document
 params:
