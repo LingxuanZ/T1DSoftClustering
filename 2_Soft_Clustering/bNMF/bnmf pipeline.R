@@ -14,11 +14,14 @@ if (!require("BiocManager", quietly = TRUE))
 
 BiocManager::install("GenomicRanges")
 BiocManager::install("Homo.sapiens")
+BiocManager::install("ComplexHeatmap")
 library(devtools)
 devtools::install_github("CBIIT/LDlinkR")
 library(LDlinkR)
 library(readxl)
 library(magrittr)
+library(ggrepel)
+library(ComplexHeatmap)
 # load('/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/test_results/pipeline_data.RData') # to load the saved environment variables (for debugging)
 
 # load project scripts containing bNMF functions
@@ -28,6 +31,7 @@ source('./choose_variants.R') # ld_pruning, count_traits_per_variant, fina_varia
 
 # USER INPUTS
 project_dir = '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/test_results' # path to where you want results saved
+project_final_dir = '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/final_test_results'
 user_token = 'ac846b46f561' # 'cb5457b210a6' # token for LDlinkR api
 rsID_map_file = '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/rsid_map_fromMainGWAS.txt'
 
@@ -352,13 +356,46 @@ save.image(file = file.path(project_dir, "pipeline_data.RData"))
 bnmf_reps <- run_bNMF(final_zscore_matrix,
                       n_reps=25,
                       tolerance = 1e-6)
-summarize_bNMF(bnmf_reps, dir_save=project_dir)
+summarize_bNMF(bnmf_reps, dir_save=project_final_dir)
+# K: Kth cluster
+# W: feature-to-cluster matrices.
+# H: cluster-to-gene matrices.
+# Use the internal function make_run_summary() to calculate the number of clusters (K) and the corresponding likelihood for each run, generating a summary table.
 
+# files
+# run_summary.txt: Contains a summary table of each run, listing the selected K value and the corresponding likelihood for each iteration.
+# L2EU.W.mat.K.txt and L2EU.H.mat.K.txt: The cleaned versions of the W and H matrices, representing the contributions of features to clusters and clusters to traits.
+# W_plot_K.pdf and H_plot_K.pdf: Heatmaps for each K, visualizing the associations in the W and H matrices.
+
+# The summarized result  identify the most meaningful number of clusters (K), and visualize the W and H matrices. 
 save.image(file = file.path(project_dir, "pipeline_data.RData"))
 
 # end=Sys.time()
 # print("Total pipeline runtime:")
 # print(end-start)
+
+#----
+
+# format results
+k <- NULL
+if (is.null(k)){
+  html_filename <- file.path(project_final_dir, "results_for_maxK.html")
+} else {
+  html_filename <- sprintf(file.path(project_final_dir, "results_for_K_%i.html"), k)
+}
+
+rmarkdown::render(
+  './format_bNMF_results.Rmd',
+  output_file = html_filename,
+  params = list(main_dir = project_dir,
+                k = k,
+                loci_file="query",
+                GTEx=F,
+                my_traits=gwas_traits)
+)
+
+
+#----
 
 
 
