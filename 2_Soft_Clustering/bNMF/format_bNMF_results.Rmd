@@ -81,16 +81,22 @@ library(rstudioapi)
 library(strex)
 library(scales)
 library(GenomicRanges)
-library(Homo.sapiens)
+library(IRanges)
+library(AnnotationHub)
+library(ensembldb)
+# library(Homo.sapiens) # Homo.sapiens is under hg19, not GRCH38. However, our data are under GRCH38
+library(AnnotationDbi)
+library(TxDb.Hsapiens.UCSC.hg38.knownGene) # Provides gene range information
 library(DT)
 library(kableExtra)
+library(cowplot)
 
 # setwd(dirname(getActiveDocumentContext()$path))
-main_dir <- params$main_dir
-k <- params$k
-loci_file <- params$loci_file
-eval_GTEx <- params$GTEx 
-gwas_traits <- params$my_traits
+main_dir <- params$main_dir # main_dir <- './test_results'
+k <- params$k # NULL
+loci_file <- params$loci_file # loci_file <- "query"
+eval_GTEx <- params$GTEx  # GTEx <- F
+gwas_traits <- params$my_traits # my_traits <- gwas_traits
 
 # find majority K from run summary
 df_run_summary <- fread(file.path(main_dir,"run_summary.txt"),
@@ -169,11 +175,12 @@ trait_results %>% data.table() %>%
 
 
 ### Determining the optimal K from the bNMF run summary
+The plot "Convergence Scores by K" helps analyze which K value performs better in terms of convergence.    
 
 ```{r format_showRunSummary, out.width=c('50%', '50%'), fig.show='hold'}
 run_sum_max <- df_run_summary %>%
   group_by(K) %>%
-  summarise(convergence = min(evid, na.rm=TRUE)) %>%
+  summarise(convergence = min(evid, na.rm=TRUE)) %>% # calculate the min(evid_column) with removing NA values, where evid is a convergence score
   mutate(K=as.factor(K))
 
 ggplot(data=run_sum_max, aes(x=K, y=convergence, fill=K)) +
@@ -183,8 +190,9 @@ ggplot(data=run_sum_max, aes(x=K, y=convergence, fill=K)) +
   theme_minimal() +
   theme(axis.text = element_text(size = 18),
         axis.title = element_text(size = 20),
-        plot.title = element_text(size = 24, face = "bold"))+
-    ggtitle("Convergence Scores by K")
+        plot.title = element_text(size = 24, face = "bold")) +
+    ggtitle("Convergence Scores by K") # This plot helps analyze which K value performs better in terms of convergence.
+
 
 library(ggrepel)
 
@@ -292,7 +300,7 @@ cut = weights[weights$diff > 0,]
 cutoff = cut$weight[1]
 cutoff_num = cut$x[1]
 
-highlight <- weights %>% filter(x == cutoff_num)
+highlight <- weights %>% dplyr::filter(x == cutoff_num)
          
 ggplot(weights, aes(x=x_scale, y=w_scale, color=group)) +
   geom_point() + 
@@ -313,41 +321,233 @@ cutoff_num_f = format(100*cutoff_num/numWeights, digits=2)
 ### Cluster Weights
 #### Weights above cutoff are highlighted
 
-```{r format_tbl_snps, fig.show='hold'}
+```{r eval=FALSE, include=FALSE}
+# df_rsIDs <- fread(file.path(main_dir,"rsID_map.txt"),
+#                   # select = c(1:2),
+#                   # header=F,
+#                   # col.names=c("VAR_ID", "rsID"),
+#                   data.table=F, stringsAsFactors=F) %>%
+#   mutate(variant = gsub("_",":",str_before_nth(VAR_ID, "_", 2))) %>%
+#   dplyr::filter(!duplicated(variant)) %>%
+#   dplyr::select(VAR_ID, rsID, variant)
 
+# if (loci_file=="query"){
+#   # print("Querying for locus names...")
+#   #======================================
+#   # The range and related information of genes were extracted from the provided database (Homo.sapiens).---hg19
+#   # Convert SNPS to gene ranges (GRanges) and find the nearest gene. 
+#   # The SNP and the nearest gene are mapped together to generate the final gene-SNP map.
+#   #======================================
+#   geneRanges <- function(db, column="ENTREZID"){
+#       g <- genes(db, columns=column)
+#       col <- mcols(g)[[column]]
+#       genes <- granges(g)[rep(seq_along(g), elementNROWS(col))]
+#       mcols(genes)[[column]] <- as.character(unlist(col))
+#       genes
+#   } # geneRanges function for Homo.sapiens
+# 
+#   gns = geneRanges(Homo.sapiens, column="SYMBOL")
+#   # need chr | start | end, with gene names for row names
+#   df_gns <- data.frame(gns)
+#   gtf.gene <- df_gns %>%
+#     mutate(chr = gsub("chr","",seqnames)) %>%
+#     dplyr::select(chr, start, end, SYMBOL)
+# 
+#     # need chr | start | end, with gene names for row names
+#   df_entrez <- geneRanges(Homo.sapiens, column="ENTREZID") %>%
+#     data.frame() %>%
+#     mutate(chr = gsub("chr","",seqnames)) %>%
+#     mutate(ChrPos = paste(chr,start,sep=":")) %>%
+#     dplyr::select(ChrPos, ENTREZID)
+#   #======================================
+#   
+#   
+#   #' Convert from string to range
+#   #' 
+#   #' @param pos A vector of strings ex. chr1 2938302 2938329
+#   #' @param delim Delimiter for string splitting
+#   #' @param region Boolean of whether region or just one position
+#   #'
+#   #' @returns Dataframe of ranges
+#   #' 
+#   string2range <- function(pos, delim=' ', region=TRUE) {
+#       posp <- as.data.frame(do.call(rbind, strsplit(pos, delim)))
+#       posp[,1] <- posp[,1]
+#   	posp[,2] <- as.numeric(as.character(posp[,2]))
+#   	if(region) {
+#           posp[,3] <- as.numeric(as.character(posp[,3]))
+#   	} else {
+#   	    posp[,3] <- posp[,2]
+#   	}
+#       return(posp)
+#   }
+#   
+#   #' Convert from ranges to GRanges
+#   #' 
+#   #' @param df Dataframe with columns as sequence name, start, and end
+#   #' 
+#   #' @returns GRanges version 
+#   #' 
+#   range2GRanges <- function(df) {
+#       require(GenomicRanges)
+#       require(IRanges)
+#   	gr <- GenomicRanges::GRanges(
+#           seqnames = df[,1],
+#           ranges=IRanges(start = df[,2], end = df[,3])
+#           )
+#       return(gr)
+#   }
+#   
+#   # convert SNPs to GRanges
+#   snps <- w$variant
+#   snps.ranges <- string2range(snps, delim=":", region=FALSE)
+#   snps.granges <- range2GRanges(snps.ranges)
+#   names(snps.granges) <- snps
+#   
+#   # convert genes to GRanges
+#   gtf.granges <- range2GRanges(gtf.gene)
+#   names(gtf.granges) <-  gtf.gene$SYMBOL  #gene.names
+#   
+#   hits <- GenomicRanges::nearest(snps.granges, gtf.granges)
+#   # make vector of SNPs to gene
+#   
+#   df_gns <- df_gns %>% 
+#     mutate(chr = gsub("chr","",seqnames)) %>%
+#     mutate(ChrPos = paste(chr,start,sep=":")) %>%
+#     dplyr::select(chr, start, end, ChrPos, SYMBOL) %>%
+#     merge(df_entrez, by="ChrPos")
+#   
+#   df_hits <- data.frame(gene=names(gtf.granges)[hits]) %>%
+#     mutate(variant = names(snps.granges)) %>%
+#     merge(df_gns[,c("SYMBOL","ENTREZID")], by.x="gene", by.y="SYMBOL") %>%
+#     filter(!duplicated(variant))
+# 
+#   w <- w %>%
+#     left_join(df_hits, by="variant") %>%
+#     mutate(gene = dplyr::coalesce(gene, variant)) # coalese fills in empty genes w/ variant
+#   
+#   } else if (is.character(loci_file) & !loci_file %in% c("query","ChrPos")) {
+#     
+#     # print("Mapping manually curated locus names to SNPs...")
+#     locus_map <- read.csv(loci_file, header = T, stringsAsFactors = F) %>%
+#       mutate(variant = paste(CHR,POS,sep=":"))
+#     
+#     w <- w %>%
+#       merge(locus_map[c("variant","Locus")], by="variant") %>%
+#       dplyr::rename(gene=Locus) %>%
+#       mutate(gene=make.unique(gene))
+# } else {
+#     # print("Using Chr:Pos for locus names...")
+#     w <- w %>%
+#       mutate(gene=variant)
+# }
+# 
+# w <- w %>%
+#   left_join(df_rsIDs, by = "variant")
+# 
+# cluster_names <- names(w)[names(w) %like% "X"]
+# 
+# w %>% #set_rownames(make.unique(.[,'gene'])) %>% # set_rownames(.[,"variant"])
+#   relocate(VAR_ID, gene, rsID) %>%
+#   dplyr::select(-c(variant,ENTREZID)) %>%
+#   DT::datatable(selection = 'none', filter = 'none', extensions = "FixedColumns",
+#                 options = list(paging = T, searching = TRUE,
+#                                info = T, sort = TRUE,
+#                                scrollX = F, pageLength=10,
+#                                fixedColumns = list(leftColumns = 3)),
+#     caption = htmltools::tags$caption(style = 'caption-side: top; text-align: center; color:black; font-size:150% ;','Variant Weights')) %>%
+#     DT::formatSignif(columns = cluster_names, digits=4) %>%
+#     formatStyle(cluster_names, backgroundColor=styleInterval(c(cutoff), c('white', 'springgreen'))) %>%
+#   formatStyle(c(0),backgroundColor='lightgray')
+
+```
+<br>
+
+```{r format_tbl_snps, fig.show='hold'}
 df_rsIDs <- fread(file.path(main_dir,"rsID_map.txt"),
                   # select = c(1:2),
                   # header=F,
                   # col.names=c("VAR_ID", "rsID"),
                   data.table=F, stringsAsFactors=F) %>%
   mutate(variant = gsub("_",":",str_before_nth(VAR_ID, "_", 2))) %>%
-  filter(!duplicated(variant)) %>%
+  dplyr::filter(!duplicated(variant)) %>%
   dplyr::select(VAR_ID, rsID, variant)
 
 if (loci_file=="query"){
   # print("Querying for locus names...")
+  #======================================
+  # The range and related information of genes were extracted from the provided database (Homo.sapiens).---hg19
+  # Convert SNPS to gene ranges (GRanges) and find the nearest gene. 
+  # The SNP and the nearest gene are mapped together to generate the final gene-SNP map.
+  #======================================
+  # geneRanges <- function(db, column="ENTREZID"){
+  #     g <- genes(db, columns=column)
+  #     col <- mcols(g)[[column]]
+  #     genes <- granges(g)[rep(seq_along(g), elementNROWS(col))]
+  #     mcols(genes)[[column]] <- as.character(unlist(col))
+  #     genes
+  # } # geneRanges function for Homo.sapiens
 
-
-  geneRanges <- function(db, column="ENTREZID"){
-      g <- genes(db, columns=column)
-      col <- mcols(g)[[column]]
-      genes <- granges(g)[rep(seq_along(g), elementNROWS(col))]
-      mcols(genes)[[column]] <- as.character(unlist(col))
-      genes
+  # gns = geneRanges(Homo.sapiens, column="SYMBOL")
+  # # need chr | start | end, with gene names for row names
+  # df_gns <- data.frame(gns)
+  # gtf.gene <- df_gns %>%
+  #   mutate(chr = gsub("chr","",seqnames)) %>%
+  #   dplyr::select(chr, start, end, SYMBOL)
+  # 
+  #   # need chr | start | end, with gene names for row names
+  # df_entrez <- geneRanges(Homo.sapiens, column="ENTREZID") %>%
+  #   data.frame() %>%
+  #   mutate(chr = gsub("chr","",seqnames)) %>%
+  #   mutate(ChrPos = paste(chr,start,sep=":")) %>% 
+  #   dplyr::select(ChrPos, ENTREZID)
+  #======================================
+  
+  #======================================
+  # The range and related information of genes were extracted from the provided database (org.Hs.eg.db).
+  # Convert SNPS to gene ranges (GRanges) and find the nearest gene. 
+  # The SNP and the nearest gene are mapped together to generate the final gene-SNP map.
+  #======================================
+  # Function to extract gene ranges from a specified database
+  # @param db The annotation database (TxDb object)
+  # @param column The metadata column to extract (e.g., SYMBOL or ENTREZID)
+  # @returns GRanges object with gene ranges
+  # geneRanges <- function(db, column = "ENTREZID") {
+  #   g <- genes(db, columns = column)  # Extract genes and their metadata
+  #   col <- mcols(g)[[column]]        # Get the specific metadata column
+  #   genes <- granges(g)[rep(seq_along(g), elementNROWS(col))]  # Expand rows for multiple mappings
+  #   mcols(genes)[[column]] <- as.character(unlist(col))  # Assign metadata to the GRanges object
+  #   genes
+  # }
+  
+  # Define the geneRanges function to extract gene ranges from a TxDb object
+  ah <- AnnotationHub(ask = FALSE) # ah <- AnnotationHub()
+  ensdb <- query(ah, "EnsDb.Hsapiens.v105")[[1]]  # Adjust index based on query results # # Find Ensembl database for GRCh38 # metadata(ensdb) # genome_build:GRCh38
+  
+  geneRanges <- function(db, column="symbol") {
+    g <- genes(db, columns = column)
+    col <- mcols(g)[[column]]
+    genes <- granges(g)[rep(seq_along(g), elementNROWS(col))]
+    mcols(genes)[[column]] <- as.character(unlist(col))
+    genes
   }
   
-  gns = geneRanges(Homo.sapiens, column="SYMBOL")
-  # need chr | start | end, with gene names for row names
-  df_gns <- data.frame(gns)
+  # Extract gene ranges with symbol column
+  gns <- geneRanges(ensdb, column="symbol") 
+  
+  # Convert gene ranges to a data frame and extract relevant columns
+  df_gns <- data.frame(gns) %>%
+    dplyr::rename(SYMBOL = symbol)
   gtf.gene <- df_gns %>%
-    mutate(chr = gsub("chr","",seqnames)) %>%
+    mutate(chr = gsub("chr", "", seqnames)) %>%
     dplyr::select(chr, start, end, SYMBOL)
   
-    # need chr | start | end, with gene names for row names
-  df_entrez <- geneRanges(Homo.sapiens, column="ENTREZID") %>%
+  # Extract gene ranges with entrezid column
+  df_entrez <- geneRanges(ensdb, column="entrezid") %>%
     data.frame() %>%
-    mutate(chr = gsub("chr","",seqnames)) %>%
-    mutate(ChrPos = paste(chr,start,sep=":")) %>% 
+    mutate(chr = gsub("chr", "", seqnames)) %>%
+    mutate(ChrPos = paste(chr, start, sep=":")) %>% 
+    dplyr::rename(ENTREZID = entrezid) %>% 
     dplyr::select(ChrPos, ENTREZID)
   
   #' Convert from string to range
@@ -359,8 +559,8 @@ if (loci_file=="query"){
   #' @returns Dataframe of ranges
   #' 
   string2range <- function(pos, delim=' ', region=TRUE) {
-      posp <- as.data.frame(do.call(rbind, strsplit(pos, delim)))
-      posp[,1] <- posp[,1]
+    posp <- as.data.frame(do.call(rbind, strsplit(pos, delim)))
+    posp[,1] <- posp[,1]
   	posp[,2] <- as.numeric(as.character(posp[,2]))
   	if(region) {
           posp[,3] <- as.numeric(as.character(posp[,3]))
@@ -369,13 +569,13 @@ if (loci_file=="query"){
   	}
       return(posp)
   }
+
   
   #' Convert from ranges to GRanges
   #' 
   #' @param df Dataframe with columns as sequence name, start, and end
   #' 
   #' @returns GRanges version 
-  #' 
   range2GRanges <- function(df) {
       require(GenomicRanges)
       require(IRanges)
@@ -408,7 +608,7 @@ if (loci_file=="query"){
   df_hits <- data.frame(gene=names(gtf.granges)[hits]) %>%
     mutate(variant = names(snps.granges)) %>%
     merge(df_gns[,c("SYMBOL","ENTREZID")], by.x="gene", by.y="SYMBOL") %>%
-    filter(!duplicated(variant))
+    dplyr::filter(!duplicated(variant))
 
   w <- w %>%
     left_join(df_hits, by="variant") %>%
@@ -474,7 +674,6 @@ h %>%
 ### Manhattan plot
 
 ```{r format_manhattan, fig.height=5, fig.width=12, fig.align="center"}
-
 max_w <- dplyr::mutate(w,
                           max_weight =  apply(w[cluster_names], 1, max ),
                           type = colnames(w[cluster_names])[max.col(w[cluster_names])] )
@@ -496,7 +695,7 @@ gwasResults <- df_gwas %>%
 defining_snps <- gwasResults %>%
   drop_na(SNP) %>%
   group_by(type) %>%
-  filter(max_weight == max(max_weight, na.rm=TRUE)) %>%
+  dplyr::filter(max_weight == max(max_weight, na.rm=TRUE)) %>%
   data.frame()
 
 don <- gwasResults %>% 
@@ -542,7 +741,7 @@ ggplot(don, aes(x=BPcum, y=P)) +
 
     # Add label using ggrepel to avoid overlapping
     geom_label_repel(data=subset(don, quantile_rank==10 | cluster_defining==T),
-                     aes(label=gene), size=2) +
+                     aes(label=gene), size=2,max.overlaps = Inf) +
 
     # Custom the theme:
     theme_bw() +
@@ -553,9 +752,6 @@ ggplot(don, aes(x=BPcum, y=P)) +
   labs(x='Chromosome', y='-log10(p)', fill='Cluster') +
   guides(fill=guide_legend(override.aes=list(shape=21))) +
   coord_cartesian(clip = "off")
-  
-
-
 ```
 
 

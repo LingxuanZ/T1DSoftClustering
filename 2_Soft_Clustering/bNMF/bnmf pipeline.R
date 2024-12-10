@@ -6,6 +6,7 @@ start=Sys.time()
 # load requires packages
 install.packages("devtools")
 install.packages("pacman")
+install.packages("cowplot")
 pacman::p_load(tidyverse, data.table, readxl, magrittr, dplyr, strex,
                rstudioapi, DT, kableExtra, GenomicRanges)
 
@@ -15,13 +16,23 @@ if (!require("BiocManager", quietly = TRUE))
 BiocManager::install("GenomicRanges")
 BiocManager::install("Homo.sapiens")
 BiocManager::install("ComplexHeatmap")
+BiocManager::install('ensembldb')
+BiocManager::install("TxDb.Hsapiens.UCSC.hg38.knownGene")
+
 library(devtools)
 devtools::install_github("CBIIT/LDlinkR")
 library(LDlinkR)
 library(readxl)
 library(magrittr)
+library(ggplot2)
 library(ggrepel)
+library(AnnotationHub)
+library(ensembldb)
 library(ComplexHeatmap)
+library(cowplot)
+# if (!requireNamespace("BiocManager", quietly = TRUE))
+#   install.packages("BiocManager")
+# BiocManager::install("ComplexHeatmap")
 # load('/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/test_results/pipeline_data.RData') # to load the saved environment variables (for debugging)
 
 # load project scripts containing bNMF functions
