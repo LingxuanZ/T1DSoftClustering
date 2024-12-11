@@ -5,6 +5,7 @@ output: html_document
 params:
   main_dir: NULL
   k: NULL
+  align_dir: NULL
   loci_file: "ChrPos"
   GTEx: FALSE
   my_traits: NULL
@@ -97,6 +98,7 @@ k <- params$k # NULL
 loci_file <- params$loci_file # loci_file <- "query"
 eval_GTEx <- params$GTEx  # GTEx <- F
 gwas_traits <- params$my_traits # my_traits <- gwas_traits
+align_dir <- params$align_dir
 
 # find majority K from run summary
 df_run_summary <- fread(file.path(main_dir,"run_summary.txt"),
@@ -120,7 +122,7 @@ h <- fread(sprintf("%s/L2EU.H.mat.%i.txt",main_dir,k),
   rename_at(
   vars(starts_with("X2hr")), function(x) {gsub("X","",x) })
 
-df_gwas <- fread(sprintf("%s/alignment_GWAS_summStats.csv",main_dir),
+df_gwas <- fread(sprintf("%s/alignment_GWAS_summStats.csv",align_dir),
                  stringsAsFactors = F, data.table=F)
 
 orig_traits <- colnames(h)
@@ -138,7 +140,7 @@ title: "Initial downstream analyses for the bNMF clustering, version k=`r k`"
 <div class = "column">
 ```{r format_trait_summary, echo = FALSE}
 
-trait_results <- fread(file.path(main_dir, "df_traits.csv"))
+trait_results <- fread(file.path(align_dir, "df_traits.csv"))
 
 trait_results %>%
   dplyr::count(result) %>%
@@ -464,7 +466,7 @@ cutoff_num_f = format(100*cutoff_num/numWeights, digits=2)
 <br>
 
 ```{r format_tbl_snps, fig.show='hold'}
-df_rsIDs <- fread(file.path(main_dir,"rsID_map.txt"),
+df_rsIDs <- fread(file.path(project_dir,"rsID_map.txt"),
                   # select = c(1:2),
                   # header=F,
                   # col.names=c("VAR_ID", "rsID"),
@@ -522,7 +524,7 @@ if (loci_file=="query"){
   
   # Define the geneRanges function to extract gene ranges from a TxDb object
   ah <- AnnotationHub(ask = FALSE) # ah <- AnnotationHub()
-  ensdb <- query(ah, "EnsDb.Hsapiens.v105")[[1]]  # Adjust index based on query results # # Find Ensembl database for GRCh38 # metadata(ensdb) # genome_build:GRCh38
+  ensdb <- query(ah, "EnsDb.Hsapiens.v101")[[1]]# ensdb <- query(ah, "EnsDb.Hsapiens.v105")[[1]]  # Adjust index based on query results # # Find Ensembl database for GRCh38 # metadata(ensdb) # genome_build:GRCh38
   
   geneRanges <- function(db, column="symbol") {
     g <- genes(db, columns = column)
