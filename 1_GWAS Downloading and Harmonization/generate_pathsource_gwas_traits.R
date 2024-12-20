@@ -145,4 +145,5 @@ writeData(wb, sheet = "trait_gwas", x = combined_data) # Overwrite the "trait_gw
 saveWorkbook(wb, file_path, overwrite = TRUE) # Save the workbook
 cat("Data successfully added to the 'trait_gwas' sheet.\n")
 
+# remember to modify N: because each SNP has different sample size!!!!
 
