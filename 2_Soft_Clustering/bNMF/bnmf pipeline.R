@@ -39,6 +39,7 @@ library(cowplot)
 source("./prep_bNMF.R")  # fetch_summary_stats & prep_z_matrix
 source("./bnmf-clustering/scripts/run_bNMF.R")  # run_bNMF & summarize_bNMF
 source('./choose_variants.R') # ld_pruning, count_traits_per_variant, fina_variants_needing_proxies, & choose_potential_proxies
+source("./exclude_genes.R")
 
 # USER INPUTS
 project_dir = '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/test_results' # path to where you want results saved
@@ -398,7 +399,8 @@ if (is.null(k)){
 rmarkdown::render(
   './format_bNMF_results.Rmd',
   output_file = html_filename,
-  params = list(main_dir = project_dir,
+  params = list(main_dir = project_final_dir,
+                align_dir = project_dir,
                 k = k,
                 loci_file="query",
                 GTEx=F,
@@ -407,6 +409,80 @@ rmarkdown::render(
 
 
 #----
+# Section 12.) Run bNMF using final_zscore_matrix excluding genes w/ text: "HLA"
+project_final_dir_wo_HLA <- "./final_test_results_wo_HLA"
+final_zscore_matrix_wo_HLA <- exclude_genes_with_annotation(final_zscore_matrix,with_text="HLA")
+bnmf_reps_wo_HLA <- run_bNMF(final_zscore_matrix_wo_HLA,
+                      n_reps=25,
+                      tolerance = 1e-6)
+summarize_bNMF(bnmf_reps_wo_HLA, dir_save=project_final_dir_wo_HLA)
+
+# format results
+k <- NULL
+if (is.null(k)){
+  html_filename <- file.path(project_final_dir_wo_HLA, "results_for_maxK.html")
+} else {
+  html_filename <- sprintf(file.path(project_final_dir_wo_HLA, "results_for_K_%i.html"), k)
+}
+
+rmarkdown::render(
+  './format_bNMF_results.Rmd',
+  output_file = html_filename,
+  params = list(main_dir = project_final_dir_wo_HLA,
+                align_dir = project_dir,
+                k = k,
+                loci_file="query",
+                GTEx=F,
+                my_traits=gwas_traits)
+)
+
+
+#----
+# Section 13.) Run bNMF using final_zscore_matrix excluding genes within chr6:20Mb-40Mb
+project_final_dir_wo_chr6_20_40 <- "./final_test_results_wo_chr6_20_40"
+
+rownames_df <- data.frame(
+  rownames = rownames(final_zscore_matrix),
+  stringsAsFactors = FALSE
+)
+
+rownames_df <- transform(
+  rownames_df,
+  chr = sub(":.*", "", rownames),
+  pos = as.numeric(sub(".*:", "", rownames))
+)
+
+filtered_rows <- with(
+  rownames_df,
+  !(chr == "6" & pos >= 20000000 & pos <= 40000000)
+)
+
+final_zscore_matrix_wo_chr6_20_40 <- final_zscore_matrix[filtered_rows, ]
+bnmf_reps_wo_chr6_20_40 <- run_bNMF(final_zscore_matrix_wo_chr6_20_40,
+                             n_reps=25,
+                             tolerance = 1e-6)
+summarize_bNMF(bnmf_reps_wo_chr6_20_40, dir_save=project_final_dir_wo_chr6_20_40)
+
+# format results
+k <- NULL
+if (is.null(k)){
+  html_filename <- file.path(project_final_dir_wo_chr6_20_40, "results_for_maxK_wo_chr6_20_40.html")
+} else {
+  html_filename <- sprintf(file.path(project_final_dir_wo_chr6_20_40, "results_for_K_%i_wo_chr6_20_40.html"), k)
+}
+
+rmarkdown::render(
+  './format_bNMF_results.Rmd',
+  output_file = html_filename,
+  params = list(main_dir = project_final_dir_wo_chr6_20_40,
+                align_dir = project_dir,
+                k = k,
+                loci_file="query",
+                GTEx=F,
+                my_traits=gwas_traits)
+)
+
+
 
 
 

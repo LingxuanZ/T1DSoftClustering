@@ -114,3 +114,35 @@ writeData(wb, "trait_gwas", trait_gwas)
 # Save the workbook
 save_dir <- '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats'
 saveWorkbook(wb, file.path(save_dir,"gwas_traits.xlsx"), overwrite = TRUE)
+
+
+######## Add Metabolic trait GWASs
+save_dir <- '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats'
+file_path <- file.path(save_dir, "gwas_traits.xlsx")
+traits <- c("diamante_T2D-European","diamante_T2Dbmiadj-European","childhood-bmi_7years",
+            "childhood-bmi_3years", "MAGIC_HbA1c-EUR","MAGIC_FI-EUR(negative control trait)",
+            "MAGIC_FG-EUR","cardio-ukbb_CAD(negative control trait)")
+file <- c("diamante_T2D-European.bed.gz","diamante_T2Dbmiadj-European.bed.gz","childhood-bmi_7years.bed.gz",
+          "childhood-bmi_3years.bed.gz","MAGIC_HbA1c-EUR.bed.gz","MAGIC_FI-EUR.bed.gz",
+          "MAGIC_FG-EUR.bed.gz","cardio-ukbb_CAD.bed.gz")
+root_path <- rep("/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data", length(traits))
+N <- rep(0, length(traits))
+type <- rep("Metabolic", length(traits))
+full_path = file.path(root_path,file)
+new_data <- data.frame(
+  type = type,
+  trait = traits,
+  root_path = root_path,
+  file = file,
+  full_path = full_path,
+  N = N,
+  stringsAsFactors = FALSE
+)
+wb <- loadWorkbook(file_path) # Load the existing workbook
+existing_data <- read.xlsx(wb, sheet = "trait_gwas") # Write the new data to the "trait_gwas" sheet (append to existing data)
+combined_data <- rbind(existing_data, new_data)
+writeData(wb, sheet = "trait_gwas", x = combined_data) # Overwrite the "trait_gwas" sheet with the updated data
+saveWorkbook(wb, file_path, overwrite = TRUE) # Save the workbook
+cat("Data successfully added to the 'trait_gwas' sheet.\n")
+
+
