@@ -70,6 +70,10 @@ main_ss_filepath <- gwas %>% pull(full_path)
 gwas_ss_files <- setNames(gwas$full_path, gwas$study)
 trait_ss_files <- setNames(gwas_traits$full_path, gwas_traits$trait)
 trait_ss_size <- setNames(gwas_traits$N, gwas_traits$trait)
+metabolic_traits <- c("diamante_T2D-European","diamante_T2Dbmiadj-European","childhood-bmi_7years",
+            "childhood-bmi_3years", "MAGIC_HbA1c-EUR","MAGIC_FI-EUR(negative control trait)",
+            "MAGIC_FG-EUR","cardio-ukbb_CAD(negative control trait)")
+metabolic_trait_ss_files <- trait_ss_files[metabolic_traits]
 
 #------------------------------------------------
 
@@ -127,7 +131,7 @@ save.image(file = file.path(project_dir, "pipeline_data.RData"))
 
 #------------------------------------------------
 
-# SECTION 3: VARIANT PRUNING (LD-BASED)
+# SECTION 3: VARIANT PRUNING (LD-BASED) for MAIN TRAIT GWAS
 
 # LD pruning
 print("LD-pruning using EUR panel in LDlinkR::SNPclip...")
@@ -174,18 +178,21 @@ save.image(file = file.path(project_dir, "pipeline_data.RData"))
 
 #------------------------------------------------
 
-# SECTION 4: VARIANT MISSINGNESS
+# SECTION 4: VARIANT MISSINGNESS: connect Main GWAS and Trait GWASs
 # The missing ratio represents the fraction of selected SNPs from the main GWAS that are present across all trait GWAS for each SNP.
 # Calculate the proportion of non-missing values in each row.
 
-sample_size_traitGWAS <- gwas_traits$N
+sample_size_traitGWAS <- gwas_traits$N # trait_ss_size
 
 print("Searching for variants in trait GWAS...")
 gwas_variants <- pruned_vars$VAR_ID
+# Use parallel programming
 df_Ns <- count_traits_per_variant(gwas_variants,
                                   ss_files = trait_ss_files,
-                                  sample_size = sample_size_traitGWAS,
+                                  sample_size = sample_size_traitGWAS, # trait_ss_size
                                   savepath_varid="/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF/test_results/all_snps_varids.tmp")
+#############modify Ns for the eight metabolic traits!!!!!! 
+#####All metabolic trait GWASs have no common SNPs with the main T1D GWAS after LD pruning. I assume the solution should involve using a different LD pruning strategy on the main T1D GWAS, as only 371 SNPs remain in the main GWAS right now.
 save.image(file = file.path(project_dir, "pipeline_data.RData"))
 
 # fix column names
