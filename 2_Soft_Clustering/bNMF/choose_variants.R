@@ -105,7 +105,7 @@ ld_prune <- function(df_snps,
 }
 
 
-count_traits_per_variant <- function(gwas_variants, ss_files,sample_size,savepath_varid) {
+count_traits_per_variant <- function(gwas_variants, ss_files,sample_size,savepath_varid,savepath_varid_inverse) {
   
   # Given a vector of variants, a vector of sample_size, the savepath of selected var_id_grch38 for main GWAS 
   # and a named vector of summary statistics files for traits to be clustered, output a vector of non-missing 
@@ -119,7 +119,12 @@ count_traits_per_variant <- function(gwas_variants, ss_files,sample_size,savepat
   
   
   print("Assessing variant missingness across traits...")
+  swap_RefAlt <- function(x) {
+    sub("^(.*_)([^_]+)_([^_]+)$", "\\1\\3_\\2", x)
+  }
+  gwas_variants_inverse <- unname(sapply(gwas_variants, swap_RefAlt)) # Since the .bed.gz files don't use the same varid coding method, I need to check whether switching the reference and alternate alleles would include more variants.
   write(gwas_variants, savepath_varid)
+  write(gwas_variants_inverse,savepath_varid_inverse)
   
   numCores <- detectCores() - 1 # Define the number of cores to use, leaving one core for the system
   variant_df_list <- mclapply(1:length(ss_files), function(i) { # Use mclapply for parallel processing; mclapply is the parallel version of lapply.
@@ -134,20 +139,48 @@ count_traits_per_variant <- function(gwas_variants, ss_files,sample_size,savepat
       stop("Error: 'hm_variant_id' column not found in headers.")
     }
     
-    if (endsWith(ss_files[i],".gz")) {
+    if (endsWith(ss_files[i], ".bed.gz")) {
+      n_index <- which(headers == "n_complete_samples")
+      df_bed <- fread(
+        cmd = sprintf("gzip -cd '%s' | cut -f%d,%d | fgrep -wf '%s'", ss_files[i],n_index, hm_variant_id_index, savepath_varid),
+        header = F,
+        col.names =  c("N","hm_variant_id"),
+        data.table = F,
+        stringsAsFactors = F
+      )
+      df_bed_inverse <- fread(
+        cmd = sprintf("gzip -cd '%s' | cut -f%d,%d | fgrep -wf '%s'", ss_files[i], n_index,hm_variant_id_index, savepath_varid_inverse),
+        header = F,
+        col.names = c("N","hm_variant_id"),
+        data.table = F,
+        stringsAsFactors = F
+      )
+      df_bed_inverseback <- as.data.frame(sapply(df_bed_inverse, swap_RefAlt))
+      df <- rbind(df_bed,df_bed_inverseback)
+      df <- df[, c("hm_variant_id", "N")]
+      df$N <- as.numeric(df$N) # otherwise, it is a integer column, and cannot be merged with GWAS-Catalog files (have a double-type column).
+    } else if (endsWith(ss_files[i],".tsv.gz")) {
       df <- fread(
         cmd = sprintf("gzip -cd '%s' | cut -f%d | fgrep -wf '%s'", ss_files[i], hm_variant_id_index, savepath_varid),
         header = F,
         col.names = "hm_variant_id",
         data.table = F,
-        stringsAsFactors = F
-      )
+        stringsAsFactors = F)
+      # df_inverse<- fread(
+      #   cmd = sprintf("gzip -cd '%s' | cut -f%d | fgrep -wf '%s'", ss_files[i], hm_variant_id_index, savepath_varid_inverse),
+      #   header = F,
+      #   col.names = "hm_variant_id",
+      #   data.table = F,
+      #   stringsAsFactors = F
+      # ) # For GWASs downloaded from GWAS Catalog, all df_inverse's are NULL data frames.
+      df$N <- sample_size[i]
     } else {
       df <- fread(cmd=sprintf("cut -f%d |fgrep -wf %s %s", hm_variant_id_index, savepath_varid, ss_files[i]),
                   header=F,
                   col.names="hm_variant_id",
                   data.table=F,
                   stringsAsFactors=F)
+      df$N <- sample_size[i]
     }
     end_time_i <- Sys.time()  # End time
     time_taken <- as.numeric(end_time_i - start_time_i, units = "mins")  # Calculate duration
@@ -157,11 +190,12 @@ count_traits_per_variant <- function(gwas_variants, ss_files,sample_size,savepat
   }, mc.cores = numCores)  # mc.cores parameter specifies the number of parallel processes to run.
   
   # make dataframe of Ns
-  df_N <- lapply(seq_along(variant_df_list), function(i) {
-    variant_df_list[[i]]$N <- sample_size[i]  # Add a new column 'N' with the value sample_size[i]
-    variant_df_list[[i]]  # Return the modified data frame
-  })
-  df_N <- df_N %>%
+  # df_N <- lapply(seq_along(variant_df_list), function(i) {
+  #   variant_df_list[[i]]$N <- sample_size[i]  # Add a new column 'N' with the value sample_size[i]
+  #   variant_df_list[[i]]  # Return the modified data frame
+  # })
+  
+  df_N <- variant_df_list %>%
     setNames(names(ss_files)) %>%
     bind_rows(.id="trait") # %>%
     # pivot_wider(names_from="trait", values_from="N") %>%

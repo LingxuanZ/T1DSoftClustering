@@ -30,26 +30,37 @@ fetch_summary_stats <- function(df_variants, gwas_ss_file, trait_ss_files, trait
     print(paste0("Processing ", trait, "..."))
     headers <- as.character(fread(trait_ss_files[[trait]], nrows=1,
                                   data.table=F, stringsAsFactors=F, header=F))
-    if (endsWith(trait_ss_files[[trait]],".gz")) {
+    if (endsWith(trait_ss_files[[trait]], ".bed.gz")) {
       df <- fread(cmd = sprintf("gzip -cd '%s' | grep -Ff ./test_results/all_snps_pos.tmp", trait_ss_files[[trait]]),
                   header = F, col.names = headers,
                   data.table = F, stringsAsFactors = F)
+    } else if (endsWith(trait_ss_files[[trait]],".tsv.gz")) {
+      df <- fread(cmd = sprintf("gzip -cd '%s' | grep -Ff ./test_results/all_snps_pos.tmp", trait_ss_files[[trait]]),
+                  header = F, col.names = headers,
+                  data.table = F, stringsAsFactors = F)
+      if (!is.na(trait_ss_size[[trait]])) {     #(!("N_PH" %in% names(df)))
+        cat("Using trait_ss_size for GWAS size!\n")
+        df$N_PH <- unique(trait_ss_size[[trait]])
+      }
     } else {
       df <- fread(cmd=sprintf("grep -Ff ./test_results/all_snps_pos.tmp '%s' ", trait_ss_files[[trait]]),
                       header=F, col.names=headers,
                       data.table=F, stringsAsFactors=F)
+      if (!is.na(trait_ss_size[[trait]])) {     #(!("N_PH" %in% names(df)))
+        cat("Using trait_ss_size for GWAS size!\n")
+        df$N_PH <- unique(trait_ss_size[[trait]])
+      }
     }
-    if (!is.na(trait_ss_size[[trait]])) {     #(!("N_PH" %in% names(df)))
-      cat("Using trait_ss_size for GWAS size!\n")
-      df$N_PH <- unique(trait_ss_size[[trait]])
-    }
+    
     rename_cols <- c(hm_variant_id="VAR_ID_grch38",
                      N_PH="N",
+                     N_PH="n_complete_samples",
                      hm_beta="beta",
                      standard_error="se",
                      standard_error="SE",
                      p_value="P_VALUE",
                      p_value="FTOP_p_value_meta",
+                     p_value="pval",
                      z="Zscore",
                      z="ZSCORE")
     valid_rename_cols <- rename_cols[!names(rename_cols) %in% names(df)]
@@ -116,8 +127,6 @@ fetch_summary_stats <- function(df_variants, gwas_ss_file, trait_ss_files, trait
   my_vars <- c('SNP', 'ALT', 'REF', 'Risk_Allele', 'Nonrisk_Allele', 'p_value', 'hm_beta', 'standard_error', 'z')
   gwas_ss <- gwas_ss %>%
     select(any_of(my_vars))
-  
-  print(head(gwas_ss))
   
   print("Merging formatted GWAS with final variant vector...")
   variant_df <- df_variants %>%
