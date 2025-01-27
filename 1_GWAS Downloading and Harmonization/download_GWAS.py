@@ -6,6 +6,7 @@
 
 import os
 import requests
+import re
 from bs4 import BeautifulSoup
 
 ############### accession numbers input ############### 
@@ -125,3 +126,55 @@ for key, accession_number in accession_numbers_dict.items():
     else:
         print(f"The directort: {directory_url} doesn't exist")
 ######################################################################
+
+
+
+####################### Download the additional Autoimmune GWAS data #######################  
+accession_numbers_dict_new1 = {
+    "Autoimmune_Ankylosing_spondylitis": "GCST005529", 
+    "Autoimmune_Inflammatory_bowel_disease": "GCST90446792",
+    "Autoimmune_thyroid_Graves_disease": "GCST90018847",
+    "Autoimmune_thyroid_Hashimotos_disease": "GCST90018855",
+    "Autoimmune_Celiac": "GCST005523"
+}
+save_directory = '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data' # '/home/zhulx/Parker Lab/T1D Soft Clustering/Data/GWAS summary stats/Original Data'
+# save_directory = '/nfs/turbo/umms-scjp/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data'
+# Iterate over the accession numbers and find the corresponding files
+for key, accession_number in accession_numbers_dict_new1.items():
+    if accession_number[4:][0] != "0": 
+        # Define the directory URL based on the accession number range
+        accession_range_start = int(accession_number[4:]) // 1000 * 1000 + 1
+        if accession_range_start > int(accession_number[4:]):
+            accession_range_start = accession_range_start-1000
+        accession_range_end = accession_range_start + 999
+        directory_url = f"https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST{accession_range_start}-GCST{accession_range_end}/{accession_number}/harmonised/"
+    else:
+        character = accession_number[4:]
+        match = re.match(r"0*", character)
+        leading_zeros = match.group() if match else ""
+        accession_range_start = int(accession_number[4:]) // 1000 * 1000 + 1
+        if accession_range_start > int(accession_number[4:]):
+            accession_range_start = accession_range_start-1000
+        accession_range_end = accession_range_start + 999
+        directory_url = f"https://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST{leading_zeros}{accession_range_start}-GCST{leading_zeros}{accession_range_end}/{accession_number}/harmonised/"
+
+    if file_exists(directory_url):
+        # Find the file in the directory that ends with .h.tsv.gz
+        matching_file_url = find_matching_file(directory_url, suffix=".h.tsv.gz")
+        
+        if matching_file_url:
+            # Extract the file name from the URL
+            file_name_from_url = os.path.basename(matching_file_url)
+            
+            # Define the local filename as {key}_{file_name_from_url}
+            filename = os.path.join(save_directory, f"{key}_{file_name_from_url}")
+            
+            # Download the file
+            download_file(matching_file_url, filename)
+        else:
+            # Print out the directory URL if no matching file is found
+            print(f"No matching file found in: {directory_url}")
+    else:
+        print(f"The directort: {directory_url} doesn't exist")
+######################################################################  
+

@@ -348,7 +348,8 @@ choose_proxies <- function(need_proxies,
       proxy_variants,
       trait_ss_files,
       sample_size = sample_size_traitGWAS,
-      savepath_varid="./test_results/all_snps_varids_proxies.tmp"
+      savepath_varid="./test_results/all_snps_varids_proxies.tmp",
+      savepath_varid_inverse = "./test_results/all_snps_varids_proxies_inverse.tmp"
     )
 
     # get proxy missingness

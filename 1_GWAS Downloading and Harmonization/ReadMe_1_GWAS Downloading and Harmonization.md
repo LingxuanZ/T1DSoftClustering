@@ -68,6 +68,10 @@ accession_numbers_dict = {
 
 See see details in **download_GWAS.py file** 
 
+==**For Metabolic traits, remember to modify the `N` values, as each SNP has a different sample size.**==
+
+
+
 # 2 Harmonise GWAS ---- no need to harmonize, since the data from GWAS Catalog harmonised folder has already been hormonised.
 
 ## 2.0 Add a new column: hm_variant_id (required)
@@ -201,15 +205,79 @@ mv "$save_dir/${file%.gz}_temp" "$save_dir/${file%.gz}" # Overwrite the original
 gzip -f "$save_dir/${file%.gz}"    # Recompress the modified file
 ```
 
+Autoimmune_Inflammatory_bowel_disease: Rename variant_id and rsid into hm_variant_id and hm_rsid (grch38 confirmed).
+
+```sh
+#!/bin/bash
+
+# Define file paths
+source_dir="/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data"
+old_dir="${source_dir}/old"
+
+# Create a directory to store old files
+mkdir -p "$old_dir"
+
+# Find all .tsv.gz files starting with "Autoimmune_Rheumatoid_Arthritis" and process them
+for file in "$source_dir"/Autoimmune_Inflammatory_bowel_disease*.tsv.gz; do
+    # Get the filename (without path)
+    filename=$(basename "$file")
+    # Move the file to the old directory
+    mv "$file" "$old_dir"
+done
 
 
-## 2.1  Liftover (optional)
+# Find all .tsv.gz files starting with "Autoimmune_Rheumatoid_Arthritis" and process them
+for file in "$old_dir"/Autoimmune_Inflammatory_bowel_disease*.tsv.gz; do
+    # Get the filename (without path)
+    filename=$(basename "$file")
+    # Unzip, rename the column, and save the file in the original directory with the same filename
+    zcat "$old_dir/$filename" | \
+    awk 'BEGIN {OFS="\t"}
+        NR==1 {
+            for (i=1; i<=NF; i++) {
+                if ($i == "variant_id") $i = "hm_variant_id";
+                else if ($i == "rsid") $i = "hm_rsid";
+            }
+        }
+        {print $0}' | \
+    gzip > "$source_dir/$filename"
+done
+```
+
+## 2.1 Delete duplicated SNPs
+
+the row for Autoimmune_Ankylosing_spondylitis with 16_11285918_T_C is duplicated.---remain the first row and delete the second row.
+
+```sh
+source_dir="/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data"
+old_dir="${source_dir}/old"
+file="${source_dir}/Autoimmune_Ankylosing_spondylitis_23749187-GCST005529-EFO_0003898.h.tsv.gz"
+mkdir -p "$old_dir"
+mv "$file" "$old_dir"
+
+input_file="/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data/old/Autoimmune_Ankylosing_spondylitis_23749187-GCST005529-EFO_0003898.h.tsv.gz"
+output_file="/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data/Autoimmune_Ankylosing_spondylitis_23749187-GCST005529-EFO_0003898.h.tsv.gz"
+
+zcat "$input_file" | awk -F'\t' '
+BEGIN { OFS = FS }
+NR == 1 { print; next }  # print the first row (colnames)
+$1 == "16_11285918_T_C" {
+    if (!seen[$1]++) print
+    next
+}
+{ print }
+' | gzip > "$output_file"
+```
+
+
+
+## 2.2  Liftover (optional)
 
 Before merging, ensure that allele directions are consistent across all datasets.
 
 Ensure Consistent Reference Panels.
 
-### 2.1.1 Install liftover
+### 2.2.1 Install liftover
 
 ```sh
 # {sh}
@@ -227,7 +295,7 @@ conda config --add channels conda-forge
 conda install -c bioconda ucsc-liftover
 ```
 
-### 2.1.2 use liftover
+### 2.2.2 use liftover
 
 #### For vcf
 
@@ -317,7 +385,7 @@ bcftools sort -o ALL.wgs.phase3_shapeit2_mvncall_integrated_v5c.20130502.sites.h
 
 
 
-## 2.2 Variant allele alighment (rel-alt and alt-ref)----no need, been harmonised already (optional)
+## 2.3 Variant allele alighment (rel-alt and alt-ref)----no need, been harmonised already (optional)
 
 
 

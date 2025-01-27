@@ -34,6 +34,7 @@ library(cowplot)
 #   install.packages("BiocManager")
 # BiocManager::install("ComplexHeatmap")
 # load('./test_results/pipeline_data.RData') # to load the saved environment variables (for debugging)
+load('./test_results/pipeline_data_wo_corr.RData')
 
 # load project scripts containing bNMF functions
 source("./prep_bNMF.R")  # fetch_summary_stats & prep_z_matrix
@@ -43,9 +44,10 @@ source("./exclude_genes.R")
 
 # USER INPUTS
 project_dir = './test_results' # path to where you want results saved
-project_final_dir = './final_test_results'
+# project_final_dir = './final_test_results'
+project_final_dir = './final_test_results_wo_corrImmCell'
 user_token = 'ac846b46f561' # 'cb5457b210a6' # token for LDlinkR api
-rsID_map_file = '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/rsid_map_fromMainGWAS.txt'
+rsID_map_file = '../Data/GWAS summary stats/rsid_map_fromMainGWAS.txt' # '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/rsid_map_fromMainGWAS.txt'
 
 # create project folder 
 dir.create(project_dir)
@@ -54,7 +56,7 @@ dir.create(project_dir)
 
 # SECTION 1: PULL IN GWAS INFORMATION
 
-data_dir =  '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats'
+data_dir =  '../Data/GWAS summary stats' # '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats'
 # no need for rsID_map_file since GWAS data contains the rsIDs
 
 # GWAS for main trait
@@ -127,7 +129,8 @@ vars_sig_noIndels <- vars_sig_uniq %>%
   select(VAR_ID, PVALUE, Risk_Allele, GWAS)
 print(paste("No. SNPs excluding indels:",nrow(vars_sig_noIndels)))
 
-save.image(file = file.path(project_dir, "pipeline_data.RData"))
+# save.image(file = file.path(project_dir, "pipeline_data.RData"))
+save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
 #------------------------------------------------
 
@@ -173,8 +176,8 @@ pruned_vars <- vars_sig_noIndels %>%
   filter(ChrPos %in% df_clipped_kept$Position)
 print(sprintf("T1D SNPs pruned from %i to %i...", nrow(vars_sig_noIndels), nrow(pruned_vars)))
 
-save.image(file = file.path(project_dir, "pipeline_data.RData"))
-
+# save.image(file = file.path(project_dir, "pipeline_data.RData"))
+save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
 #------------------------------------------------
 
@@ -192,10 +195,11 @@ df_Ns <- count_traits_per_variant(gwas_variants,
                                   sample_size = sample_size_traitGWAS, # trait_ss_size
                                   savepath_varid="./test_results/all_snps_varids.tmp",
                                   savepath_varid_inverse="./test_results/all_snps_varids_inverse.tmp")
-# i=1-737: Autoimmune_Rheumatoid_Arthritis & immune cell
-# i=738-745: Metabolic
+# i=1-737: Autoimmune_Rheumatoid_Arthritis & immune cell # w_corr
+# i=738-745: Metabolic # w_corr
 # using a different LD pruning strategy on the main T1D GWAS, as only 371 SNPs remain in the main GWAS right now. (?)
-save.image(file = file.path(project_dir, "pipeline_data.RData"))
+# save.image(file = file.path(project_dir, "pipeline_data.RData"))
+save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
 # fix column names
 df_Ns_rev <- df_Ns %>%
@@ -216,7 +220,8 @@ var_nonmissingness <- ifelse(
 )
 var_nonmissingness <- setNames(var_nonmissingness, gwas_variants)
 
-save.image(file = file.path(project_dir, "pipeline_data.RData"))
+# save.image(file = file.path(project_dir, "pipeline_data.RData"))
+save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
 #----
 
@@ -226,14 +231,15 @@ print("Identifying variants needing proxies...")
 proxies_needed_df <- find_variants_needing_proxies(gwas_variant_df=pruned_vars,
                                                    var_nonmissingness=var_nonmissingness,
                                                    rsID_map_file = rsID_map_file,
-                                                   missing_cutoff = 0.8)
+                                                   missing_cutoff = 0.3) # 0.8 or 0.5 or 0.3?
 # [1] "Choosing variants in need of proxies..."
 # [1] "...63 strand-ambiguous variants"
 # [1] "...0 multi-allelic variants"
 # [1] "...81 variants with excessive missingness" # 371-81=290---I guess this might be caused by immune cell GWAS(highly similar SNPs)
-# [1] "...129 unique variants in total"
+# [1] "...129 unique variants in total in need of proxies"
 # [1] "...129 of these are mapped to rsIDs"
-save.image(file = file.path(project_dir, "pipeline_data.RData"))
+# save.image(file = file.path(project_dir, "pipeline_data.RData"))
+save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
 
 #----
@@ -247,14 +253,17 @@ proxy_search_results <- choose_proxies(need_proxies = proxies_needed_df,
                                        trait_ss_files = trait_ss_files,
                                        pruned_variants = pruned_vars,
                                        population="EUR")
+# proxy_df saved at "./combined_query_snp_list_grch38.txt"
 write.csv(as.data.frame(proxy_search_results),  file.path(project_dir, "proxy_search_results.csv"), row.names = FALSE)
+# proxy_search_results <- read.csv(file.path(project_dir, "proxy_search_results.csv"), stringsAsFactors = FALSE)
 
 df_proxies <- proxy_search_results %>%
   dplyr::select(hm_variant_id, proxy_VAR_ID) %>%
   dplyr::inner_join(pruned_vars[,c("VAR_ID","GWAS")], by=c("hm_variant_id"="VAR_ID")) %>%
   mutate(Risk_Allele=NA, PVALUE=NA) # add two new NA columns: Risk_Allele and PVALUE
 
-save.image(file = file.path(project_dir, "pipeline_data.RData"))
+# save.image(file = file.path(project_dir, "pipeline_data.RData"))
+save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
 
 #----
@@ -292,7 +301,8 @@ initial_zscore_matrices <- fetch_summary_stats(
 )
 saveRDS(initial_zscore_matrices, file = file.path(project_dir,"initial_zscore_matrices.rds"))
 
-save.image(file = file.path(project_dir, "pipeline_data.RData"))
+# save.image(file = file.path(project_dir, "pipeline_data.RData"))
+save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 # system(sprintf("mv alignment_GWAS_summStats.csv '%s'", project_dir))
 
 #----
@@ -323,7 +333,8 @@ write_delim(x=df_rsIDs_final,
             file = file.path(project_dir, "rsID_map.txt"),
             col_names = T)
 
-save.image(file = file.path(project_dir, "pipeline_data.RData"))
+# save.image(file = file.path(project_dir, "pipeline_data.RData"))
+save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
 
 #----
@@ -343,7 +354,8 @@ initial_zscore_matrices_final <- fill_missing_zscores(initial_zscore_matrices,
                                                       rsID_map_file,
                                                       method_fill="median",
                                                       population="EUR")
-save.image(file = file.path(project_dir, "pipeline_data.RData"))
+# save.image(file = file.path(project_dir, "pipeline_data.RData"))
+save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
 
 #----
@@ -377,7 +389,8 @@ print(sprintf("Final matrix: %i SNPs x %i traits",
               nrow(final_zscore_matrix),
               ncol(final_zscore_matrix)/2))
 
-save.image(file = file.path(project_dir, "pipeline_data.RData"))
+# save.image(file = file.path(project_dir, "pipeline_data.RData"))
+save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
 #----
 
@@ -397,7 +410,8 @@ summarize_bNMF(bnmf_reps, dir_save=project_final_dir)
 # W_plot_K.pdf and H_plot_K.pdf: Heatmaps for each K, visualizing the associations in the W and H matrices.
 
 # The summarized result  identify the most meaningful number of clusters (K), and visualize the W and H matrices. 
-save.image(file = file.path(project_dir, "pipeline_data.RData"))
+# save.image(file = file.path(project_dir, "pipeline_data.RData"))
+save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
 # end=Sys.time()
 # print("Total pipeline runtime:")
@@ -427,7 +441,8 @@ rmarkdown::render(
 
 #----
 # Section 12.) Run bNMF using final_zscore_matrix excluding genes w/ text: "HLA"
-project_final_dir_wo_HLA <- "./final_test_results_wo_HLA"
+# project_final_dir_wo_HLA <- "./final_test_results_wo_HLA"
+project_final_dir_wo_HLA <- "./final_test_results_wo_corrImmCell_wo_HLA"
 final_zscore_matrix_wo_HLA <- exclude_genes_with_annotation(final_zscore_matrix,with_text="HLA")
 bnmf_reps_wo_HLA <- run_bNMF(final_zscore_matrix_wo_HLA,
                       n_reps=25,
@@ -456,7 +471,7 @@ rmarkdown::render(
 
 #----
 # Section 13.) Run bNMF using final_zscore_matrix excluding genes within chr6:20Mb-40Mb
-project_final_dir_wo_chr6_20_40 <- "./final_test_results_wo_chr6_20_40"
+project_final_dir_wo_chr6_20_40 <- "./final_test_results_wo_corrImmCell_wo_chr6_20_40"
 
 rownames_df <- data.frame(
   rownames = rownames(final_zscore_matrix),
