@@ -44,8 +44,10 @@ source("./exclude_genes.R")
 
 # USER INPUTS
 project_dir = './test_results' # path to where you want results saved
+project_dir = './test_results_Euro'
 # project_final_dir = './final_test_results'
 project_final_dir = './final_test_results_wo_corrImmCell'
+project_final_dir = './final_test_results_EUR_wo_corrImmCell'
 user_token = 'ac846b46f561' # 'cb5457b210a6' # token for LDlinkR api
 rsID_map_file = '../Data/GWAS summary stats/rsid_map_fromMainGWAS.txt' # '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/rsid_map_fromMainGWAS.txt'
 
@@ -366,8 +368,8 @@ save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
 section10_output_file_path <- file.path(project_dir, "section10_prep_z_printoutput.txt") # Set file path to save the output
 sink(section10_output_file_path) # Start redirecting console output to the file
-prep_z_output <- prep_z_matrix(z_mat = initial_zscore_matrices_final$z_mat,
-                               N_mat = initial_zscore_matrices_final$N_mat,
+prep_z_output <- prep_z_matrix(z_mat = initial_zscore_matrices_final$z_mat, # 284*53
+                               N_mat = initial_zscore_matrices_final$N_mat, # 284*53
                                corr_cutoff = 0.8)
 sink() # Stop redirecting output to the file and restore to the console
 cat("All output in section 10 has been saved to:", section10_output_file_path, "\n")
@@ -443,6 +445,7 @@ rmarkdown::render(
 # Section 12.) Run bNMF using final_zscore_matrix excluding genes w/ text: "HLA"
 # project_final_dir_wo_HLA <- "./final_test_results_wo_HLA"
 project_final_dir_wo_HLA <- "./final_test_results_wo_corrImmCell_wo_HLA"
+project_final_dir_wo_HLA <- "./final_test_results_EUR_wo_corrImmCell_wo_HLA"
 final_zscore_matrix_wo_HLA <- exclude_genes_with_annotation(final_zscore_matrix,with_text="HLA")
 bnmf_reps_wo_HLA <- run_bNMF(final_zscore_matrix_wo_HLA,
                       n_reps=25,
@@ -471,7 +474,7 @@ rmarkdown::render(
 
 #----
 # Section 13.) Run bNMF using final_zscore_matrix excluding genes within chr6:20Mb-40Mb
-project_final_dir_wo_chr6_20_40 <- "./final_test_results_wo_corrImmCell_wo_chr6_20_40"
+project_final_dir_wo_chr6_20_40 <- "./final_test_results_EUR_wo_corrImmCell_wo_chr6_20_40"
 
 rownames_df <- data.frame(
   rownames = rownames(final_zscore_matrix),

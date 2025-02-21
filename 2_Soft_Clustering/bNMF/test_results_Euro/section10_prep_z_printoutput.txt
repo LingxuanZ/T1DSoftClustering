@@ -1,0 +1,89 @@
+[1] "0 missing values before pval pruning."
+[1] "Filtering traits w/ no pvalues below cutoff..."
+Removing traits with no variant having p < 1.761e-04:
+BAFF-R on CD20- CD38-_panel_B cell
+CD19 on CD20-_panel_B cell
+CD24 on memory B cell_panel_B cell
+CD27 on sw mem_panel_B cell
+IgD on IgD+ CD38dim_panel_B cell
+CD3 on CD8br_panel_Treg
+CD3 on CD4 Treg_panel_Treg
+CD86 on granulocyte_panel_cDC
+CD127 on CD4+_panel_Treg
+CD25 on CD39+ resting Treg_panel_Treg
+CD14 on CD14+ CD16+  monocyte_panel_Monocyte
+CD40 on monocytes_panel_Monocyte
+CD64 on CD14+ CD16- monocyte_panel_Monocyte
+CX3CR1 on monocyte_panel_Monocyte
+CCR2 on CD62L+ myeloid DC_panel_cDC
+CD39 on CD39+ CD4+_panel_Treg
+CD11c on granulocyte_panel_cDC
+CD45RA on naive CD4+_panel_Maturation stages of T cell
+HLA DR on  HLA DR+ T cell_panel_TBNK
+HLA DR on  HLA DR+ CD4+_panel_TBNK
+
+Prune traits by correlation (remove traits with Pearson |r| > 0.80)
+[1] "Initial number of traits: 29"
+[1] 29 29
+[1] 28 28
+Correlated trait being removed for rheumatoid arthritis; anti-citrullinated protein antibody seropositivity; rheumatoid factor seropositivity measurement EUR:
+all rheumatoid arthritis EUR
+
+[1] 26 26
+[1] 25 25
+[1] 24 24
+[1] 23 23
+[1] 22 22
+[1] 21 21
+Correlated trait being removed for diamante_T2D-European:
+diamante_T2Dbmiadj-European
+
+[1] 19 19
+[1] 18 18
+[1] 17 17
+[1] 16 16
+[1] 15 15
+[1] 14 14
+[1] 13 13
+[1] 12 12
+[1] 11 11
+[1] 10 10
+[1] 9 9
+[1] 8 8
+[1] 7 7
+[1] 6 6
+[1] 5 5
+[1] 4 4
+[1] 3 3
+[1] 2 2
+Traits removed in pruning process:
+BAFF-R on CD20- CD38-_panel_B cell
+CD19 on CD20-_panel_B cell
+CD24 on memory B cell_panel_B cell
+CD27 on sw mem_panel_B cell
+IgD on IgD+ CD38dim_panel_B cell
+CD3 on CD8br_panel_Treg
+CD3 on CD4 Treg_panel_Treg
+CD86 on granulocyte_panel_cDC
+CD127 on CD4+_panel_Treg
+CD25 on CD39+ resting Treg_panel_Treg
+CD14 on CD14+ CD16+  monocyte_panel_Monocyte
+CD40 on monocytes_panel_Monocyte
+CD64 on CD14+ CD16- monocyte_panel_Monocyte
+CX3CR1 on monocyte_panel_Monocyte
+CCR2 on CD62L+ myeloid DC_panel_cDC
+CD39 on CD39+ CD4+_panel_Treg
+CD11c on granulocyte_panel_cDC
+CD45RA on naive CD4+_panel_Maturation stages of T cell
+HLA DR on  HLA DR+ T cell_panel_TBNK
+HLA DR on  HLA DR+ CD4+_panel_TBNK
+all rheumatoid arthritis EUR
+diamante_T2Dbmiadj-European
+Number of remaining traits: 27
+[1] "0 missing values before corr pruning."
+
+
+[1] "Performing sample size adjustment..."
+[1] "Replacing remaining missing values with zero..."
+[1] "0 missing values were replaced."
+[1] "Expanding z-score matrix into non-negative matrix (N-variants x 2M-traits)..."

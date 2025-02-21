@@ -1,0 +1,50 @@
+trait,result,note
+BAFF-R on CD20- CD38-_panel_B cell,removed (p-value),min pval= 1.224052e-03
+CD19 on CD20-_panel_B cell,removed (p-value),min pval= 3.324134e-03
+CD24 on memory B cell_panel_B cell,removed (p-value),min pval= 2.413296e-03
+CD27 on sw mem_panel_B cell,removed (p-value),min pval= 1.011141e-02
+IgD on IgD+ CD38dim_panel_B cell,removed (p-value),min pval= 5.264694e-03
+CD3 on CD8br_panel_Treg,removed (p-value),min pval= 7.303670e-03
+CD3 on CD4 Treg_panel_Treg,removed (p-value),min pval= 1.948801e-03
+CD86 on granulocyte_panel_cDC,removed (p-value),min pval= 1.624789e-03
+CD127 on CD4+_panel_Treg,removed (p-value),min pval= 2.232643e-03
+CD25 on CD39+ resting Treg_panel_Treg,removed (p-value),min pval= 1.092509e-03
+CD14 on CD14+ CD16+  monocyte_panel_Monocyte,removed (p-value),min pval= 1.944392e-03
+CD40 on monocytes_panel_Monocyte,removed (p-value),min pval= 2.177357e-03
+CD64 on CD14+ CD16- monocyte_panel_Monocyte,removed (p-value),min pval= 3.965925e-03
+CX3CR1 on monocyte_panel_Monocyte,removed (p-value),min pval= 2.977000e-04
+CCR2 on CD62L+ myeloid DC_panel_cDC,removed (p-value),min pval= 1.834693e-03
+CD39 on CD39+ CD4+_panel_Treg,removed (p-value),min pval= 1.515636e-03
+CD11c on granulocyte_panel_cDC,removed (p-value),min pval= 5.185402e-03
+CD45RA on naive CD4+_panel_Maturation stages of T cell,removed (p-value),min pval= 7.464738e-04
+HLA DR on  HLA DR+ T cell_panel_TBNK,removed (p-value),min pval= 5.220051e-04
+HLA DR on  HLA DR+ CD4+_panel_TBNK,removed (p-value),min pval= 4.348375e-03
+all rheumatoid arthritis EUR,removed (correlation),correlated w/ rheumatoid arthritis; anti-citrullinated protein antibody seropositivity; rheumatoid factor seropositivity measurement EUR
+diamante_T2Dbmiadj-European,removed (correlation),correlated w/ diamante_T2D-European
+BAFF-R on memory B cell_panel_B cell,trait kept,NA
+CD19 on memory B cell_panel_B cell,trait kept,NA
+CD20 on memory B cell_panel_B cell,trait kept,NA
+CD25 on CD24+ CD27+_panel_B cell,trait kept,NA
+CD38 on IgD+ CD38dim_panel_B cell,trait kept,NA
+HVEM on CD4+_panel_Maturation stages of T cell,trait kept,NA
+CD28 on CD4 Treg_panel_Treg,trait kept,NA
+CCR7 on naive CD4+_panel_Maturation stages of T cell,trait kept,NA
+CD45 on lymphocyte_panel_TBNK,trait kept,NA
+CD25 on CD4 Treg_panel_Treg,trait kept,NA
+CD123 on plasmacytoid DC_panel_cDC,trait kept,NA
+HLA DR on monocyte_panel_Monocyte,trait kept,NA
+CD8 on  CD8br_panel_TBNK,trait kept,NA
+CD4 on activated Treg_panel_Treg,trait kept,NA
+rheumatoid arthritis; anti-citrullinated protein antibody seropositivity; rheumatoid factor seropositivity measurement EUR,trait kept,NA
+diamante_T2D-European,trait kept,NA
+childhood-bmi_7years,trait kept,NA
+childhood-bmi_3years,trait kept,NA
+MAGIC_HbA1c-EUR,trait kept,NA
+MAGIC_FI-EUR(negative control trait),trait kept,NA
+MAGIC_FG-EUR,trait kept,NA
+cardio-ukbb_CAD(negative control trait),trait kept,NA
+Autoimmune_Ankylosing_spondylitis,trait kept,NA
+Autoimmune_Inflammatory_bowel_disease,trait kept,NA
+Autoimmune_thyroid_Graves_disease,trait kept,NA
+Autoimmune_thyroid_Hashimotos_disease,trait kept,NA
+Autoimmune_Celiac,trait kept,NA
