@@ -9,11 +9,19 @@
 
 
 # Load the necessary library
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(c("rtracklayer", "GenomicRanges"))
 library(openxlsx) # install.packages('openxlsx')
 library(httr)
 library(jsonlite)
 library(dplyr)
+library(tidyr)
 library(readxl)
+library(R.utils)
+library(data.table)
+library(rtracklayer)
+library(GenomicRanges)
 
 # Define the function to get the sample size N (number_of_individuals)
 get_number_of_individuals <- function(accession) {
@@ -231,4 +239,72 @@ addWorksheet(wb, "trait_gwas")
 writeData(wb, sheet = "trait_gwas", x = combined_data) # Overwrite the "trait_gwas" sheet with the updated data
 saveWorkbook(wb, file_path, overwrite = TRUE) # Save the workbook
 cat("Data successfully added to the 'trait_gwas' sheet.\n")
+
+######## After manually deleting non-European GWAS data
+######## Add Beta Cell Function trait GWASs
+save_dir <- '/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats'
+file_path <- file.path(save_dir, "gwas_traits.xlsx")
+wb <- loadWorkbook(file_path)
+df_old <- read.xlsx(wb, sheet = "trait_gwas") 
+vcf_files <- c('meta1bigair.filthetmafn.rsid.selectedcolumns', 
+                  'meta1cir.filthetmafn.rsid.selectedcolumns', 
+                  'meta1di.filthetmafn.rsid.selectedcolumns', 
+                  'meta1dibig.filthetmafn.rsid.selectedcolumns', 
+                  'meta1homab.filthetmafn.rsid.selectedcolumns', 
+                  'meta1stumvoll.filthetmafn.rsid.selectedcolumns', 
+                  'meta1xinsdG30.filthetmafn.rsid.selectedcolumns', 
+                  'meta1xinsG30.filthetmafn.rsid.selectedcolumns')
+types <- rep("Beta_cell_function",8)
+traits <- c('BIGTT-AIR','CIR','DI','DIBIG','HOMA-beta','Stumvoll','xinsdG30','xinsG30')
+newFileNames <- paste0(types, "_", traits,'.bed.gz')
+directory_path <- "/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data"
+N <- rep(0, length(traits))
+new_data <- data.frame(
+  type = types,
+  trait = traits,
+  root_path = directory_path,
+  file = newFileNames,
+  full_path = file.path(directory_path,newFileNames),
+  N = N,
+  stringsAsFactors = FALSE
+)
+combined_data <- rbind(df_old, new_data)
+### update gwas_traits.xlsx
+writeData(wb, sheet = "trait_gwas", x = combined_data) # Overwrite the "trait_gwas" sheet with the updated data
+saveWorkbook(wb, file_path, overwrite = TRUE) # Save the workbook
+cat("Data successfully added to the 'trait_gwas' sheet.\n")
+### Rename file and harmonization: 
+chain_file <- "../Data/hg19ToHg38.over.chain.gz"
+if (!file.exists(chain_file)) {
+  download.file("https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz", 
+                destfile = chain_file, mode = "wb")} # Download chain file if not already present
+gunzip("../Data/hg19ToHg38.over.chain.gz", overwrite = TRUE)
+chain <- import.chain("../Data/hg19ToHg38.over.chain")
+for (vcf_file in vcf_files) {
+  file_path <- file.path(directory_path, vcf_file)
+  print(paste("Processing file:", file_path))
+  data <- fread(file_path, header = TRUE, sep = "\t")  
+  colnames(data) <- c("CHRPOS_grch37", "ALT", "REF", "Freq1", "FreqSE", "MinFreq", "MaxFreq", 
+                      "hm_beta", "standard_error", "p_value", "n_complete_samples")
+  # data <- data %>%
+  #   rename(
+  #     p_value = `P-value`, 
+  #     hm_beta = Effect,
+  #     standard_error = StdErr,
+  #     ALT = Allele1,
+  #     REF = Allele2,
+  #     CHRPOS_grch37 = MarkerName,
+  #     n_complete_samples = TotalSampleSize
+  #   )
+  setDT(data)
+  data[, c("CHR", "POS_grch37") := tstrsplit(CHRPOS_grch37, ":", fixed = TRUE)]
+  data$POS_grch37 <- as.numeric(data$POS_grch37)
+  gr_hg19 <- GRanges(seqnames = paste0("chr", data$CHR),
+                     ranges = IRanges(start = data$POS_grch37, end = data$POS_grch37))
+  gr_hg38 <- liftOver(gr_hg19, chain)
+  new_positions <- sapply(gr_hg38, function(x) if (length(x) > 0) start(x) else NA)
+  data$POS_grch38 <- new_positions
+  # still working !!! Haven't update the data into the original file; Haven't update the file name and type!
+}
+
 
