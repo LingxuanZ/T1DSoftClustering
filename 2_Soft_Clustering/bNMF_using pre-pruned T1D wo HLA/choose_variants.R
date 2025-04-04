@@ -1,6 +1,7 @@
 library(parallel) # Load the parallel package
 library(dplyr)
 library(tidyr)
+library(data.table)
 
 # The following ld_prund function is a modified version of the ld_prune function from the package available at https://github.com/gwas-partitioning/bnmf-clustering.
 ld_prune <- function(df_snps,
@@ -128,9 +129,8 @@ count_traits_per_variant <- function(gwas_variants, ss_files,sample_size,savepat
   
   numCores <- detectCores() - 1 # Define the number of cores to use, leaving one core for the system
   variant_df_list <- mclapply(1:length(ss_files), function(i) { # Use mclapply for parallel processing; mclapply is the parallel version of lapply.
-    # print(sprintf("...Reading %s...", names(ss_files)[i])) 
-    library(dplyr)
-    library(data.table)
+    # tryCatch({
+    # print(sprintf("...Reading %s...", names(ss_files)[i]))
     start_time_i <- Sys.time()  # Start time
     headers <- as.character(fread(ss_files[i], nrows=1,
                                   data.table=F, stringsAsFactors=F, header=F))
@@ -155,7 +155,10 @@ count_traits_per_variant <- function(gwas_variants, ss_files,sample_size,savepat
         data.table = F,
         stringsAsFactors = F
       )
-      df_bed_inverseback <- as.data.frame(sapply(df_bed_inverse, swap_RefAlt))
+      df_bed_inverseback <- as.data.frame(
+        lapply(df_bed_inverse, swap_RefAlt),
+        stringsAsFactors = FALSE
+      )
       df <- rbind(df_bed,df_bed_inverseback)
       df <- df[, c("hm_variant_id", "N")]
       df$N <- as.numeric(df$N) # otherwise, it is a integer column, and cannot be merged with GWAS-Catalog files (have a double-type column).
@@ -187,6 +190,10 @@ count_traits_per_variant <- function(gwas_variants, ss_files,sample_size,savepat
     print(sprintf("...Reading %s...: %d rows, Time taken: %s min", names(ss_files)[i], nrow(df), time_taken))
     # print(nrow(df))
     return(df) # A df contains the hm_variant_id column only.
+    # }, error = function(e) {
+    #   message("Error in iteration ", i, " (", ss_files[i], "): ", e$message)
+    #   return(NA)
+    # })
   }, mc.cores = numCores)  # mc.cores parameter specifies the number of parallel processes to run.
   
   # make dataframe of Ns
@@ -333,11 +340,11 @@ choose_proxies <- function(need_proxies,
     
   }
   print(paste("No. possible proxies found:",nrow(proxy_df))) # proxy_df should have columns (rsID, proxy_rsID, r2)
-  write(proxy_df$proxy_rsID, "./test_results/potential_proxies_rsid.tmp")
+  write(proxy_df$proxy_rsID, "./test_results_Euro/potential_proxies_rsid.tmp")
   
   if (nrow(proxy_df)>0) {
     print("Creating proxy rsID map...")
-    potential_proxies_map <- fread(cmd=paste0("grep -wFf ./test_results/potential_proxies_rsid.tmp \"", rsID_map_file, "\""),
+    potential_proxies_map <- fread(cmd=paste0("grep -wFf ./test_results_Euro/potential_proxies_rsid.tmp \"", rsID_map_file, "\""),
                                    header=F, col.names=c("proxy_VAR_ID", "proxy_rsID"),
                                    data.table=F, stringsAsFactors=F) %>% distinct()
     print(head(potential_proxies_map))
@@ -348,8 +355,8 @@ choose_proxies <- function(need_proxies,
       proxy_variants,
       trait_ss_files,
       sample_size = sample_size_traitGWAS,
-      savepath_varid="./test_results/all_snps_varids_proxies.tmp",
-      savepath_varid_inverse = "./test_results/all_snps_varids_proxies_inverse.tmp"
+      savepath_varid="./test_results_Euro/all_snps_varids_proxies.tmp",
+      savepath_varid_inverse = "./test_results_Euro/all_snps_varids_proxies_inverse.tmp"
     )
 
     # get proxy missingness

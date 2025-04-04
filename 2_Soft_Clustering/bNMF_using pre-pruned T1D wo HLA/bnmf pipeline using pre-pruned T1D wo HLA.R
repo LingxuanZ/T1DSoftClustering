@@ -58,9 +58,10 @@ data_dir =  '../Data/GWAS summary stats'
 preprundf_mianGWAS <- read_excel(file.path(data_dir,"MainGWAS_pruningDF.xlsx"), sheet = 1,skip = 2)
 # length(unique(preprundf_mianGWAS$`Signal name`)) # 136
 preprundf_mianGWAS <- preprundf_mianGWAS %>%
-  select(Marker, `Unique ID (hg38)`,`Signal name`,PPA) %>%
+  select(Marker, `Unique ID (hg38)`,`Unique ID (hg19)`,`Signal name`,PPA) %>%
   rename(
     hm_rsid = Marker,
+    variant_id_hg19 =`Unique ID (hg19)`,
     hm_variant_id = `Unique ID (hg38)`
   ) # 46738 rows
 preprundf_mianGWAS <- preprundf_mianGWAS %>%
@@ -132,14 +133,17 @@ for(i in 1:n_gwas) {
   vars_sig = rbind(vars_sig, vars)
 }
 sum(vars_sig$VAR_ID %in% preprundf_mianGWAS$hm_variant_id)
-preprundf_mianGWAS$hm_variant_id[!(preprundf_mianGWAS$hm_variant_id %in% vars1$hm_variant_id)] <- vars1$hm_variant_id[!(vars1$hm_variant_id %in% preprundf_mianGWAS$hm_variant_id)]
-write.table(preprundf_mianGWAS, file.path(data_dir,"rsid_map_fromMainGWAS_prepruned.txt"), 
+
+vars_sig$VAR_ID[!(vars_sig$VAR_ID %in% preprundf_mianGWAS$hm_variant_id)]
+preprundf_mianGWAS$hm_variant_id[!(preprundf_mianGWAS$hm_variant_id %in% unique(vars_sig$VAR_ID))] 
+
+preprundf_mianGWAS$hm_variant_id[!(preprundf_mianGWAS$hm_variant_id %in% unique(vars_sig$VAR_ID))] <- vars_sig$VAR_ID[!(vars_sig$VAR_ID %in% preprundf_mianGWAS$hm_variant_id)]
+write.table(preprundf_mianGWAS[, c("hm_variant_id", "hm_rsid")], file.path(data_dir,"rsid_map_fromMainGWAS_prepruned.txt"), 
+            sep = "\t", row.names = FALSE, quote = FALSE)
+write.table(preprundf_mianGWAS, file.path(data_dir,"rsid_map_fromMainGWAS_prepruned_all.txt"), 
             sep = "\t", row.names = FALSE, quote = FALSE)
 
-pruned_vars <- vars_sig %>%
-  rename(
-    VAR_ID = hm_variant_id,
-  ) # 136 rows
+pruned_vars <- vars_sig
 
 save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
@@ -161,8 +165,11 @@ df_Ns <- count_traits_per_variant(gwas_variants,
                                   savepath_varid_inverse=file.path(project_dir,"all_snps_varids_inverse.tmp")) # didn't add one more snp: "10_32676689_A_G" in the original preprundf_mianGWAS$hm_variant_id (same rsid)---using find proxies 
 save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
+df_Ns_dedup <- df_Ns %>%
+  distinct(hm_variant_id, trait, N) # remove replicated loci
+
 # fix column names
-df_Ns_rev <- df_Ns %>%
+df_Ns_rev <- df_Ns_dedup %>%
   pivot_wider(names_from="trait", values_from="N") %>%
   data.frame() %>%
   column_to_rownames("hm_variant_id") %>%
@@ -191,13 +198,13 @@ print("Identifying variants needing proxies...")
 proxies_needed_df <- find_variants_needing_proxies(gwas_variant_df=pruned_vars,
                                                    var_nonmissingness=var_nonmissingness,
                                                    rsID_map_file = rsID_map_file,
-                                                   missing_cutoff = 0.3) # 0.8 or 0.5 or 0.3?
+                                                   missing_cutoff = 0.8)
 # [1] "Choosing variants in need of proxies..."
-# [1] "...63 strand-ambiguous variants"
+# [1] "...23 strand-ambiguous variants"
 # [1] "...0 multi-allelic variants"
-# [1] "...81 variants with excessive missingness" # 371-81=290---I guess this might be caused by immune cell GWAS(highly similar SNPs)
-# [1] "...129 unique variants in total in need of proxies"
-# [1] "...129 of these are mapped to rsIDs"
+# [1] "...18 variants with excessive missingness"
+# [1] "...41 unique variants in total"
+# [1] "...39 of these are mapped to rsIDs"
 # save.image(file = file.path(project_dir, "pipeline_data.RData"))
 save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
@@ -252,6 +259,7 @@ cat(sprintf("\n%i total unique SNPs!\n", nrow(df_input_snps)))
 # 41 proxy SNPs...
 # 283 total unique SNPs!
 
+main_ss_filepath <- gwas %>% pull(full_path)
 initial_zscore_matrices <- fetch_summary_stats(
   df_variants=df_input_snps,
   gwas_ss_file=main_ss_filepath,

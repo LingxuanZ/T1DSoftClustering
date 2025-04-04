@@ -280,31 +280,68 @@ if (!file.exists(chain_file)) {
                 destfile = chain_file, mode = "wb")} # Download chain file if not already present
 gunzip("../Data/hg19ToHg38.over.chain.gz", overwrite = TRUE)
 chain <- import.chain("../Data/hg19ToHg38.over.chain")
-for (vcf_file in vcf_files) {
-  file_path <- file.path(directory_path, vcf_file)
-  print(paste("Processing file:", file_path))
-  data <- fread(file_path, header = TRUE, sep = "\t")  
-  colnames(data) <- c("CHRPOS_grch37", "ALT", "REF", "Freq1", "FreqSE", "MinFreq", "MaxFreq", 
-                      "hm_beta", "standard_error", "p_value", "n_complete_samples")
-  # data <- data %>%
-  #   rename(
-  #     p_value = `P-value`, 
-  #     hm_beta = Effect,
-  #     standard_error = StdErr,
-  #     ALT = Allele1,
-  #     REF = Allele2,
-  #     CHRPOS_grch37 = MarkerName,
-  #     n_complete_samples = TotalSampleSize
-  #   )
-  setDT(data)
-  data[, c("CHR", "POS_grch37") := tstrsplit(CHRPOS_grch37, ":", fixed = TRUE)]
-  data$POS_grch37 <- as.numeric(data$POS_grch37)
-  gr_hg19 <- GRanges(seqnames = paste0("chr", data$CHR),
-                     ranges = IRanges(start = data$POS_grch37, end = data$POS_grch37))
-  gr_hg38 <- liftOver(gr_hg19, chain)
-  new_positions <- sapply(gr_hg38, function(x) if (length(x) > 0) start(x) else NA)
-  data$POS_grch38 <- new_positions
-  # still working !!! Haven't update the data into the original file; Haven't update the file name and type!
-}
+# #### After Running Section 1 in bnmf pipeline using pre-pruned T1D wo HLA.R and get preprundf_mianGWAS
+# load('./test_results_Euro/pipeline_data_wo_corr.RData')
+# for (i in seq_along(vcf_files)) {
+#   vcf_file <- vcf_files[i]
+#   newFileName <- newFileNames[i]
+#   file_path <- file.path(directory_path, vcf_file)
+#   print(paste("Processing file:", vcf_file, "->", newFileName))
+#   data <- fread(file_path, header = TRUE, sep = "\t")  
+#   colnames(data) <- c("CHRPOS_grch37", "ALT", "REF", "Freq1", "FreqSE", "MinFreq", "MaxFreq", 
+#                       "hm_beta", "standard_error", "p_value", "n_complete_samples")
+#   ### liftOver to harmonize, but it didn't work
+#   # data <- data %>%
+#   #   rename(
+#   #     p_value = `P-value`, 
+#   #     hm_beta = Effect,
+#   #     standard_error = StdErr,
+#   #     ALT = Allele1,
+#   #     REF = Allele2,
+#   #     CHRPOS_grch37 = MarkerName,
+#   #     n_complete_samples = TotalSampleSize
+#   #   )
+#   # setDT(data) # transform data.frame into data.table
+#   # data[, c("CHR", "POS_grch37") := tstrsplit(CHRPOS_grch37, ":", fixed = TRUE)]
+#   # data$POS_grch37 <- as.numeric(data$POS_grch37)
+#   # gr_hg19 <- GRanges(seqnames = paste0("chr", data$CHR),
+#   #                    ranges = IRanges(start = data$POS_grch37, end = data$POS_grch37))
+#   # gr_hg38 <- liftOver(gr_hg19, chain)
+#   # new_positions <- vapply(gr_hg38, function(x) {
+#   #   if (length(x) > 0) {
+#   #     start(x)[1]  
+#   #   } else {
+#   #     NA_integer_
+#   #   }
+#   # }, FUN.VALUE = integer(1))
+#   # data$POS_grch38 <- new_positions
+#   
+#   ### use the mapping information from the prepruned loci and then get the loci under the Grch38
+#   data$REF <- toupper(data$REF)
+#   data$ALT <- toupper(data$ALT)
+#   data$variant_id_hg19 <- with(data, paste0(CHRPOS_grch37, ":", REF, ":", ALT))
+#   data$variant_id_hg19_inverse <- with(data, paste0(CHRPOS_grch37, ":", ALT, ":", REF))
+#   data_matched <- data %>%
+#     # 1. Choose the forward or inverse variant ID based on whether it matches preprundf_mianGWAS$variant_id_hg19
+#     mutate(
+#       variant_id_hg19_any = case_when(
+#         variant_id_hg19 %in% preprundf_mianGWAS$variant_id_hg19 ~ variant_id_hg19,
+#         variant_id_hg19_inverse %in% preprundf_mianGWAS$variant_id_hg19 ~ variant_id_hg19_inverse,
+#         TRUE ~ NA_character_
+#       )
+#     ) %>%
+#     # 2. Keep only rows with a successful match
+#     filter(!is.na(variant_id_hg19_any)) %>%
+#     # 3. Left join to bring in information from preprundf_mianGWAS
+#     left_join(
+#       preprundf_mianGWAS,
+#       by = c("variant_id_hg19_any" = "variant_id_hg19")
+#     )
+#   data_matched <- data_matched %>% select(-`Signal name`, -PPA)
+#   output_file <- file.path(directory_path, newFileName)
+#   con <- gzfile(output_file, "wt")
+#   write.table(data_matched, file = con, sep = "\t", row.names = FALSE, quote = FALSE) # update the file name and type
+#   close(con) 
+# }
 
 

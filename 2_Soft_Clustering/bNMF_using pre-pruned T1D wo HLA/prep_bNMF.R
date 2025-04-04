@@ -31,11 +31,11 @@ fetch_summary_stats <- function(df_variants, gwas_ss_file, trait_ss_files, trait
     headers <- as.character(fread(trait_ss_files[[trait]], nrows=1,
                                   data.table=F, stringsAsFactors=F, header=F))
     if (endsWith(trait_ss_files[[trait]], ".bed.gz")) {
-      df <- fread(cmd = sprintf("gzip -cd '%s' | grep -Ff ./test_results/all_snps_pos.tmp", trait_ss_files[[trait]]),
+      df <- fread(cmd = sprintf("gzip -cd '%s' | grep -Ff ./test_results_Euro/all_snps_pos.tmp", trait_ss_files[[trait]]),
                   header = F, col.names = headers,
                   data.table = F, stringsAsFactors = F)
     } else if (endsWith(trait_ss_files[[trait]],".tsv.gz")) {
-      df <- fread(cmd = sprintf("gzip -cd '%s' | grep -Ff ./test_results/all_snps_pos.tmp", trait_ss_files[[trait]]),
+      df <- fread(cmd = sprintf("gzip -cd '%s' | grep -Ff ./test_results_Euro/all_snps_pos.tmp", trait_ss_files[[trait]]),
                   header = F, col.names = headers,
                   data.table = F, stringsAsFactors = F)
       if (!is.na(trait_ss_size[[trait]])) {     #(!("N_PH" %in% names(df)))
@@ -43,7 +43,7 @@ fetch_summary_stats <- function(df_variants, gwas_ss_file, trait_ss_files, trait
         df$N_PH <- unique(trait_ss_size[[trait]])
       }
     } else {
-      df <- fread(cmd=sprintf("grep -Ff ./test_results/all_snps_pos.tmp '%s' ", trait_ss_files[[trait]]),
+      df <- fread(cmd=sprintf("grep -Ff ./test_results_Euro/all_snps_pos.tmp '%s' ", trait_ss_files[[trait]]),
                       header=F, col.names=headers,
                       data.table=F, stringsAsFactors=F)
       if (!is.na(trait_ss_size[[trait]])) {     #(!("N_PH" %in% names(df)))
@@ -158,7 +158,7 @@ fetch_summary_stats <- function(df_variants, gwas_ss_file, trait_ss_files, trait
   
   print("Saving aligned & filtered GWAS to file...")
   write_csv(x = variant_df,
-            file = "./test_results/alignment_GWAS_summStats.csv",
+            file = "./test_results_Euro/alignment_GWAS_summStats.csv",
             col_names = T)
   
   variant_df <- variant_df %>% 
@@ -166,7 +166,7 @@ fetch_summary_stats <- function(df_variants, gwas_ss_file, trait_ss_files, trait
   print(paste(nrow(variant_df), "remaining SNPs after p-value filtering"))
   
   print("Writing final SNPs to file for grepping...")
-  write(gsub(":","_",variant_df$SNP), "./test_results/all_snps_pos.tmp")
+  write(gsub(":","_",variant_df$SNP), "./test_results_Euro/all_snps_pos.tmp")
 
   print("Retrieving z-scores and sample sizes for each trait...")
   numCores <- detectCores() - 1 # Define the number of cores to use, leaving one core for the system
@@ -187,7 +187,7 @@ fetch_summary_stats <- function(df_variants, gwas_ss_file, trait_ss_files, trait
   N_mat <- as.matrix(N_df_wide[, -1])
   rownames(N_mat) <- N_df_wide$SNP
   
-  system("rm ./test_results/all_snps_pos.tmp")
+  system("rm ./test_results_Euro/all_snps_pos.tmp")
   # P_df <- trait_df_long %>%
   #   group_by(trait) %>%
   #   summarise(minP=min(p_value, na.rm=T))
