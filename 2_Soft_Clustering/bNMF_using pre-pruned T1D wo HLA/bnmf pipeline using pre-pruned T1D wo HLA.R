@@ -202,9 +202,9 @@ proxies_needed_df <- find_variants_needing_proxies(gwas_variant_df=pruned_vars,
 # [1] "Choosing variants in need of proxies..."
 # [1] "...23 strand-ambiguous variants"
 # [1] "...0 multi-allelic variants"
-# [1] "...18 variants with excessive missingness"
-# [1] "...41 unique variants in total"
-# [1] "...39 of these are mapped to rsIDs"
+# [1] "...20 variants with excessive missingness"
+# [1] "...42 unique variants in total"
+# [1] "...43 of these are mapped to rsIDs"
 # save.image(file = file.path(project_dir, "pipeline_data.RData"))
 save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
@@ -220,7 +220,9 @@ proxy_search_results <- choose_proxies(need_proxies = proxies_needed_df,
                                        trait_ss_files = trait_ss_files,
                                        pruned_variants = pruned_vars,
                                        population="EUR")
-# proxy_df saved at "./combined_query_snp_list_grch38.txt"
+# Combined file for all query variants saved to:
+#   /gpfs/accounts/scjp_root/scjp0/zhulx/T1D Soft Clustering/bNMF_using pre-pruned T1D wo HLA/combined_query_snp_list_grch38.txt
+# [1] "No. possible proxies found: 704"
 write.csv(as.data.frame(proxy_search_results),  file.path(project_dir, "proxy_search_results.csv"), row.names = FALSE)
 # proxy_search_results <- read.csv(file.path(project_dir, "proxy_search_results.csv"), stringsAsFactors = FALSE)
 
@@ -239,7 +241,7 @@ save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 
 # proxy_search_results <- read.csv(file.path(project_dir, "proxy_search_results.csv"), stringsAsFactors = FALSE)
 print("Prepping input for fetch_summary_stats...")
-df_orig_snps <- pruned_vars %>% # 371 SNPs in pruned_vars
+df_orig_snps <- pruned_vars %>% # 135 SNPs in pruned_vars
   filter(!VAR_ID %in% proxies_needed_df$hm_variant_id) %>%
   rename(hm_variant_id = VAR_ID)
 
@@ -255,9 +257,7 @@ df_orig_snps <- df_orig_snps %>%
 cat(sprintf("\n%i original SNPs...\n", nrow(df_orig_snps)))
 cat(sprintf("\n%i proxy SNPs...\n", nrow(df_proxies)))
 cat(sprintf("\n%i total unique SNPs!\n", nrow(df_input_snps)))
-# 242 original SNPs...
-# 41 proxy SNPs...
-# 283 total unique SNPs!
+# 135 total unique SNPs!
 
 main_ss_filepath <- gwas %>% pull(full_path)
 initial_zscore_matrices <- fetch_summary_stats(
@@ -272,6 +272,18 @@ saveRDS(initial_zscore_matrices, file = file.path(project_dir,"initial_zscore_ma
 # save.image(file = file.path(project_dir, "pipeline_data.RData"))
 save.image(file = file.path(project_dir, "pipeline_data_wo_corr.RData"))
 # system(sprintf("mv alignment_GWAS_summStats.csv '%s'", project_dir))
+
+# [1] "135 of 135 SNPs found in main GWAS..."
+# [1] "Separating hm_variant_id..."
+# [1] "Merging formatted GWAS with final variant vector..."
+# [1] "135 of 135 variants are available in the primary GWAS."
+# [1] "Max p-value in primary GWAS: 9.690e-01"
+# [1] "0 variants with opposite risk allele and above Bonferroni cutoff..."
+# [1] "3 variants above absolute p-value cutoff..."
+# [1] "3 unique variants being dropped due to risk allele or p-value..."
+# [1] "132 variants after p-value and risk allele filter..."
+# [1] "Saving aligned & filtered GWAS to file..."
+# [1] "132 remaining SNPs after p-value filtering"              
 
 #----
 

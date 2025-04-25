@@ -1,6 +1,7 @@
 library(tidyverse)
 library(data.table)
 library(parallel) 
+library(dplyr)
 
 fetch_summary_stats <- function(df_variants, gwas_ss_file, trait_ss_files, trait_ss_size=NULL, pval_cutoff=1) {
   # Since the number of GWAS files is very large, we opted not to use the original 
@@ -90,6 +91,7 @@ fetch_summary_stats <- function(df_variants, gwas_ss_file, trait_ss_files, trait
              )) %>%
       select(SNP, z, N_PH, p_value) %>%
       drop_na()
+    return(df)
   }
 
   variant_vec <- df_variants$VAR_ID
@@ -126,7 +128,8 @@ fetch_summary_stats <- function(df_variants, gwas_ss_file, trait_ss_files, trait
   
   my_vars <- c('SNP', 'ALT', 'REF', 'Risk_Allele', 'Nonrisk_Allele', 'p_value', 'hm_beta', 'standard_error', 'z')
   gwas_ss <- gwas_ss %>%
-    select(any_of(my_vars))
+    select(any_of(my_vars))%>%
+    distinct(SNP, .keep_all = TRUE)
   
   print("Merging formatted GWAS with final variant vector...")
   variant_df <- df_variants %>%
@@ -170,18 +173,40 @@ fetch_summary_stats <- function(df_variants, gwas_ss_file, trait_ss_files, trait
 
   print("Retrieving z-scores and sample sizes for each trait...")
   numCores <- detectCores() - 1 # Define the number of cores to use, leaving one core for the system
-  trait_df_long <- mclapply(names(trait_ss_files), read_single_trait, variant_df, mc.cores = numCores) %>%
+  trait_df_long <- mclapply(names(trait_ss_files), read_single_trait, variant_df, mc.cores = numCores) 
+  trait_df_long <- trait_df_long %>%
     setNames(names(trait_ss_files)) %>%
     bind_rows(.id="trait")  # Bind all processed trait datasets into a single "long" data frame
   # saveRDS(trait_df_long, file = "my_trait_df_long.rds")
   
-  z_df_wide <- trait_df_long %>%
+  # # Check wrong traits
+  # error_list <- list()
+  # trait_df_long <- mclapply(
+  #   names(trait_ss_files),
+  #   function(trait) {
+  #     tryCatch({
+  #       res <- read_single_trait(trait, variant_df)
+  #       message(sprintf("✔ [%s] Succeeded，%d rows", trait, nrow(res)))
+  #       res
+  #     }, error = function(e) {
+  #       message(sprintf("✖ [%s] Failed：%s", trait, e$message))
+  #       error_list[[trait]] <<- e$message
+  #       NULL
+  #     })
+  #   },
+  #   mc.cores = numCores
+  # )
+  
+  trait_df_long_clean <- trait_df_long %>%
+    distinct(trait, SNP, .keep_all = TRUE) # remove replicate SNPs for each trait
+  
+  z_df_wide <- trait_df_long_clean %>%
     select(trait, SNP, z) %>%
     pivot_wider(names_from="trait", values_from="z")
   z_mat <- as.matrix(z_df_wide[, -1])
   rownames(z_mat) <- z_df_wide$SNP
   
-  N_df_wide <- trait_df_long %>%
+  N_df_wide <- trait_df_long_clean %>%
     select(trait, SNP, N_PH) %>%
     pivot_wider(names_from="trait", values_from="N_PH")
   N_mat <- as.matrix(N_df_wide[, -1])

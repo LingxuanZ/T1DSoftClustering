@@ -160,6 +160,11 @@ count_traits_per_variant <- function(gwas_variants, ss_files,sample_size,savepat
         stringsAsFactors = FALSE
       )
       df <- rbind(df_bed,df_bed_inverseback)
+      if (n_index > hm_variant_id_index) {
+        colnames(df) <- c("hm_variant_id", "N")
+      } else {
+        colnames(df) <- c("N", "hm_variant_id")
+      }
       df <- df[, c("hm_variant_id", "N")]
       df$N <- as.numeric(df$N) # otherwise, it is a integer column, and cannot be merged with GWAS-Catalog files (have a double-type column).
     } else if (endsWith(ss_files[i],".tsv.gz")) {

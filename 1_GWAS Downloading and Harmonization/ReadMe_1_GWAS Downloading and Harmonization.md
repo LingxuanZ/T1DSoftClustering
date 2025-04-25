@@ -278,17 +278,16 @@ See GWAS summary stats/generate_pathsource_gwas_traits.R: ######## Add Beta Cell
 ```bash
 # try
 cd "/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/Original Data"
-input_tsv="meta1bigair.filthetmafn.rsid.selectedcolumns"
-input_tsv_renames="meta1bigair.filthetmafn.rsid_renamed.selectedcolumns"
-output_bed="Beta_cell_function_BIGTT-AIR.bed.gz"
-rejected_bed="Beta_cell_function_BIGTT-AIR_Rej.hg19.bed.gz"
+input_tsv="meta1xinsG30.filthetmafn.rsid.selectedcolumns"
+output_bed="Beta_cell_function_xinsG30.bed.gz"
+rejected_bed="Beta_cell_function_xinsG30_unmapped.hg19.bed.gz"
 ```
 
 Slurs script
 
 ```bash
 #!/bin/bash
-#SBATCH --time=1:30:00
+#SBATCH --time=00:25:00
 #SBATCH --mem=4G
 #SBATCH --account=scjp1
 #SBATCH --output='../BetaCellFunc_Harmonization.log'
@@ -300,8 +299,9 @@ module load htslib
 
 # === Input variables ===
 input_tsv=$1          # .selectedcolumns (hg19) file
-output_bed=$3         # output .bed.gz file (hg38)
-rejected_bed=$4       # rejected (unmapped) .bed.gz file
+output_bed=$2         # output .bed.gz file (hg38)
+rejected_bed=$3       # rejected (unmapped) .bed.gz file
+prefix="${output_bed%%.*}"
 
 # === Tools and files ===
 chain="/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/hg19ToHg38.over.chain.gz"
@@ -317,6 +317,16 @@ mapped_full_with_id=$(mktemp)
 mapped_full=$(mktemp)
 rejected_full=$(mktemp)
 
+# === Saved Temporar files ===
+lookup_file="${prefix}.lookup.tsv"
+lookup_sorted_file="${prefix}.lookup.sorted.tsv"
+joined_file="${prefix}.joined.tsv"
+lookup_rejected_file="${prefix}.lookup_rejected.tsv"
+lookup_rejected_sorted_file="${prefix}.lookup_rejected.sorted.tsv"
+bed_tmp_sorted_file="${prefix}.bed_tmp.sorted.tsv"
+rejected_joined_file="${prefix}.rejected_joined.tsv"
+
+
 echo "Step 1: Renaming header columns..."
 awk 'NR==1 {
   for (i=1; i<=NF; i++) {
@@ -331,6 +341,8 @@ awk 'NR==1 {
 }
 { print }' OFS='\t' "$input_tsv" > "$input_tsv_renames"
 
+# ================================================================================
+
 echo "Step 2: Converting to BED format (with all columns)..."
 awk 'BEGIN{OFS="\t"} NR==1 {
   print "chrom", "start", "end", $0     # head：add colnames in BED
@@ -342,17 +354,24 @@ awk 'BEGIN{OFS="\t"} NR==1 {
 }' "$input_tsv_renames" > "$bed_tmp"
 tail -n +2 "$bed_tmp" | cut -f1-4 > "$bed4_only_bed"
 
+# ================================================================================
+
 echo "Step 3: Running liftOver..."
 $liftover_tool "$bed4_only_bed" "$chain" "$mapped_bed" "$rejected_tmp"
 
+# ================================================================================
+
 echo "Step 4: Compressing output..."
-cut -f1,3,4 "$mapped_bed" | awk -F'\t' 'BEGIN{OFS="\t"} {gsub("chr", "", $1); print $3, $1, $2}' > lookup.tsv
-join -t $'\t' -1 1 -2 4 lookup.tsv "$bed_tmp" | \
-awk -F'\t' 'BEGIN{OFS="\t"} {
-  $7 = toupper($7);  # ALT (column 5 after join)
-  $8 = toupper($8);  # REF (column 6 after join)
-  print
-}' > joined.tsv
+LC_ALL=C sort -k4,4 "$bed_tmp" > "$bed_tmp_sorted_file"
+
+cut -f1,3,4 "$mapped_bed" | awk -F'\t' 'BEGIN{OFS="\t"} {gsub("chr", "", $1); print $3, $1, $2}' > "$lookup_file"
+LC_ALL=C sort -k1,1 "$lookup_file" > "$lookup_sorted_file"
+join -t $'\t' -1 1 -2 4 "$lookup_sorted_file" "$bed_tmp_sorted_file" > "$joined_file"
+awk -F'\t' 'BEGIN{OFS=FS}{
+    $7 = toupper($7)  # 将第7列（ALT）转大写
+    $8 = toupper($8)  # 将第8列（REF）转大写
+    print
+}' "$joined_file" > "${joined_file}.tmp" && mv "${joined_file}.tmp" "$joined_file"
 header=$(echo -e "hm_variant_id\tchrom\thm_position\tCHRPOS_grch37\tstart_hg19\tend_hg19\tALT\tREF\tFreq1\tFreqSE\tMinFreq\tMaxFreq\thm_beta\tstandard_error\tp_value\tn_complete_samples")
 awk -F'\t' 'BEGIN{OFS="\t"}
 {
@@ -360,9 +379,8 @@ awk -F'\t' 'BEGIN{OFS="\t"}
   id = chr"_"pos"_"ref"_"alt
   $1 = id  # replace CHRPOS_grch37 with hm_variant_id
   print
-}' joined.tsv > "$mapped_full_with_id"
+}' "$joined_file" > "$mapped_full_with_id"
 echo -e "$header" | cat - "$mapped_full_with_id" | gzip -c > "$output_bed" # echo -e "$header" | cat - "$mapped_full_with_id" | bgzip -c > "$output_bed"
-
 
 # rej
 cut -f1,3,4 "$rejected_tmp" | \
@@ -372,19 +390,24 @@ awk -F'\t' 'BEGIN{OFS="\t"}
   if ($1 != "" && $2 != "" && $3 != "") {
     print $3, $1, $2
   }
-}' > lookup_rejected.tsv
-LC_ALL=C sort -k1,1 lookup_rejected.tsv > lookup_rejected.sorted.tsv
-LC_ALL=C sort -k4,4 "$bed_tmp" > bed_tmp.sorted.tsv
-join -t $'\t' -1 1 -2 4 lookup_rejected.sorted.tsv bed_tmp.sorted.tsv | \
+}' > "$lookup_rejected_file"
+LC_ALL=C sort -k1,1 "$lookup_rejected_file" > "$lookup_rejected_sorted_file"
+join -t $'\t' -1 1 -2 4 "$lookup_rejected_sorted_file" "$bed_tmp_sorted_file" | \
 awk -F'\t' 'BEGIN{OFS="\t"} {
   $7 = toupper($7);  # ALT
   $8 = toupper($8);  # REF
   print
-}' > rejected_joined.tsv
+}' > "$rejected_joined_file"
 header_rej=$(echo -e "CHRPOS_grch37\tchrom\tposition_19\tchrom\tstart_hg19\tend_hg19\tALT\tREF\tFreq1\tFreqSE\tMinFreq\tMaxFreq\thm_beta\tstandard_error\tp_value\tn_complete_samples")
-echo -e "$header_rej" | cat - rejected_joined.tsv | gzip -c > "$rejected_bed"
+echo -e "$header_rej" | cat - "$rejected_joined_file" | gzip -c > "$rejected_bed"
 
-rm -f lookup.tsv joined.tsv lookup_rejected.tsv lookup_rejected.sorted.tsv bed_tmp.sorted.tsv rejected_joined.tsv
+rm -f "$lookup_file" \
+      "$lookup_sorted_file" \
+      "$joined_file" \
+      "$lookup_rejected_file" \
+      "$lookup_rejected_sorted_file" \
+      "$bed_tmp_sorted_file" \
+      "$rejected_joined_file"
 echo "Done!"
 ```
 
@@ -394,41 +417,41 @@ cd "/scratch/scjp_root/scjp0/zhulx/T1D Soft Clustering/Data/GWAS summary stats/O
 sbatch "../BetaCellFunc_Harmonization.sh" \
     meta1bigair.filthetmafn.rsid.selectedcolumns \
     Beta_cell_function_BIGTT-AIR.bed.gz \
-    Beta_cell_function_BIGTT-AIR_Rej.hg19.unmapped.bed.gz # Submitted batch job 23482221
+    Beta_cell_function_BIGTT-AIR_Rej.hg19.unmapped.bed.gz # Submitted batch job 24598278
 
 sbatch "../BetaCellFunc_Harmonization.sh" \
     meta1cir.filthetmafn.rsid.selectedcolumns \
     Beta_cell_function_CIR.bed.gz \
-    Beta_cell_function_CIR_Rej.hg19.unmapped.bed.gz # Submitted batch job 23482222
+    Beta_cell_function_CIR_Rej.hg19.unmapped.bed.gz # Submitted batch job 24598281
 
 sbatch "../BetaCellFunc_Harmonization.sh" \
     meta1di.filthetmafn.rsid.selectedcolumns \
     Beta_cell_function_DI.bed.gz \
-    Beta_cell_function_DI_Rej.hg19.unmapped.bed.gz # Submitted batch job 23482223
+    Beta_cell_function_DI_Rej.hg19.unmapped.bed.gz # Submitted batch job 24598282
 
 sbatch "../BetaCellFunc_Harmonization.sh" \
     meta1dibig.filthetmafn.rsid.selectedcolumns \
     Beta_cell_function_DIBIG.bed.gz \
-    Beta_cell_function_DIBIG_Rej.hg19.unmapped.bed.gz # Submitted batch job 23482224
+    Beta_cell_function_DIBIG_Rej.hg19.unmapped.bed.gz # Submitted batch job 24598283
 
 sbatch "../BetaCellFunc_Harmonization.sh" \
     meta1homab.filthetmafn.rsid.selectedcolumns \
     Beta_cell_function_HOMA-beta.bed.gz \
-    Beta_cell_function_HOMA-beta_Rej.hg19.unmapped.bed.gz # Submitted batch job 23482226
+    Beta_cell_function_HOMA-beta_Rej.hg19.unmapped.bed.gz # Submitted batch job 24598284
 
 sbatch "../BetaCellFunc_Harmonization.sh" \
     meta1stumvoll.filthetmafn.rsid.selectedcolumns \
     Beta_cell_function_Stumvoll.bed.gz \
-    Beta_cell_function_Stumvoll_Rej.hg19.unmapped.bed.gz # Submitted batch job 23482229
+    Beta_cell_function_Stumvoll_Rej.hg19.unmapped.bed.gz # Submitted batch job 24598287
 
 sbatch "../BetaCellFunc_Harmonization.sh" \
     meta1xinsdG30.filthetmafn.rsid.selectedcolumns \
     Beta_cell_function_xinsdG30.bed.gz \
-    Beta_cell_function_xinsdG30_Rej.hg19.unmapped.bed.gz # Submitted batch job 23482230
+    Beta_cell_function_xinsdG30_Rej.hg19.unmapped.bed.gz # Submitted batch job 24598289
 
 sbatch "../BetaCellFunc_Harmonization.sh" \
     meta1xinsG30.filthetmafn.rsid.selectedcolumns \
     Beta_cell_function_xinsG30.bed.gz \
-    Beta_cell_function_xinsG30_Rej.hg19.unmapped.bed.gz # Submitted batch job 23482231
+    Beta_cell_function_xinsG30_Rej.hg19.unmapped.bed.gz # Submitted batch job 24598294
 ```
 
